@@ -1,24 +1,146 @@
+<div align="center">
+
 # Model Price
 
-一个前后端分离的 AI 模型定价展示应用。
+**AI 模型定价聚合器** - 一站式比较各大云服务商的 AI 模型价格
 
-## 技术栈
+[![Python](https://img.shields.io/badge/Python-3.11+-3776ab?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18+-61dafb?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-- **后端**: Python + FastAPI + uv (包管理)
-- **前端**: React + TypeScript + Vite
+[English](#english) | [简体中文](#简体中文)
 
-## 项目结构
+</div>
+
+---
+
+## 简体中文
+
+### 功能亮点
+
+- **多平台聚合** - 整合 6 大主流 AI 服务商的模型定价
+- **实时更新** - 自动爬取官方定价数据，保持信息新鲜
+- **智能筛选** - 按提供商、模型系列、能力标签快速定位
+- **双视图模式** - 卡片视图与表格视图自由切换
+- **价格对比** - 直观的价格柱状图，一眼看清性价比
+- **574+ 模型** - 覆盖 GPT、Claude、Gemini、Llama 等主流模型
+
+### 界面预览
+
+<div align="center">
+
+#### 卡片视图
+![卡片视图](docs/images/main-view.png)
+
+#### 表格视图
+![表格视图](docs/images/table-view.png)
+
+#### 筛选功能
+![筛选功能](docs/images/filter-provider.png)
+
+</div>
+
+### 支持的服务商
+
+| 服务商 | 模型数量 | 数据来源 | 更新方式 |
+|:------|:-------:|:--------|:--------|
+| **AWS Bedrock** | 96+ | 公开定价 API | 自动 |
+| **Azure OpenAI** | 50+ | 零售价格 API | 自动 |
+| **OpenAI** | 53+ | 官网爬虫 | 自动 |
+| **Google Gemini** | 31+ | 官网爬虫 | 自动 |
+| **OpenRouter** | 339+ | 公开 API | 自动 |
+| **xAI (Grok)** | 12+ | 官方文档 | 手动 |
+
+### 技术栈
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+**后端**
+
+</td>
+<td align="center" width="50%">
+
+**前端**
+
+</td>
+</tr>
+<tr>
+<td>
+
+- Python 3.11+
+- FastAPI
+- Playwright (网页爬虫)
+- httpx (异步 HTTP)
+- uv (包管理器)
+
+</td>
+<td>
+
+- React 18
+- TypeScript 5
+- Vite
+- CSS Variables (主题系统)
+
+</td>
+</tr>
+</table>
+
+### 快速开始
+
+#### 方式一：本地开发
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/xiaobox/model-price.git
+cd model-price
+
+# 2. 启动后端
+cd backend
+uv run main.py
+# API 服务运行在 http://localhost:8000
+
+# 3. 启动前端 (新终端)
+cd frontend
+npm install
+npm run dev
+# 前端运行在 http://localhost:5173
+```
+
+#### 方式二：Docker 部署
+
+```bash
+# 即将支持
+docker-compose up -d
+```
+
+### API 文档
+
+启动后端后访问 http://localhost:8000/docs 查看完整的 Swagger API 文档。
+
+#### 核心接口
+
+| 方法 | 路径 | 描述 |
+|:-----|:-----|:-----|
+| `GET` | `/api/models` | 获取所有模型（支持筛选和排序） |
+| `GET` | `/api/models/{id}` | 获取单个模型详情 |
+| `GET` | `/api/providers` | 获取提供商列表 |
+| `GET` | `/api/families` | 获取模型系列列表 |
+| `GET` | `/api/stats` | 获取统计信息 |
+| `POST` | `/api/refresh` | 刷新定价数据 |
+
+### 项目结构
 
 ```
 model-price/
 ├── backend/
-│   ├── main.py              # FastAPI 应用入口
+│   ├── main.py              # FastAPI 入口
 │   ├── config.py            # 配置管理
-│   ├── models/              # Pydantic 数据模型
-│   │   └── pricing.py
-│   ├── providers/           # 数据源提供者
-│   │   ├── base.py          # 基类
-│   │   ├── registry.py      # 提供者注册表
+│   ├── models/              # 数据模型
+│   ├── providers/           # 各服务商数据获取器
 │   │   ├── aws_bedrock.py
 │   │   ├── azure_openai.py
 │   │   ├── openai.py
@@ -26,154 +148,32 @@ model-price/
 │   │   ├── openrouter.py
 │   │   └── xai.py
 │   ├── services/            # 业务逻辑
-│   │   ├── pricing.py       # 定价服务
-│   │   ├── fetcher.py       # 刷新调度
-│   │   ├── metadata_fetcher.py      # 元数据获取
-│   │   ├── openai_scraper.py        # OpenAI 爬虫
-│   │   └── google_gemini_scraper.py # Gemini 爬虫
-│   ├── data/                # 数据存储
-│   │   ├── index.json       # 模型索引
-│   │   ├── model_metadata.json      # 模型元数据
-│   │   ├── user_overrides.json      # 用户覆盖
-│   │   ├── providers/       # 各提供商数据
-│   │   │   └── *.json
-│   │   └── fallback/        # 静态备份数据
-│   │       └── *.json
-│   ├── pyproject.toml
-│   └── uv.lock
+│   └── data/                # 缓存数据
 ├── frontend/
 │   ├── src/
-│   │   ├── App.tsx
-│   │   ├── App.css
 │   │   ├── components/      # React 组件
-│   │   │   ├── FilterBar.tsx
-│   │   │   ├── ModelCard.tsx
-│   │   │   ├── ModelTable.tsx
-│   │   │   ├── RefreshButton.tsx
-│   │   │   ├── CapabilityBadge.tsx
-│   │   │   ├── ModalityIcons.tsx
-│   │   │   └── ViewToggle.tsx
+│   │   ├── hooks/           # 自定义 Hooks
 │   │   ├── config/          # 前端配置
-│   │   │   ├── api.ts
-│   │   │   ├── capabilities.ts
-│   │   │   ├── providers.ts
-│   │   │   ├── version.ts
-│   │   │   └── visualization.ts
-│   │   ├── hooks/
-│   │   │   └── useModels.ts
-│   │   └── types/
-│   │       └── pricing.ts
-│   ├── package.json
-│   └── vite.config.ts
-└── README.md
+│   │   └── types/           # TypeScript 类型
+│   └── package.json
+└── docs/
+    └── images/              # 文档图片
 ```
 
-## 快速开始
+### 数据更新策略
 
-### 1. 启动后端
+| 服务商 | 技术方案 | 认证需求 | 可靠性 |
+|:------|:--------|:--------|:------:|
+| AWS Bedrock | httpx 异步请求 | 无需 | 高 |
+| Azure OpenAI | httpx + 分页 | 无需 | 高 |
+| OpenAI | Playwright 爬虫 | 无需 | 中 |
+| Google Gemini | Playwright 爬虫 | 无需 | 中 |
+| OpenRouter | httpx API | 无需 | 高 |
+| xAI | 静态数据 | N/A | 需手动更新 |
 
-```bash
-cd backend
-uv run main.py
-```
+### 开发指南
 
-后端将在 http://localhost:8000 启动
-
-API 文档: http://localhost:8000/docs
-
-### 2. 启动前端
-
-```bash
-cd frontend
-npm run dev
-```
-
-前端将在 http://localhost:5173 启动
-
-## API 端点
-
-| 方法 | 路径 | 描述 |
-|------|------|------|
-| GET | `/api/models` | 获取所有模型价格（支持筛选和排序） |
-| GET | `/api/models/{id}` | 获取单个模型详情 |
-| PATCH | `/api/models/{id}` | 更新模型元数据 |
-| GET | `/api/providers` | 获取所有提供商列表 |
-| GET | `/api/families` | 获取模型系列列表 |
-| GET | `/api/stats` | 获取统计信息 |
-| POST | `/api/refresh` | 刷新定价数据（支持按提供商刷新） |
-| POST | `/api/refresh/metadata` | 刷新模型元数据 |
-| GET | `/api/health` | 健康检查 |
-
-## 数据获取方式
-
-本项目从多个渠道获取 AI 模型定价数据，以下是各渠道的数据获取技术方案：
-
-### 汇总对比
-
-| 渠道 | 数据获取方式 | 技术方案 | 是否需要认证 | 维护难度 |
-|------|------------|---------|------------|---------:|
-| **AWS Bedrock** | 公开 API | httpx 异步请求 | 无需 | 低 |
-| **Azure OpenAI** | 公开 API | httpx + 分页 | 无需 | 低 |
-| **OpenAI** | 网页爬虫 | Playwright | 无需 | 高 |
-| **Google Gemini** | 网页爬虫 | Playwright | 无需 | 高 |
-| **OpenRouter** | 公开 API | httpx 异步请求 | 无需 | 低 |
-| **xAI** | 静态数据 | 硬编码 | N/A | 中 |
-
-### 各渠道详细说明
-
-#### 1. AWS Bedrock
-- **数据来源**: AWS 公开定价 API（无需认证）
-- **API 端点**:
-  - `https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/us-east-1/index.json`
-  - `https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/...`
-- **技术方案**: 使用 `httpx` 异步请求，`asyncio.gather()` 并发获取两个数据源
-- **数据解析**: 解析 products 和 terms 字段，正则匹配模型名称
-
-#### 2. Azure OpenAI
-- **数据来源**: Azure 零售价格 API（无需认证）
-- **API 端点**: `https://prices.azure.com/api/retail/prices`
-- **技术方案**: `httpx` 异步请求 + 自动分页处理
-- **数据过滤**: 通过 `serviceName eq 'Foundry Models'` 筛选 AI 模型
-- **价格标准化**: 将 1K 单位价格转换为每百万 token 价格
-
-#### 3. OpenAI
-- **数据来源**: 官方定价页面爬虫 + 静态数据备份
-- **目标页面**: `https://platform.openai.com/docs/pricing`
-- **技术方案**: **Playwright** 无头浏览器自动化爬取
-- **爬虫特点**:
-  - 自动安装 Chromium 浏览器
-  - 模拟真实 User-Agent
-  - 解析 HTML 表格和卡片布局
-  - 处理多标签页（Standard、Batch 定价）
-- **容错机制**: 爬虫失败时回退到代码中的静态数据
-
-#### 4. Google Gemini
-- **数据来源**: 官方定价页面爬虫 + 静态数据备份
-- **目标页面**: `https://ai.google.dev/pricing`
-- **技术方案**: **Playwright** 无头浏览器自动化爬取
-- **容错机制**: 爬虫失败时回退到代码中的静态数据
-
-#### 5. OpenRouter
-- **数据来源**: 公开 RESTful API（无需认证）
-- **API 端点**: `https://openrouter.ai/api/v1/models`
-- **技术方案**: `httpx` 异步请求，API 结构清晰，实现最简洁
-- **价格转换**: API 返回 per-token 价格，需乘以 1,000,000 转换
-
-#### 6. xAI (Grok)
-- **数据来源**: 静态数据（硬编码）
-- **参考文档**: `https://docs.x.ai/docs/models`
-- **原因**: xAI 没有提供公开的定价 API
-- **维护方式**: 需要定期手动更新代码中的静态数据
-
-### 技术栈
-
-- **HTTP 客户端**: `httpx`（异步）
-- **浏览器自动化**: `Playwright`（OpenAI、Google Gemini）
-- **并发处理**: `asyncio`
-
-## 开发
-
-### 后端开发
+#### 后端开发
 
 ```bash
 cd backend
@@ -181,11 +181,14 @@ cd backend
 # 添加依赖
 uv add <package-name>
 
-# 运行开发服务器 (带热重载)
+# 运行开发服务器（热重载）
 uv run main.py
+
+# 手动刷新数据
+curl -X POST http://localhost:8000/api/refresh
 ```
 
-### 前端开发
+#### 前端开发
 
 ```bash
 cd frontend
@@ -193,9 +196,64 @@ cd frontend
 # 安装依赖
 npm install
 
-# 运行开发服务器
+# 开发模式
 npm run dev
 
-# 构建生产版本
+# 生产构建
 npm run build
 ```
+
+### 贡献指南
+
+欢迎提交 Issue 和 Pull Request！
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'Add amazing feature'`)
+4. 推送分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
+
+### 许可证
+
+本项目采用 [MIT License](LICENSE) 开源。
+
+---
+
+## English
+
+### Features
+
+- **Multi-provider Aggregation** - Compare pricing across 6 major AI service providers
+- **Real-time Updates** - Automatic scraping of official pricing data
+- **Smart Filtering** - Filter by provider, model family, and capabilities
+- **Dual View Modes** - Switch between card and table views
+- **Price Comparison** - Visual price bars for quick comparison
+- **574+ Models** - Coverage of GPT, Claude, Gemini, Llama and more
+
+### Quick Start
+
+```bash
+# Clone the repo
+git clone https://github.com/xiaobox/model-price.git
+cd model-price
+
+# Start backend
+cd backend && uv run main.py
+
+# Start frontend (new terminal)
+cd frontend && npm install && npm run dev
+```
+
+### License
+
+[MIT License](LICENSE)
+
+---
+
+<div align="center">
+
+**Built with FastAPI + React**
+
+价格单位：$/百万 tokens
+
+</div>
