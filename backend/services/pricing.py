@@ -262,15 +262,18 @@ class PricingService:
             # O-Series: reasoning models (o1, o3, o4 are the same product line)
             ("OpenAI O-Series", ["^o1", "^o3", "^o4"]),
             # GPT: general-purpose models (includes Codex as GPT variant)
+            # Note: "^computer use preview" matches OpenAI's CUA model (starts with)
             ("GPT", ["gpt-", "gpt ", "chatgpt", "gpt4", "gpt3", "gpt5",
-                     "babbage", "davinci", "omni moderation", "codex"]),
+                     "babbage", "davinci", "omni moderation", "codex",
+                     "^computer use preview"]),
             ("DALL-E", ["dall-e", "dall·e"]),
             ("Whisper", ["whisper"]),
             ("OpenAI TTS", ["^tts", "-tts"]),
             ("Sora", ["sora"]),
 
             # ===== Google =====
-            ("Gemini", ["gemini", "nano banana", "computer use", "computer-use"]),
+            # Note: "nano banana" models also contain "gemini" in their names
+            ("Gemini", ["gemini"]),
             ("Gemma", ["gemma"]),
             ("Imagen", ["imagen"]),
             ("Veo", ["^veo"]),
