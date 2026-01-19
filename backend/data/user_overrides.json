@@ -1,0 +1,441 @@
+{
+  "_comment": "User manual overrides (highest priority). Format: { 'provider:model_id': { 'context_length': N, 'max_output_tokens': N, 'is_open_source': true/false } }",
+  "aws_bedrock:claude": {
+    "context_length": 100000,
+    "max_output_tokens": 4096,
+    "is_open_source": false,
+    "capabilities": [
+      "text",
+      "vision"
+    ]
+  },
+  "aws_bedrock:claude-3-opus": {
+    "context_length": 200000
+  },
+  "aws_bedrock:claude-opus-4.1": {
+    "context_length": 200000,
+    "max_output_tokens": 4096
+  },
+  "azure_openai:gpt-5.1": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5-codex": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5.1-codex": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5.2": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5.2-chat": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-5.2-pro": {
+    "is_open_source": false
+  },
+  "azure_openai:grok": {
+    "is_open_source": false
+  },
+  "azure_openai:grok-3": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-image-1": {
+    "is_open_source": false
+  },
+  "azure_openai:o4-mini": {
+    "is_open_source": false
+  },
+  "azure_openai:gpt-image-1.5": {
+    "is_open_source": false
+  },
+  "aws_bedrock:gpt-oss-120b": {
+    "is_open_source": true
+  },
+  "aws_bedrock:gpt-oss-20b": {
+    "is_open_source": true
+  },
+  "azure_openai:babbage-002": {
+    "is_open_source": null
+  },
+  "azure_openai:davinci-002": {
+    "max_output_tokens": 4096,
+    "is_open_source": null
+  },
+  "openai:gpt-5": {
+    "is_open_source": false
+  },
+  "openai:gpt-5.2": {
+    "is_open_source": false
+  },
+  "openai:gpt-5.1": {
+    "is_open_source": false
+  },
+  "openai:gpt-5-pro": {
+    "is_open_source": false
+  },
+  "openai:gpt-5-mini": {
+    "is_open_source": false
+  },
+  "openai:gpt-5.2-pro": {
+    "is_open_source": false
+  },
+  "openai:o4-mini": {
+    "is_open_source": false
+  },
+  "openai:o4-mini-deep-research": {
+    "is_open_source": false
+  },
+  "openai:computer-use-preview": {
+    "is_open_source": false,
+    "max_output_tokens": 1024,
+    "context_length": 8192
+  },
+  "openai:codex-mini": {
+    "is_open_source": false
+  },
+  "openai:gpt-image-1": {
+    "is_open_source": false
+  },
+  "openai:gpt-image-1.5": {
+    "is_open_source": false
+  },
+  "openai:gpt-5-codex": {
+    "is_open_source": false
+  },
+  "openai:gpt-5-nano": {
+    "is_open_source": false
+  },
+  "openai:gpt-5.1-codex": {
+    "is_open_source": false
+  },
+  "openai:gpt-oss-120b": {
+    "is_open_source": true
+  },
+  "openai:gpt-oss-20b": {
+    "is_open_source": true
+  },
+  "openai:text-embedding-3-large": {
+    "is_open_source": false,
+    "pricing": {
+      "output": 0.02
+    }
+  },
+  "openai:text-embedding-3-small": {
+    "is_open_source": false,
+    "pricing": {
+      "output": 0.03
+    }
+  },
+  "openai:text-embedding-ada-002": {
+    "is_open_source": false,
+    "pricing": {
+      "output": 0.1
+    }
+  },
+  "openai:gpt-5-chat-latest": {
+    "is_open_source": false
+  },
+  "openai:gpt-51": {
+    "is_open_source": false
+  },
+  "openai:gpt-51-chat-latest": {
+    "is_open_source": false
+  },
+  "openai:gpt-51-codex": {
+    "is_open_source": false
+  },
+  "openai:gpt-51-codex-max": {
+    "is_open_source": false
+  },
+  "openai:gpt-51-codex-mini": {
+    "is_open_source": false
+  },
+  "openai:gpt-52": {
+    "is_open_source": false
+  },
+  "openai:gpt-52-chat-latest": {
+    "is_open_source": false
+  },
+  "openai:gpt-52-pro": {
+    "is_open_source": false
+  },
+  "openai:gpt-image-15": {
+    "is_open_source": false
+  },
+  "openai:gpt-image-latest": {
+    "is_open_source": true
+  },
+  "xai:grok-4-1-fast-reasoning": {
+    "is_open_source": false
+  },
+  "xai:grok-4-1-fast-non-reasoning": {
+    "is_open_source": false
+  },
+  "xai:grok-code-fast-1": {
+    "is_open_source": false
+  },
+  "xai:grok-4-fast-reasoning": {
+    "is_open_source": false
+  },
+  "xai:grok-4-fast-non-reasoning": {
+    "is_open_source": false
+  },
+  "xai:grok-4-0709": {
+    "is_open_source": false
+  },
+  "xai:grok-3-mini": {
+    "is_open_source": false
+  },
+  "xai:grok-3": {
+    "is_open_source": false
+  },
+  "xai:grok-2-vision-1212": {
+    "is_open_source": false
+  },
+  "xai:grok-2-image-1212": {
+    "is_open_source": false
+  },
+  "azure_openai:grok-3-mini": {
+    "pricing": {
+      "input": 0.3,
+      "output": 0.5
+    }
+  },
+  "openrouter:openai/gpt-5": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-chat": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-codex": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-image": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-image-mini": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-mini": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-nano": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5-pro": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.1": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.1-chat": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.1-codex": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.1-codex-max": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.1-codex-mini": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.2": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.2-chat": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-5.2-pro": {
+    "is_open_source": false
+  },
+  "openrouter:openai/gpt-oss-120b": {
+    "is_open_source": true
+  },
+  "openrouter:openai/gpt-oss-120b:exacto": {
+    "is_open_source": true
+  },
+  "openrouter:openai/gpt-oss-120b:free": {
+    "is_open_source": true
+  },
+  "openrouter:openai/gpt-oss-20b": {
+    "is_open_source": true
+  },
+  "openrouter:openai/gpt-oss-20b:free": {
+    "is_open_source": true
+  },
+  "openrouter:openai/gpt-oss-safeguard-20b": {
+    "is_open_source": true
+  },
+  "openrouter:openai/o4-mini": {
+    "is_open_source": false
+  },
+  "openrouter:openai/o4-mini-deep-research": {
+    "is_open_source": false
+  },
+  "openrouter:openai/o4-mini-high": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-3": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-4": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-4-fast": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-4.1-fast": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-code-fast-1": {
+    "is_open_source": false
+  },
+  "openrouter:xiaomi/mimo-v2-flash:free": {
+    "is_open_source": true
+  },
+  "openrouter:z-ai/glm-4-32b": {
+    "is_open_source": null
+  },
+  "aws_bedrock:pixtral-large-25.02": {
+    "max_output_tokens": 64000
+  },
+  "openrouter:ai21/jamba-large-1.7": {
+    "pricing": {
+      "input": 2.0
+    },
+    "capabilities": [
+      "text",
+      "tool_use"
+    ],
+    "is_open_source": true
+  },
+  "openai:gpt-4-0125-preview": {
+    "pricing": {
+      "input": 5.0
+    }
+  },
+  "openai:tts": {
+    "is_open_source": false
+  },
+  "openai:tts-hd": {
+    "is_open_source": false
+  },
+  "google_gemini:veo-2": {
+    "is_open_source": false
+  },
+  "google_gemini:veo-3": {
+    "is_open_source": false
+  },
+  "google_gemini:veo-3.1": {
+    "is_open_source": false
+  },
+  "openrouter:amazon/nova-lite-v1": {
+    "pricing": {
+      "input": 0.06
+    }
+  },
+  "openrouter:mistralai/mistral-small-3.1-24b-instruct:free": {
+    "context_length": 32768
+  },
+  "openrouter:allenai/olmo-3-32b-think": {
+    "max_output_tokens": 4096
+  },
+  "openrouter:ai21/jamba-mini-1.7": {
+    "context_length": null,
+    "pricing": {
+      "input": 0.19999999999999998
+    }
+  },
+  "openrouter:aion-labs/aion-1.0-mini": {
+    "pricing": {
+      "input": 0.7
+    }
+  },
+  "openrouter:anthropic/claude-3.5-haiku": {
+    "is_open_source": false
+  },
+  "azure_openai:o1": {
+    "max_output_tokens": 100000,
+    "pricing": {
+      "output": 60.0
+    }
+  },
+  "google_gemini:gemini-2.5-flash": {
+    "context_length": 1048576,
+    "pricing": {
+      "input": 0.3
+    }
+  },
+  "google_gemini:gemini-2.0-flash": {
+    "is_open_source": false
+  },
+  "google_gemini:gemini-3-pro-image-preview": {
+    "pricing": {
+      "output": 12.0
+    }
+  },
+  "aws_bedrock:claude-3-sonnet": {
+    "pricing": {
+      "input": 0.003
+    }
+  },
+  "aws_bedrock:claude-haiku-4.5": {
+    "pricing": {
+      "input": 1.1
+    }
+  },
+  "aws_bedrock:claude-sonnet-4.5": {
+    "pricing": {
+      "input": 3.0
+    }
+  },
+  "aws_bedrock:claude-3-haiku": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-3-beta": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-3-mini": {
+    "is_open_source": false
+  },
+  "openrouter:x-ai/grok-3-mini-beta": {
+    "is_open_source": false
+  },
+  "azure_openai:computer-use-preview": {
+    "pricing": {
+      "input": 3.0
+    }
+  },
+  "openrouter:alfredpros/codellama-7b-instruct-solidity": {
+    "is_open_source": true,
+    "max_output_tokens": null,
+    "context_length": null,
+    "pricing": {
+      "input": 0.7999999999999999
+    }
+  },
+  "aws_bedrock:magistral-small-1.2": {
+    "is_open_source": null
+  },
+  "openrouter:anthropic/claude-3-haiku": {
+    "capabilities": [
+      "text",
+      "vision",
+      "tool_use"
+    ]
+  },
+  "openrouter:aion-labs/aion-1.0": {
+    "is_open_source": null
+  },
+  "openrouter:z-ai/glm-4.7": {
+    "is_open_source": true
+  },
+  "openrouter:xiaomi/mimo-v2-flash": {
+    "is_open_source": true
+  }
+}

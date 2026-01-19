@@ -1,0 +1,830 @@
+{
+  "provider": "google_gemini",
+  "last_updated": "2026-01-19T22:08:42.805661",
+  "models": [
+    {
+      "id": "google_gemini:gemini-3-pro-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-3-pro-preview",
+      "model_name": "Gemini 3 Pro Preview",
+      "pricing": {
+        "input": 2.0,
+        "output": 12.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-3-flash-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-3-flash-preview",
+      "model_name": "Gemini 3 Flash Preview",
+      "pricing": {
+        "input": 0.5,
+        "output": 3.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-3-pro-image-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-3-pro-image-preview",
+      "model_name": "Gemini 3 Pro Image Preview 🍌",
+      "pricing": {
+        "input": 2.0,
+        "output": 12.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 65536,
+      "max_output_tokens": 32768,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "image_generation",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text",
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-pro",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-pro",
+      "model_name": "Gemini 2.5 Pro",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash",
+      "model_name": "Gemini 2.5 Flash",
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-preview",
+      "model_name": "Gemini 2.5 Flash Preview",
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1000000,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-lite",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-lite",
+      "model_name": "Gemini 2.5 Flash-Lite",
+      "pricing": {
+        "input": null,
+        "output": 0.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-lite-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-lite-preview",
+      "model_name": "Gemini 2.5 Flash-Lite Preview",
+      "pricing": {
+        "input": null,
+        "output": 0.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-native-audio",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-native-audio",
+      "model_name": "Gemini 2.5 Flash Native Audio (Live API)",
+      "pricing": {
+        "input": 0.5,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-image",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-image",
+      "model_name": "Gemini 2.5 Flash Image 🍌",
+      "pricing": {
+        "input": 0.3,
+        "output": 0.039,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 32768,
+      "max_output_tokens": 32768,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "image_generation",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text",
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-flash-preview-tts",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-flash-preview-tts",
+      "model_name": "Gemini 2.5 Flash Preview TTS",
+      "pricing": {
+        "input": 0.5,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tts",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-pro-preview-tts",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-pro-preview-tts",
+      "model_name": "Gemini 2.5 Pro Preview TTS",
+      "pricing": {
+        "input": 1.0,
+        "output": 20.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 65535,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tts",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.0-flash",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.0-flash",
+      "model_name": "Gemini 2.0 Flash",
+      "pricing": {
+        "input": 0.1,
+        "output": 0.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.0-flash-lite",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.0-flash-lite",
+      "model_name": "Gemini 2.0 Flash-Lite",
+      "pricing": {
+        "input": 0.075,
+        "output": 0.3,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:imagen-4",
+      "provider": "google_gemini",
+      "model_id": "imagen-4",
+      "model_name": "Imagen 4",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:imagen-3",
+      "provider": "google_gemini",
+      "model_id": "imagen-3",
+      "model_name": "Imagen 3",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:veo-3.1",
+      "provider": "google_gemini",
+      "model_id": "veo-3.1",
+      "model_name": "Veo 3.1",
+      "pricing": {
+        "input": null,
+        "output": 0.15,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "video_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:veo-3",
+      "provider": "google_gemini",
+      "model_id": "veo-3",
+      "model_name": "Veo 3",
+      "pricing": {
+        "input": null,
+        "output": 0.15,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "video_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:veo-2",
+      "provider": "google_gemini",
+      "model_id": "veo-2",
+      "model_name": "Veo 2",
+      "pricing": {
+        "input": null,
+        "output": 0.35,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "video_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-embedding",
+      "provider": "google_gemini",
+      "model_id": "gemini-embedding",
+      "model_name": "Gemini Embedding",
+      "pricing": {
+        "input": 0.15,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 2048,
+      "max_output_tokens": 2048,
+      "is_open_source": false,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-robotics-er-1.5-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-robotics-er-1.5-preview",
+      "model_name": "Gemini Robotics-ER 1.5 Preview",
+      "pricing": {
+        "input": 0.3,
+        "output": 2.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 1048576,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemini-2.5-computer-use-preview",
+      "provider": "google_gemini",
+      "model_id": "gemini-2.5-computer-use-preview",
+      "model_name": "Gemini 2.5 Computer Use Preview",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 64000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "computer_use",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemma-3",
+      "provider": "google_gemini",
+      "model_id": "gemma-3",
+      "model_name": "Gemma 3",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    },
+    {
+      "id": "google_gemini:gemma-3n",
+      "provider": "google_gemini",
+      "model_id": "gemma-3n",
+      "model_name": "Gemma 3n",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:42.805661"
+    }
+  ]
+}

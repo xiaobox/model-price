@@ -1,0 +1,3149 @@
+{
+  "provider": "aws_bedrock",
+  "last_updated": "2026-01-19T22:08:36.183670",
+  "models": [
+    {
+      "id": "aws_bedrock:nova-2.0-pro",
+      "provider": "aws_bedrock",
+      "model_id": "nova-2.0-pro",
+      "model_name": "Nova 2.0 Pro",
+      "pricing": {
+        "input": 1.25,
+        "output": 11.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.6875,
+        "output": 5.0
+      },
+      "context_length": 300000,
+      "max_output_tokens": 10000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.170739"
+    },
+    {
+      "id": "aws_bedrock:nova-2.0-omni",
+      "provider": "aws_bedrock",
+      "model_id": "nova-2.0-omni",
+      "model_name": "Nova 2.0 Omni",
+      "pricing": {
+        "input": 0.3,
+        "output": 2.8,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.2,
+        "output": 1.4
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.170821"
+    },
+    {
+      "id": "aws_bedrock:llama-3-8b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3-8b",
+      "model_name": "Llama 3 8B",
+      "pricing": {
+        "input": 0.3,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.170872"
+    },
+    {
+      "id": "aws_bedrock:ministral-8b-3.0",
+      "provider": "aws_bedrock",
+      "model_id": "ministral-8b-3.0",
+      "model_name": "Ministral 8B 3.0",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.15,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.06999999999999999,
+        "output": 0.06999999999999999
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.170918"
+    },
+    {
+      "id": "aws_bedrock:mixtral-8x7b",
+      "provider": "aws_bedrock",
+      "model_id": "mixtral-8x7b",
+      "model_name": "Mixtral 8x7B",
+      "pricing": {
+        "input": 0.45,
+        "output": 0.7,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 32000,
+      "max_output_tokens": 8191,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171012"
+    },
+    {
+      "id": "aws_bedrock:nemotron-nano-3-30b",
+      "provider": "aws_bedrock",
+      "model_id": "nemotron-nano-3-30b",
+      "model_name": "Nemotron Nano 3 30B",
+      "pricing": {
+        "input": 0.060000000000000005,
+        "output": 0.24000000000000002,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.030000000000000002,
+        "output": 0.12000000000000001
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171073"
+    },
+    {
+      "id": "aws_bedrock:nova-sonic",
+      "provider": "aws_bedrock",
+      "model_id": "nova-sonic",
+      "model_name": "Nova Sonic",
+      "pricing": {
+        "input": 0.060000000000000005,
+        "output": 13.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171156"
+    },
+    {
+      "id": "aws_bedrock:nova-2.0-lite",
+      "provider": "aws_bedrock",
+      "model_id": "nova-2.0-lite",
+      "model_name": "Nova 2.0 Lite",
+      "pricing": {
+        "input": 0.33,
+        "output": 2.75,
+        "cached_input": 0.075,
+        "cached_write": 0.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.15,
+        "output": 1.375
+      },
+      "context_length": 300000,
+      "max_output_tokens": 10000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171202"
+    },
+    {
+      "id": "aws_bedrock:kimi-k2-thinking",
+      "provider": "aws_bedrock",
+      "model_id": "kimi-k2-thinking",
+      "model_name": "Kimi K2 Thinking",
+      "pricing": {
+        "input": 0.6,
+        "output": 2.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.3,
+        "output": 1.25
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171279"
+    },
+    {
+      "id": "aws_bedrock:llama-3.1-8b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.1-8b",
+      "model_name": "Llama 3.1 8B",
+      "pricing": {
+        "input": 0.22,
+        "output": 0.22,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.11,
+        "output": 0.11
+      },
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171399"
+    },
+    {
+      "id": "aws_bedrock:gpt-oss-120b",
+      "provider": "aws_bedrock",
+      "model_id": "gpt-oss-120b",
+      "model_name": "gpt-oss-120b",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.075,
+        "output": 0.3
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171501"
+    },
+    {
+      "id": "aws_bedrock:llama-3.2-1b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.2-1b",
+      "model_name": "Llama 3.2 1B",
+      "pricing": {
+        "input": 0.1,
+        "output": 0.1,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171585"
+    },
+    {
+      "id": "aws_bedrock:pixtral-large-25.02",
+      "provider": "aws_bedrock",
+      "model_id": "pixtral-large-25.02",
+      "model_name": "Pixtral Large 25.02",
+      "pricing": {
+        "input": 2.0,
+        "output": 6.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 200000,
+      "max_output_tokens": 64000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171712"
+    },
+    {
+      "id": "aws_bedrock:ministral-3b-3.0",
+      "provider": "aws_bedrock",
+      "model_id": "ministral-3b-3.0",
+      "model_name": "Ministral 3B 3.0",
+      "pricing": {
+        "input": 0.1,
+        "output": 0.1,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.05,
+        "output": 0.05
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171829"
+    },
+    {
+      "id": "aws_bedrock:claude-2.1",
+      "provider": "aws_bedrock",
+      "model_id": "claude-2.1",
+      "model_name": "Claude 2.1",
+      "pricing": {
+        "input": 8.0,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.171908"
+    },
+    {
+      "id": "aws_bedrock:gpt-oss-safeguard-20b",
+      "provider": "aws_bedrock",
+      "model_id": "gpt-oss-safeguard-20b",
+      "model_name": "GPT OSS Safeguard 20B",
+      "pricing": {
+        "input": 0.06999999999999999,
+        "output": 0.2,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.030000000000000002,
+        "output": 0.1
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172036"
+    },
+    {
+      "id": "aws_bedrock:llama-4-scout-17b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-4-scout-17b",
+      "model_name": "Llama 4 Scout 17B",
+      "pricing": {
+        "input": 0.17,
+        "output": 0.66,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.085,
+        "output": 0.33
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172138"
+    },
+    {
+      "id": "aws_bedrock:qwen3-32b",
+      "provider": "aws_bedrock",
+      "model_id": "qwen3-32b",
+      "model_name": "Qwen3 32B",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.075,
+        "output": 0.3
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172253"
+    },
+    {
+      "id": "aws_bedrock:llama-3.2-3b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.2-3b",
+      "model_name": "Llama 3.2 3B",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.15,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172362"
+    },
+    {
+      "id": "aws_bedrock:mistral-small",
+      "provider": "aws_bedrock",
+      "model_id": "mistral-small",
+      "model_name": "Mistral Small",
+      "pricing": {
+        "input": 1.0,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.5,
+        "output": 1.5
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172530"
+    },
+    {
+      "id": "aws_bedrock:nova-canvas",
+      "provider": "aws_bedrock",
+      "model_id": "nova-canvas",
+      "model_name": "Nova Canvas",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 2600,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172620"
+    },
+    {
+      "id": "aws_bedrock:llama-3.1-405b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.1-405b",
+      "model_name": "Llama 3.1 405B",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.2,
+        "output": 1.2
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172760"
+    },
+    {
+      "id": "aws_bedrock:gemma-3-12b",
+      "provider": "aws_bedrock",
+      "model_id": "gemma-3-12b",
+      "model_name": "Gemma 3 12B",
+      "pricing": {
+        "input": 0.09000000000000001,
+        "output": 0.29,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.05,
+        "output": 0.15
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172828"
+    },
+    {
+      "id": "aws_bedrock:llama-4-maverick-17b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-4-maverick-17b",
+      "model_name": "Llama 4 Maverick 17B",
+      "pricing": {
+        "input": 0.24000000000000002,
+        "output": 0.9700000000000001,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.12000000000000001,
+        "output": 0.48500000000000004
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172925"
+    },
+    {
+      "id": "aws_bedrock:deepseek-r1",
+      "provider": "aws_bedrock",
+      "model_id": "deepseek-r1",
+      "model_name": "DeepSeek R1",
+      "pricing": {
+        "input": 1.35,
+        "output": 5.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.172974"
+    },
+    {
+      "id": "aws_bedrock:llama-3.1-70b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.1-70b",
+      "model_name": "Llama 3.1 70B",
+      "pricing": {
+        "input": 0.7200000000000001,
+        "output": 0.7200000000000001,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.36000000000000004,
+        "output": 0.36000000000000004
+      },
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173022"
+    },
+    {
+      "id": "aws_bedrock:voxtral-small-1.0",
+      "provider": "aws_bedrock",
+      "model_id": "voxtral-small-1.0",
+      "model_name": "Voxtral Small 1.0",
+      "pricing": {
+        "input": 0.1,
+        "output": 0.3,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.05,
+        "output": 0.15
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173083"
+    },
+    {
+      "id": "aws_bedrock:nova-premier",
+      "provider": "aws_bedrock",
+      "model_id": "nova-premier",
+      "model_name": "Nova Premier",
+      "pricing": {
+        "input": 2.5,
+        "output": 12.5,
+        "cached_input": 0.625,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.25,
+        "output": 6.25
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173152"
+    },
+    {
+      "id": "aws_bedrock:nova-micro",
+      "provider": "aws_bedrock",
+      "model_id": "nova-micro",
+      "model_name": "Nova Micro",
+      "pricing": {
+        "input": 0.034999999999999996,
+        "output": 0.13999999999999999,
+        "cached_input": 0.008749999999999999,
+        "cached_write": 0.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.017499999999999998,
+        "output": 0.06999999999999999
+      },
+      "context_length": 128000,
+      "max_output_tokens": 10000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173220"
+    },
+    {
+      "id": "aws_bedrock:llama-3.2-11b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.2-11b",
+      "model_name": "Llama 3.2 11B",
+      "pricing": {
+        "input": 0.16,
+        "output": 0.16,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173269"
+    },
+    {
+      "id": "aws_bedrock:nova-pro",
+      "provider": "aws_bedrock",
+      "model_id": "nova-pro",
+      "model_name": "Nova Pro",
+      "pricing": {
+        "input": 0.8,
+        "output": 3.2,
+        "cached_input": 0.2,
+        "cached_write": 0.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.4,
+        "output": 1.6
+      },
+      "context_length": 300000,
+      "max_output_tokens": 10000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173383"
+    },
+    {
+      "id": "aws_bedrock:gpt-oss-safeguard-120b",
+      "provider": "aws_bedrock",
+      "model_id": "gpt-oss-safeguard-120b",
+      "model_name": "GPT OSS Safeguard 120B",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.06999999999999999,
+        "output": 0.3
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173434"
+    },
+    {
+      "id": "aws_bedrock:qwen3-vl-235b-a22b",
+      "provider": "aws_bedrock",
+      "model_id": "qwen3-vl-235b-a22b",
+      "model_name": "Qwen3 VL 235B A22B",
+      "pricing": {
+        "input": 0.53,
+        "output": 2.66,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.25999999999999995,
+        "output": 1.33
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173482"
+    },
+    {
+      "id": "aws_bedrock:nova-reel",
+      "provider": "aws_bedrock",
+      "model_id": "nova-reel",
+      "model_name": "Nova Reel",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173582"
+    },
+    {
+      "id": "aws_bedrock:gpt-oss-20b",
+      "provider": "aws_bedrock",
+      "model_id": "gpt-oss-20b",
+      "model_name": "gpt-oss-20b",
+      "pricing": {
+        "input": 0.06999999999999999,
+        "output": 0.3,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.034999999999999996,
+        "output": 0.15
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173644"
+    },
+    {
+      "id": "aws_bedrock:mistral-large",
+      "provider": "aws_bedrock",
+      "model_id": "mistral-large",
+      "model_name": "Mistral Large",
+      "pricing": {
+        "input": 4.0,
+        "output": 12.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 32000,
+      "max_output_tokens": 8191,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173695"
+    },
+    {
+      "id": "aws_bedrock:voxtral-mini-1.0",
+      "provider": "aws_bedrock",
+      "model_id": "voxtral-mini-1.0",
+      "model_name": "Voxtral Mini 1.0",
+      "pricing": {
+        "input": 0.04,
+        "output": 0.04,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.02,
+        "output": 0.02
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173797"
+    },
+    {
+      "id": "aws_bedrock:ministral-14b-3.0",
+      "provider": "aws_bedrock",
+      "model_id": "ministral-14b-3.0",
+      "model_name": "Ministral 14B 3.0",
+      "pricing": {
+        "input": 0.2,
+        "output": 0.2,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.1,
+        "output": 0.1
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173847"
+    },
+    {
+      "id": "aws_bedrock:gemma-3-27b",
+      "provider": "aws_bedrock",
+      "model_id": "gemma-3-27b",
+      "model_name": "Gemma 3 27B",
+      "pricing": {
+        "input": 0.23,
+        "output": 0.38,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.12000000000000001,
+        "output": 0.19
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.173975"
+    },
+    {
+      "id": "aws_bedrock:nvidia-nemotron-nano-2",
+      "provider": "aws_bedrock",
+      "model_id": "nvidia-nemotron-nano-2",
+      "model_name": "NVIDIA Nemotron Nano 2",
+      "pricing": {
+        "input": 0.060000000000000005,
+        "output": 0.23,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.030000000000000002,
+        "output": 0.12000000000000001
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174073"
+    },
+    {
+      "id": "aws_bedrock:nova-sonic-2.0",
+      "provider": "aws_bedrock",
+      "model_id": "nova-sonic-2.0",
+      "model_name": "Nova Sonic 2.0",
+      "pricing": {
+        "input": 0.33,
+        "output": 2.75,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174134"
+    },
+    {
+      "id": "aws_bedrock:gemma-3-4b",
+      "provider": "aws_bedrock",
+      "model_id": "gemma-3-4b",
+      "model_name": "Gemma 3 4B",
+      "pricing": {
+        "input": 0.04,
+        "output": 0.08,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.02,
+        "output": 0.04
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174180"
+    },
+    {
+      "id": "aws_bedrock:nova-lite",
+      "provider": "aws_bedrock",
+      "model_id": "nova-lite",
+      "model_name": "Nova Lite",
+      "pricing": {
+        "input": 0.060000000000000005,
+        "output": 0.24000000000000002,
+        "cached_input": 0.015000000000000001,
+        "cached_write": 0.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.030000000000000002,
+        "output": 0.12000000000000001
+      },
+      "context_length": 300000,
+      "max_output_tokens": 10000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174254"
+    },
+    {
+      "id": "aws_bedrock:nvidia-nemotron-nano-2-vl",
+      "provider": "aws_bedrock",
+      "model_id": "nvidia-nemotron-nano-2-vl",
+      "model_name": "NVIDIA Nemotron Nano 2 VL",
+      "pricing": {
+        "input": 0.2,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174489"
+    },
+    {
+      "id": "aws_bedrock:minimax-m2",
+      "provider": "aws_bedrock",
+      "model_id": "minimax-m2",
+      "model_name": "Minimax M2",
+      "pricing": {
+        "input": 0.3,
+        "output": 1.2,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.15,
+        "output": 0.6
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174720"
+    },
+    {
+      "id": "aws_bedrock:claude-3-sonnet",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3-sonnet",
+      "model_name": "Claude 3 Sonnet",
+      "pricing": {
+        "input": 0.003,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.174976"
+    },
+    {
+      "id": "aws_bedrock:llama-3.2-90b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.2-90b",
+      "model_name": "Llama 3.2 90B",
+      "pricing": {
+        "input": 0.7200000000000001,
+        "output": 0.7200000000000001,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.175129"
+    },
+    {
+      "id": "aws_bedrock:claude-2.0",
+      "provider": "aws_bedrock",
+      "model_id": "claude-2.0",
+      "model_name": "Claude 2.0",
+      "pricing": {
+        "input": 8.0,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.175177"
+    },
+    {
+      "id": "aws_bedrock:magistral-small-1.2",
+      "provider": "aws_bedrock",
+      "model_id": "magistral-small-1.2",
+      "model_name": "Magistral Small 1.2",
+      "pricing": {
+        "input": 0.5,
+        "output": 1.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.25,
+        "output": 0.75
+      },
+      "context_length": 128000,
+      "max_output_tokens": 8192,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.175361"
+    },
+    {
+      "id": "aws_bedrock:claude-3-haiku",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3-haiku",
+      "model_name": "Claude 3 Haiku",
+      "pricing": {
+        "input": 0.25,
+        "output": 1.25,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.125,
+        "output": 0.625
+      },
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.175502"
+    },
+    {
+      "id": "aws_bedrock:llama-3-70b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3-70b",
+      "model_name": "Llama 3 70B",
+      "pricing": {
+        "input": 2.65,
+        "output": 3.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.176041"
+    },
+    {
+      "id": "aws_bedrock:llama-3.3-70b",
+      "provider": "aws_bedrock",
+      "model_id": "llama-3.3-70b",
+      "model_name": "Llama 3.3 70B",
+      "pricing": {
+        "input": 0.7200000000000001,
+        "output": 0.7200000000000001,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.36000000000000004,
+        "output": 0.36000000000000004
+      },
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.176676"
+    },
+    {
+      "id": "aws_bedrock:mistral-large-3",
+      "provider": "aws_bedrock",
+      "model_id": "mistral-large-3",
+      "model_name": "Mistral Large 3",
+      "pricing": {
+        "input": 0.5,
+        "output": 1.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.25,
+        "output": 0.75
+      },
+      "context_length": 32000,
+      "max_output_tokens": 8191,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.177032"
+    },
+    {
+      "id": "aws_bedrock:mistral-7b",
+      "provider": "aws_bedrock",
+      "model_id": "mistral-7b",
+      "model_name": "Mistral 7B",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.2,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 32000,
+      "max_output_tokens": 8191,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.177118"
+    },
+    {
+      "id": "aws_bedrock:qwen3-coder-30b-a3b",
+      "provider": "aws_bedrock",
+      "model_id": "qwen3-coder-30b-a3b",
+      "model_name": "Qwen3 Coder 30B A3B",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.075,
+        "output": 0.3
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.177553"
+    },
+    {
+      "id": "aws_bedrock:claude-instant",
+      "provider": "aws_bedrock",
+      "model_id": "claude-instant",
+      "model_name": "Claude Instant",
+      "pricing": {
+        "input": 0.8,
+        "output": 2.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 100000,
+      "max_output_tokens": 8191,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.177693"
+    },
+    {
+      "id": "aws_bedrock:claude-sonnet-4.5",
+      "provider": "aws_bedrock",
+      "model_id": "claude-sonnet-4.5",
+      "model_name": "Claude Sonnet 4.5",
+      "pricing": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": 0.3,
+        "cached_write": 6.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 8.25
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179427"
+    },
+    {
+      "id": "aws_bedrock:claude-haiku-4.5",
+      "provider": "aws_bedrock",
+      "model_id": "claude-haiku-4.5",
+      "model_name": "Claude Haiku 4.5",
+      "pricing": {
+        "input": 1.1,
+        "output": 5.0,
+        "cached_input": 0.1,
+        "cached_write": 1.25,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.55,
+        "output": 2.75
+      },
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179486"
+    },
+    {
+      "id": "aws_bedrock:claude-opus-4.5",
+      "provider": "aws_bedrock",
+      "model_id": "claude-opus-4.5",
+      "model_name": "Claude Opus 4.5",
+      "pricing": {
+        "input": 5.0,
+        "output": 25.0,
+        "cached_input": 0.5,
+        "cached_write": 10.0,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 13.75
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179542"
+    },
+    {
+      "id": "aws_bedrock:meta-llama-2-chat-70b",
+      "provider": "aws_bedrock",
+      "model_id": "meta-llama-2-chat-70b",
+      "model_name": "Meta Llama 2 Chat 70B",
+      "pricing": {
+        "input": 1.95,
+        "output": 2.56,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179591"
+    },
+    {
+      "id": "aws_bedrock:claude-3.5-sonnet-v2",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3.5-sonnet-v2",
+      "model_name": "Claude 3.5 Sonnet v2",
+      "pricing": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": 0.3,
+        "cached_write": 3.75,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179642"
+    },
+    {
+      "id": "aws_bedrock:claude-3.5-sonnet",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3.5-sonnet",
+      "model_name": "Claude 3.5 Sonnet",
+      "pricing": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179692"
+    },
+    {
+      "id": "aws_bedrock:claude-3-opus",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3-opus",
+      "model_name": "Claude 3 Opus",
+      "pricing": {
+        "input": 15.0,
+        "output": 75.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 7.5,
+        "output": 37.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179749"
+    },
+    {
+      "id": "aws_bedrock:meta-llama-2-chat-13b",
+      "provider": "aws_bedrock",
+      "model_id": "meta-llama-2-chat-13b",
+      "model_name": "Meta Llama 2 Chat 13B",
+      "pricing": {
+        "input": 0.75,
+        "output": 1.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179799"
+    },
+    {
+      "id": "aws_bedrock:jamba-1.5-large",
+      "provider": "aws_bedrock",
+      "model_id": "jamba-1.5-large",
+      "model_name": "Jamba 1.5 Large",
+      "pricing": {
+        "input": 2.0,
+        "output": 8.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179838"
+    },
+    {
+      "id": "aws_bedrock:twelvelabs-marengo-embed-3.0",
+      "provider": "aws_bedrock",
+      "model_id": "twelvelabs-marengo-embed-3.0",
+      "model_name": "TwelveLabs Marengo Embed 3.0",
+      "pricing": {
+        "input": 0.0001,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179904"
+    },
+    {
+      "id": "aws_bedrock:stable-image-ultra",
+      "provider": "aws_bedrock",
+      "model_id": "stable-image-ultra",
+      "model_name": "Stable Image Ultra",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.179946"
+    },
+    {
+      "id": "aws_bedrock:cohere-command-r",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-command-r",
+      "model_name": "Cohere Command R+",
+      "pricing": {
+        "input": 0.5,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180006"
+    },
+    {
+      "id": "aws_bedrock:twelvelabs-pegasus-1.2",
+      "provider": "aws_bedrock",
+      "model_id": "twelvelabs-pegasus-1.2",
+      "model_name": "TwelveLabs Pegasus 1.2",
+      "pricing": {
+        "input": null,
+        "output": 7.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180060"
+    },
+    {
+      "id": "aws_bedrock:palmyra-x4",
+      "provider": "aws_bedrock",
+      "model_id": "palmyra-x4",
+      "model_name": "Palmyra X4",
+      "pricing": {
+        "input": 2.5,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180129"
+    },
+    {
+      "id": "aws_bedrock:stable-diffusion-3.5-large-v1.0",
+      "provider": "aws_bedrock",
+      "model_id": "stable-diffusion-3.5-large-v1.0",
+      "model_name": "Stable Diffusion 3.5 Large v1.0",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180196"
+    },
+    {
+      "id": "aws_bedrock:claude-instant-100k",
+      "provider": "aws_bedrock",
+      "model_id": "claude-instant-100k",
+      "model_name": "Claude Instant (100K)",
+      "pricing": {
+        "input": 3.26,
+        "output": 11.02,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 100000,
+      "max_output_tokens": 8191,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180250"
+    },
+    {
+      "id": "aws_bedrock:cohere-embed-4-model",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-embed-4-model",
+      "model_name": "Cohere Embed 4 Model",
+      "pricing": {
+        "input": 0.12,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 512,
+      "max_output_tokens": 512,
+      "is_open_source": null,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180309"
+    },
+    {
+      "id": "aws_bedrock:claude-opus-4",
+      "provider": "aws_bedrock",
+      "model_id": "claude-opus-4",
+      "model_name": "Claude Opus 4",
+      "pricing": {
+        "input": 15.0,
+        "output": 75.0,
+        "cached_input": 1.5,
+        "cached_write": 18.75,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 7.5,
+        "output": 37.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180350"
+    },
+    {
+      "id": "aws_bedrock:claude-3.7-sonnet",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3.7-sonnet",
+      "model_name": "Claude 3.7 Sonnet",
+      "pricing": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": 0.3,
+        "cached_write": 3.75,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180391"
+    },
+    {
+      "id": "aws_bedrock:palmyra-x5",
+      "provider": "aws_bedrock",
+      "model_id": "palmyra-x5",
+      "model_name": "Palmyra X5",
+      "pricing": {
+        "input": 0.6,
+        "output": 6.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180474"
+    },
+    {
+      "id": "aws_bedrock:stable-image-core",
+      "provider": "aws_bedrock",
+      "model_id": "stable-image-core",
+      "model_name": "Stable Image Core",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180556"
+    },
+    {
+      "id": "aws_bedrock:cohere-generate-model---command",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-generate-model---command",
+      "model_name": "Cohere Generate Model - Command",
+      "pricing": {
+        "input": 1.0,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180599"
+    },
+    {
+      "id": "aws_bedrock:cohere-embed-3-model---english",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-embed-3-model---english",
+      "model_name": "Cohere Embed 3 Model - English",
+      "pricing": {
+        "input": 0.0001,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 512,
+      "max_output_tokens": 512,
+      "is_open_source": null,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180652"
+    },
+    {
+      "id": "aws_bedrock:jamba-1.5-mini",
+      "provider": "aws_bedrock",
+      "model_id": "jamba-1.5-mini",
+      "model_name": "Jamba 1.5 Mini",
+      "pricing": {
+        "input": 0.2,
+        "output": 0.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180711"
+    },
+    {
+      "id": "aws_bedrock:cohere-embed-model-3---multilingual",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-embed-model-3---multilingual",
+      "model_name": "Cohere Embed Model 3 - Multilingual",
+      "pricing": {
+        "input": 0.1,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 512,
+      "max_output_tokens": 512,
+      "is_open_source": null,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180795"
+    },
+    {
+      "id": "aws_bedrock:claude-opus-4.1",
+      "provider": "aws_bedrock",
+      "model_id": "claude-opus-4.1",
+      "model_name": "Claude Opus 4.1",
+      "pricing": {
+        "input": 15.0,
+        "output": 75.0,
+        "cached_input": 1.5,
+        "cached_write": 18.75,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180932"
+    },
+    {
+      "id": "aws_bedrock:claude-sonnet-4",
+      "provider": "aws_bedrock",
+      "model_id": "claude-sonnet-4",
+      "model_name": "Claude Sonnet 4",
+      "pricing": {
+        "input": 3.0,
+        "output": 15.0,
+        "cached_input": 0.3,
+        "cached_write": 3.75,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 7.5
+      },
+      "context_length": 200000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.180980"
+    },
+    {
+      "id": "aws_bedrock:claude-3.5-haiku",
+      "provider": "aws_bedrock",
+      "model_id": "claude-3.5-haiku",
+      "model_name": "Claude 3.5 Haiku",
+      "pricing": {
+        "input": 1.0,
+        "output": 4.0,
+        "cached_input": 0.08,
+        "cached_write": 1.25,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.4,
+        "output": 2.0
+      },
+      "context_length": 200000,
+      "max_output_tokens": 8192,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181040"
+    },
+    {
+      "id": "aws_bedrock:twelvelabs-marengo-embed-2.7",
+      "provider": "aws_bedrock",
+      "model_id": "twelvelabs-marengo-embed-2.7",
+      "model_name": "TwelveLabs Marengo Embed 2.7",
+      "pricing": {
+        "input": 0.0001,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181164"
+    },
+    {
+      "id": "aws_bedrock:jurassic-2-ultra",
+      "provider": "aws_bedrock",
+      "model_id": "jurassic-2-ultra",
+      "model_name": "Jurassic-2 Ultra",
+      "pricing": {
+        "input": 18.8,
+        "output": 18.8,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181273"
+    },
+    {
+      "id": "aws_bedrock:cohere-rerank-v3.5",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-rerank-v3.5",
+      "model_name": "Cohere Rerank v3.5",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 32000,
+      "max_output_tokens": 32000,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181338"
+    },
+    {
+      "id": "aws_bedrock:cohere-generate-model---command-light",
+      "provider": "aws_bedrock",
+      "model_id": "cohere-generate-model---command-light",
+      "model_name": "Cohere Generate Model - Command-Light",
+      "pricing": {
+        "input": 0.3,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 4096,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181593"
+    },
+    {
+      "id": "aws_bedrock:stable-diffusion-3-large-v1.0",
+      "provider": "aws_bedrock",
+      "model_id": "stable-diffusion-3-large-v1.0",
+      "model_name": "Stable Diffusion 3 Large v1.0",
+      "pricing": {
+        "input": null,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 256000,
+      "max_output_tokens": 256000,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-19T22:08:36.181911"
+    },
+    {
+      "id": "aws_bedrock:claude-100k",
+      "provider": "aws_bedrock",
+      "model_id": "claude-100k",
+      "model_name": "Claude (100K)",
+      "pricing": {
+        "input": 22.04,
+        "output": 65.36,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.182051"
+    },
+    {
+      "id": "aws_bedrock:jurassic-2-mid",
+      "provider": "aws_bedrock",
+      "model_id": "jurassic-2-mid",
+      "model_name": "Jurassic-2 Mid",
+      "pricing": {
+        "input": 12.5,
+        "output": 12.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.182112"
+    },
+    {
+      "id": "aws_bedrock:jamba-instruct",
+      "provider": "aws_bedrock",
+      "model_id": "jamba-instruct",
+      "model_name": "Jamba-Instruct",
+      "pricing": {
+        "input": 0.5,
+        "output": 0.7,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": true,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.183511"
+    },
+    {
+      "id": "aws_bedrock:claude",
+      "provider": "aws_bedrock",
+      "model_id": "claude",
+      "model_name": "Claude",
+      "pricing": {
+        "input": 8.0,
+        "output": 24.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 100000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-19T22:08:36.183670"
+    }
+  ]
+}

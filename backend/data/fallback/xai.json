@@ -1,0 +1,125 @@
+{
+  "$schema": "./schema.json",
+  "provider": "xai",
+  "source": "https://docs.x.ai/docs/models",
+  "last_verified": "2026-01",
+  "models": [
+    {
+      "model_id": "grok-4-1-fast-reasoning",
+      "model_name": "Grok 4.1 Fast Reasoning",
+      "pricing": {
+        "input": 0.20,
+        "output": 0.50,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 2000000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-4-1-fast-non-reasoning",
+      "model_name": "Grok 4.1 Fast Non-Reasoning",
+      "pricing": {
+        "input": 0.20,
+        "output": 0.50,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 2000000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-code-fast-1",
+      "model_name": "Grok Code Fast 1",
+      "pricing": {
+        "input": 0.20,
+        "output": 1.50,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 256000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-4-fast-reasoning",
+      "model_name": "Grok 4 Fast Reasoning",
+      "pricing": {
+        "input": 0.20,
+        "output": 0.50,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "reasoning", "tool_use"],
+      "context_length": 2000000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-4-fast-non-reasoning",
+      "model_name": "Grok 4 Fast Non-Reasoning",
+      "pricing": {
+        "input": 0.20,
+        "output": 0.50,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "tool_use"],
+      "context_length": 2000000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-4-0709",
+      "model_name": "Grok 4 (0709)",
+      "pricing": {
+        "input": 3.00,
+        "output": 15.00,
+        "cached_input": 0.75
+      },
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 256000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-3-mini",
+      "model_name": "Grok 3 Mini",
+      "pricing": {
+        "input": 0.30,
+        "output": 0.50,
+        "cached_input": 0.075
+      },
+      "capabilities": ["text", "reasoning", "tool_use"],
+      "context_length": 131072,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-3",
+      "model_name": "Grok 3",
+      "pricing": {
+        "input": 3.00,
+        "output": 15.00,
+        "cached_input": 0.75
+      },
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 131072,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "grok-2-vision-1212",
+      "model_name": "Grok 2 Vision (1212)",
+      "pricing": {
+        "input": 2.00,
+        "output": 10.00
+      },
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 32768,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "grok-2-image-1212",
+      "model_name": "Grok 2 Image (1212)",
+      "pricing": {
+        "image_output": 0.07
+      },
+      "capabilities": ["image_generation"],
+      "context_length": null,
+      "max_output_tokens": null
+    }
+  ]
+}

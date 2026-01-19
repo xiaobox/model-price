@@ -1,0 +1,217 @@
+{
+  "$schema": "./schema.json",
+  "provider": "google_gemini",
+  "source": "https://ai.google.dev/pricing",
+  "last_verified": "2026-01",
+  "models": [
+    {
+      "model_id": "gemini-3-pro-preview",
+      "model_name": "Gemini 3 Pro Preview",
+      "pricing": {
+        "input": 2.00,
+        "output": 12.00,
+        "cached_input": 0.20
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-3-pro-image-preview",
+      "model_name": "Gemini 3 Pro Image Preview",
+      "pricing": {
+        "input": 2.00,
+        "output": 12.00
+      },
+      "capabilities": ["text", "vision", "image_generation", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-3-flash-preview",
+      "model_name": "Gemini 3 Flash Preview",
+      "pricing": {
+        "input": 0.50,
+        "output": 3.00,
+        "cached_input": 0.05
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "model_name": "Gemini 2.5 Pro",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.00,
+        "cached_input": 0.3125
+      },
+      "batch_pricing": {
+        "input": 0.625,
+        "output": 5.00
+      },
+      "capabilities": ["text", "vision", "audio", "reasoning", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-2.5-flash",
+      "model_name": "Gemini 2.5 Flash",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.60,
+        "cached_input": 0.0375
+      },
+      "batch_pricing": {
+        "input": 0.075,
+        "output": 0.30
+      },
+      "capabilities": ["text", "vision", "audio", "reasoning", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-2.5-flash-lite",
+      "model_name": "Gemini 2.5 Flash Lite",
+      "pricing": {
+        "input": 0.075,
+        "output": 0.30,
+        "cached_input": 0.01875
+      },
+      "batch_pricing": {
+        "input": 0.0375,
+        "output": 0.15
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-2.5-flash-image",
+      "model_name": "Gemini 2.5 Flash Image",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.60
+      },
+      "capabilities": ["text", "vision", "image_generation", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "model_name": "Gemini 2.0 Flash",
+      "pricing": {
+        "input": 0.10,
+        "output": 0.40,
+        "audio_input": 0.70
+      },
+      "batch_pricing": {
+        "input": 0.025,
+        "output": 0.10
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gemini-2.0-flash-lite",
+      "model_name": "Gemini 2.0 Flash Lite",
+      "pricing": {
+        "input": 0.075,
+        "output": 0.30
+      },
+      "batch_pricing": {
+        "input": 0.01875,
+        "output": 0.075
+      },
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gemini-1.5-pro",
+      "model_name": "Gemini 1.5 Pro",
+      "pricing": {
+        "input": 1.25,
+        "output": 5.00,
+        "cached_input": 0.3125
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 2000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gemini-1.5-flash",
+      "model_name": "Gemini 1.5 Flash",
+      "pricing": {
+        "input": 0.075,
+        "output": 0.30,
+        "cached_input": 0.01875
+      },
+      "capabilities": ["text", "vision", "audio", "tool_use"],
+      "context_length": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gemini-embedding-001",
+      "model_name": "Gemini Embedding",
+      "pricing": {
+        "embedding": 0.00
+      },
+      "capabilities": ["embedding"]
+    },
+    {
+      "model_id": "gemma-3-27b",
+      "model_name": "Gemma 3 27B",
+      "pricing": {
+        "input": 0.00,
+        "output": 0.00
+      },
+      "capabilities": ["text"],
+      "is_open_source": true
+    },
+    {
+      "model_id": "gemma-3n-e4b",
+      "model_name": "Gemma 3n E4B",
+      "pricing": {
+        "input": 0.00,
+        "output": 0.00
+      },
+      "capabilities": ["text"],
+      "is_open_source": true
+    },
+    {
+      "model_id": "imagen-3",
+      "model_name": "Imagen 3",
+      "pricing": {
+        "output": 0.03
+      },
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "imagen-4",
+      "model_name": "Imagen 4",
+      "pricing": {
+        "output": 0.04
+      },
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "veo-2",
+      "model_name": "Veo 2",
+      "pricing": {
+        "output": 0.35
+      },
+      "capabilities": ["video_generation"]
+    },
+    {
+      "model_id": "veo-3",
+      "model_name": "Veo 3",
+      "pricing": {
+        "output": 1.00
+      },
+      "capabilities": ["video_generation"]
+    }
+  ]
+}

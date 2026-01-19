@@ -1,0 +1,436 @@
+{
+  "$schema": "./schema.json",
+  "provider": "openai",
+  "source": "https://platform.openai.com/docs/pricing",
+  "last_verified": "2026-01",
+  "models": [
+    {
+      "model_id": "gpt-5.2",
+      "model_name": "GPT-5.2",
+      "pricing": {"input": 1.75, "output": 14.00, "cached_input": 0.175},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5.2-pro",
+      "model_name": "GPT-5.2 Pro",
+      "pricing": {"input": 21.00, "output": 168.00, "cached_input": 2.10},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5.1",
+      "model_name": "GPT-5.1",
+      "pricing": {"input": 1.25, "output": 10.00, "cached_input": 0.125},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 272000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5.1-codex",
+      "model_name": "GPT-5.1 Codex",
+      "pricing": {"input": 1.25, "output": 10.00, "cached_input": 0.125},
+      "capabilities": ["text", "reasoning", "tool_use"],
+      "context_length": 272000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5",
+      "model_name": "GPT-5",
+      "pricing": {"input": 1.25, "output": 10.00, "cached_input": 0.125},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5-codex",
+      "model_name": "GPT-5 Codex",
+      "pricing": {"input": 1.25, "output": 10.00, "cached_input": 0.125},
+      "capabilities": ["text", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5-mini",
+      "model_name": "GPT-5 Mini",
+      "pricing": {"input": 0.25, "output": 2.00, "cached_input": 0.025},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-5-nano",
+      "model_name": "GPT-5 Nano",
+      "pricing": {"input": 0.05, "output": 0.40, "cached_input": 0.005},
+      "capabilities": ["text", "reasoning", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "gpt-5-pro",
+      "model_name": "GPT-5 Pro",
+      "pricing": {"input": 15.00, "output": 120.00, "cached_input": 1.50},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 400000,
+      "max_output_tokens": 128000
+    },
+    {
+      "model_id": "gpt-4.5-preview",
+      "model_name": "GPT-4.5 Preview",
+      "pricing": {"input": 75.00, "output": 150.00, "cached_input": 37.50},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "gpt-4.1",
+      "model_name": "GPT-4.1",
+      "pricing": {"input": 2.00, "output": 8.00, "cached_input": 0.50},
+      "batch_pricing": {"input": 1.00, "output": 4.00},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 1047576,
+      "max_output_tokens": 32768
+    },
+    {
+      "model_id": "gpt-4.1-mini",
+      "model_name": "GPT-4.1 Mini",
+      "pricing": {"input": 0.40, "output": 1.60, "cached_input": 0.10},
+      "batch_pricing": {"input": 0.20, "output": 0.80},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 1047576,
+      "max_output_tokens": 32768
+    },
+    {
+      "model_id": "gpt-4.1-nano",
+      "model_name": "GPT-4.1 Nano",
+      "pricing": {"input": 0.10, "output": 0.40, "cached_input": 0.025},
+      "batch_pricing": {"input": 0.05, "output": 0.20},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 1047576,
+      "max_output_tokens": 32768
+    },
+    {
+      "model_id": "gpt-4o",
+      "model_name": "GPT-4o",
+      "pricing": {"input": 2.50, "output": 10.00, "cached_input": 1.25},
+      "batch_pricing": {"input": 1.25, "output": 5.00},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "chatgpt-4o-latest",
+      "model_name": "ChatGPT-4o Latest",
+      "pricing": {"input": 5.00, "output": 15.00, "cached_input": 2.50},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "gpt-4o-mini",
+      "model_name": "GPT-4o Mini",
+      "pricing": {"input": 0.15, "output": 0.60, "cached_input": 0.075},
+      "batch_pricing": {"input": 0.075, "output": 0.30},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "gpt-4o-search-preview",
+      "model_name": "GPT-4o Search Preview",
+      "pricing": {"input": 2.50, "output": 10.00},
+      "capabilities": ["text", "vision", "web_search", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "gpt-4o-mini-search-preview",
+      "model_name": "GPT-4o Mini Search Preview",
+      "pricing": {"input": 0.15, "output": 0.60},
+      "capabilities": ["text", "vision", "web_search", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "computer-use-preview",
+      "model_name": "Computer Use Preview",
+      "pricing": {"input": 3.00, "output": 12.00},
+      "capabilities": ["text", "vision", "computer_use"],
+      "context_length": 128000,
+      "max_output_tokens": 16384
+    },
+    {
+      "model_id": "o3",
+      "model_name": "O3",
+      "pricing": {"input": 2.00, "output": 8.00, "cached_input": 1.00},
+      "batch_pricing": {"input": 1.00, "output": 4.00},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o3-pro",
+      "model_name": "O3 Pro",
+      "pricing": {"input": 20.00, "output": 80.00, "cached_input": 10.00},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o3-mini",
+      "model_name": "O3 Mini",
+      "pricing": {"input": 1.10, "output": 4.40, "cached_input": 0.55},
+      "batch_pricing": {"input": 0.55, "output": 2.20},
+      "capabilities": ["text", "reasoning"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o3-deep-research",
+      "model_name": "O3 Deep Research",
+      "pricing": {"input": 10.00, "output": 40.00, "cached_input": 2.50},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o4-mini",
+      "model_name": "O4 Mini",
+      "pricing": {"input": 1.10, "output": 4.40, "cached_input": 0.55},
+      "batch_pricing": {"input": 0.55, "output": 2.20},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o4-mini-deep-research",
+      "model_name": "O4 Mini Deep Research",
+      "pricing": {"input": 2.00, "output": 8.00, "cached_input": 1.00},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o1",
+      "model_name": "O1",
+      "pricing": {"input": 15.00, "output": 60.00, "cached_input": 7.50},
+      "batch_pricing": {"input": 7.50, "output": 30.00},
+      "capabilities": ["text", "vision", "reasoning", "tool_use"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "o1-mini",
+      "model_name": "O1 Mini",
+      "pricing": {"input": 1.10, "output": 4.40, "cached_input": 0.55},
+      "batch_pricing": {"input": 0.55, "output": 2.20},
+      "capabilities": ["text", "reasoning"],
+      "context_length": 128000,
+      "max_output_tokens": 65536
+    },
+    {
+      "model_id": "o1-pro",
+      "model_name": "O1 Pro",
+      "pricing": {"input": 150.00, "output": 600.00},
+      "capabilities": ["text", "reasoning"],
+      "context_length": 128000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "codex-mini",
+      "model_name": "Codex Mini",
+      "pricing": {"input": 0.25, "output": 2.00, "cached_input": 0.025},
+      "capabilities": ["text"],
+      "context_length": 200000,
+      "max_output_tokens": 100000
+    },
+    {
+      "model_id": "gpt-4-turbo",
+      "model_name": "GPT-4 Turbo",
+      "pricing": {"input": 10.00, "output": 30.00},
+      "capabilities": ["text", "vision", "tool_use"],
+      "context_length": 128000,
+      "max_output_tokens": 4096
+    },
+    {
+      "model_id": "gpt-4",
+      "model_name": "GPT-4",
+      "pricing": {"input": 30.00, "output": 60.00},
+      "capabilities": ["text", "tool_use"],
+      "context_length": 8192,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gpt-4-32k",
+      "model_name": "GPT-4 32K",
+      "pricing": {"input": 60.00, "output": 120.00},
+      "capabilities": ["text", "tool_use"],
+      "context_length": 32768,
+      "max_output_tokens": 8192
+    },
+    {
+      "model_id": "gpt-3.5-turbo",
+      "model_name": "GPT-3.5 Turbo",
+      "pricing": {"input": 0.50, "output": 1.50},
+      "batch_pricing": {"input": 0.25, "output": 0.75},
+      "capabilities": ["text", "tool_use"],
+      "context_length": 16385,
+      "max_output_tokens": 4096
+    },
+    {
+      "model_id": "gpt-3.5-turbo-instruct",
+      "model_name": "GPT-3.5 Turbo Instruct",
+      "pricing": {"input": 1.50, "output": 2.00},
+      "capabilities": ["text"],
+      "context_length": 4096,
+      "max_output_tokens": 4096
+    },
+    {
+      "model_id": "gpt-4o-realtime",
+      "model_name": "GPT-4o Realtime",
+      "pricing": {
+        "input": 5.00,
+        "output": 20.00,
+        "cached_input": 2.50,
+        "audio_input": 40.00,
+        "audio_output": 80.00
+      },
+      "capabilities": ["text", "audio"],
+      "context_length": 128000
+    },
+    {
+      "model_id": "gpt-4o-mini-realtime",
+      "model_name": "GPT-4o Mini Realtime",
+      "pricing": {
+        "input": 0.60,
+        "output": 2.40,
+        "cached_input": 0.30,
+        "audio_input": 10.00,
+        "audio_output": 20.00
+      },
+      "capabilities": ["text", "audio"],
+      "context_length": 128000
+    },
+    {
+      "model_id": "gpt-4o-audio-preview",
+      "model_name": "GPT-4o Audio Preview",
+      "pricing": {
+        "input": 2.50,
+        "output": 10.00,
+        "audio_input": 40.00,
+        "audio_output": 80.00
+      },
+      "capabilities": ["text", "audio"],
+      "context_length": 128000
+    },
+    {
+      "model_id": "gpt-4o-mini-audio-preview",
+      "model_name": "GPT-4o Mini Audio Preview",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.60,
+        "audio_input": 10.00,
+        "audio_output": 20.00
+      },
+      "capabilities": ["text", "audio"],
+      "context_length": 128000
+    },
+    {
+      "model_id": "gpt-4o-transcribe",
+      "model_name": "GPT-4o Transcribe",
+      "pricing": {"audio_input": 6.00},
+      "capabilities": ["audio"]
+    },
+    {
+      "model_id": "gpt-4o-mini-transcribe",
+      "model_name": "GPT-4o Mini Transcribe",
+      "pricing": {"audio_input": 3.00},
+      "capabilities": ["audio"]
+    },
+    {
+      "model_id": "whisper",
+      "model_name": "Whisper",
+      "pricing": {"audio_input": 6.00},
+      "capabilities": ["audio"]
+    },
+    {
+      "model_id": "tts-1",
+      "model_name": "TTS-1",
+      "pricing": {"output": 15.00},
+      "capabilities": ["tts"]
+    },
+    {
+      "model_id": "tts-1-hd",
+      "model_name": "TTS-1 HD",
+      "pricing": {"output": 30.00},
+      "capabilities": ["tts"]
+    },
+    {
+      "model_id": "text-embedding-3-small",
+      "model_name": "Text Embedding 3 Small",
+      "pricing": {"embedding": 0.02},
+      "batch_pricing": {"input": 0.01},
+      "capabilities": ["embedding"]
+    },
+    {
+      "model_id": "text-embedding-3-large",
+      "model_name": "Text Embedding 3 Large",
+      "pricing": {"embedding": 0.13},
+      "batch_pricing": {"input": 0.065},
+      "capabilities": ["embedding"]
+    },
+    {
+      "model_id": "text-embedding-ada-002",
+      "model_name": "Text Embedding Ada 002",
+      "pricing": {"embedding": 0.10},
+      "batch_pricing": {"input": 0.05},
+      "capabilities": ["embedding"]
+    },
+    {
+      "model_id": "gpt-image-1.5",
+      "model_name": "GPT Image 1.5",
+      "pricing": {"input": 4.00, "output": 32.00},
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "gpt-image-1",
+      "model_name": "GPT Image 1",
+      "pricing": {"input": 5.00, "output": 40.00},
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "dall-e-3",
+      "model_name": "DALL-E 3",
+      "pricing": {},
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "dall-e-2",
+      "model_name": "DALL-E 2",
+      "pricing": {},
+      "capabilities": ["image_generation"]
+    },
+    {
+      "model_id": "gpt-oss-20b",
+      "model_name": "GPT-OSS 20B",
+      "pricing": {},
+      "capabilities": ["text"],
+      "is_open_source": true
+    },
+    {
+      "model_id": "gpt-oss-120b",
+      "model_name": "GPT-OSS 120B",
+      "pricing": {},
+      "capabilities": ["text"],
+      "is_open_source": true
+    },
+    {
+      "model_id": "omni-moderation",
+      "model_name": "Omni Moderation",
+      "pricing": {"input": 0.00},
+      "capabilities": ["moderation"]
+    }
+  ]
+}

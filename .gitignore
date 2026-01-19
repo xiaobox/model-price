@@ -9,8 +9,8 @@ __pycache__/
 .mypy_cache/
 .pytest_cache/
 
-# Data files (generated at runtime)
-backend/data/
+# Data files - only ignore cache, keep JSON data
+backend/data/__pycache__/
 
 # IDE
 .idea/
