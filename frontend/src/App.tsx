@@ -4,7 +4,7 @@ import { useModels } from './hooks/useModels';
 import {
   FilterBar,
   ModelCard,
-  ModelTable,
+  VirtualTable,
   RefreshButton,
   ViewToggle,
 } from './components';
@@ -39,6 +39,8 @@ function App({ editable = false }: AppProps) {
     refresh,
     updateModel,
   } = useModels();
+
+
 
   const handleModeToggle = () => {
     navigate(editable ? '/' : '/admin');
@@ -141,7 +143,7 @@ function App({ editable = false }: AppProps) {
                 ))}
               </div>
             ) : (
-              <ModelTable
+              <VirtualTable
                 models={models}
                 sortConfig={sortConfig}
                 onSort={handleSort}

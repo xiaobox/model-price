@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import type { ModelPricing } from '../types/pricing';
 import { CapabilityList } from './CapabilityBadge';
 import { getProviderDisplayName, getProviderColor, calculatePriceBarWidth } from '../config';
 
 interface ModelCardProps {
   model: ModelPricing;
-  index: number;
+  index?: number;
 }
 
 function formatPrice(price: number | null): string {
@@ -21,7 +21,7 @@ function formatNumber(num: number | null): string {
   return num.toString();
 }
 
-export function ModelCard({ model, index }: ModelCardProps) {
+export const ModelCard = memo(function ModelCard({ model }: ModelCardProps) {
   const [expanded, setExpanded] = useState(false);
   const hasExtendedPricing =
     model.pricing.cached_input !== null ||
@@ -33,7 +33,6 @@ export function ModelCard({ model, index }: ModelCardProps) {
     <article
       className="model-card"
       style={{
-        animationDelay: `${index * 0.05}s`,
         '--provider-color': getProviderColor(model.provider),
       } as React.CSSProperties}
     >
@@ -139,4 +138,4 @@ export function ModelCard({ model, index }: ModelCardProps) {
       </div>
     </article>
   );
-}
+});

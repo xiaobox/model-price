@@ -12,7 +12,7 @@ export function useModels() {
   const [error, setError] = useState<string | null>(null);
   const [updating, setUpdating] = useState<string | null>(null);
 
-  const [view, setView] = useState<ViewMode>('card');
+  const [view, setView] = useState<ViewMode>('table');
   const [filters, setFilters] = useState<Filters>({
     provider: null,
     capability: null,

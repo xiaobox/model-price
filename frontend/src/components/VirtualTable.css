@@ -1,0 +1,160 @@
+/* Virtual Table with flexible column widths */
+.vtable-container {
+  overflow: auto;
+  max-height: calc(100vh - 380px);
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+/* Custom scrollbar */
+.vtable-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.vtable-container::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.vtable-container::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.vtable-container::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+.vtable-container::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}
+
+/* Inner wrapper - fills container, minimum width prevents column compression */
+.vtable-inner {
+  width: 100%;
+}
+
+/* Header */
+.vtable-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-table-header);
+  border-bottom: 1px solid var(--border-hover);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vtable-header .unit-hint {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.vtable-header .sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.vtable-header .sortable:hover {
+  color: var(--accent-primary);
+}
+
+/* Rows */
+.vtable-row {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 52px;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s ease;
+  font-size: 0.875rem;
+}
+
+.vtable-row:hover {
+  background: rgba(232, 93, 4, 0.06) !important;
+}
+
+.vtable-row:hover > .vtable-cell:first-child {
+  box-shadow: inset 3px 0 0 var(--accent-primary);
+}
+
+/* Base cell styles */
+.vtable-cell {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border-light);
+}
+
+/* Text cell - single line with ellipsis */
+.vtable-cell-text {
+  min-width: 0; /* Critical: allows flex item to shrink below content size */
+  overflow: hidden;
+}
+
+/* Inner text wrapper for ellipsis - must be block to work */
+.vtable-cell-text-inner {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Numeric cell - right aligned, monospace */
+.vtable-cell-numeric {
+  justify-content: flex-end;
+  font-family: 'IBM Plex Mono', 'SF Mono', monospace;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* Wrap cell - allows content to wrap to multiple lines */
+.vtable-cell-wrap {
+  flex-wrap: wrap;
+  align-content: center;
+  white-space: normal;
+  overflow: visible;
+}
+
+/* Muted text color */
+.vtable-cell-muted {
+  color: var(--text-muted);
+}
+
+/* Provider cell specific */
+.vtable-row .provider-cell {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Model name cell specific */
+.vtable-row .model-name-cell {
+  font-weight: 500;
+}
+
+/* Capabilities cell - allow wrapping */
+.vtable-row .capabilities-cell .capability-list,
+.vtable-row .capabilities-cell .capability-list-wrapper .capability-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px;
+}
+
+/* Modality list in wrap cells */
+.vtable-cell-wrap .modality-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
