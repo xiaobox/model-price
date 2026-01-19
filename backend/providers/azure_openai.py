@@ -61,12 +61,16 @@ MODEL_PATTERNS: List[Tuple[str, str, str]] = [
     (r"gpt.?img.?1\.5|gpt.?image.?1\.5", "gpt-image-1.5", "GPT Image 1.5"),
     (r"gpt.?img.?1\b|gpt.?image.?1\b", "gpt-image-1", "GPT Image 1"),
     (r"gpt.?img.?1.?mini|gpt.?image.?1.?mini", "gpt-image-1-mini", "GPT Image 1 Mini"),
-    # O-series reasoning
+    # O-series reasoning (order matters - more specific patterns first)
     (r"o4.?mini", "o4-mini", "O4 Mini"),
     (r"o4\b", "o4", "O4"),
+    (r"o3.?pro", "o3-pro", "O3 Pro"),  # Must be before o3 to avoid mismatching
+    (r"o3.?deep.?research", "o3-deep-research", "O3 Deep Research"),
     (r"o3.?mini.*0131", "o3-mini", "O3 Mini"),
     (r"o3.?mini", "o3-mini", "O3 Mini"),
+    (r"o3.*0416", "o3", "O3"),  # o3 0416 is the standard o3
     (r"o3\b", "o3", "O3"),
+    (r"o1.?pro", "o1-pro", "O1 Pro"),  # Must be before o1 to avoid mismatching
     (r"o1.?mini", "o1-mini", "O1 Mini"),
     (r"o1.?preview", "o1-preview", "O1 Preview"),
     (r"o1.*1217", "o1", "O1"),
@@ -106,8 +110,12 @@ MODEL_PATTERNS: List[Tuple[str, str, str]] = [
     (r"command.?r\b", "command-r", "Command R"),
     (r"command", "command", "Command"),
     (r"embed.?v3", "cohere-embed-v3", "Cohere Embed V3"),
-    # Grok
-    (r"grok.?3", "grok-3", "Grok 3"),
+    # Grok (more specific patterns first to avoid mismatch)
+    (r"grok.?4\.1", "grok-4.1", "Grok 4.1"),
+    (r"grok.?4.?fast", "grok-4-fast", "Grok 4 Fast"),
+    (r"grok.?4\b", "grok-4", "Grok 4"),
+    (r"grok.?3.?mini", "grok-3-mini", "Grok 3 Mini"),
+    (r"grok.?3\b", "grok-3", "Grok 3"),
     (r"grok.?2", "grok-2", "Grok 2"),
     (r"grok", "grok", "Grok"),
     # Kimi

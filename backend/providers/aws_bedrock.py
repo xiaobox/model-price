@@ -61,7 +61,10 @@ class AWSBedrockProvider(BaseProvider):
     def _parse_bedrock_data(
         self, data: dict, models: Dict[str, ModelPricing]
     ) -> None:
-        """Parse AmazonBedrock pricing data."""
+        """Parse AmazonBedrock pricing data.
+
+        NOTE: This data source prices are per 1K tokens, need to convert to per Million.
+        """
         products = data.get("products", {})
         terms = data.get("terms", {}).get("OnDemand", {})
 
@@ -75,6 +78,17 @@ class AWSBedrockProvider(BaseProvider):
             usage_type = attrs.get("usagetype", "")
             if "Guardrail" in usage_type or "CustomModel" in usage_type:
                 continue
+            # Skip provisioned throughput
+            if "ProvisionedThroughput" in usage_type:
+                continue
+            # Skip customization (training/storage)
+            if "Customization" in usage_type:
+                continue
+            # Skip special pricing tiers: flex, priority, latency-optimized, custom-model
+            # These are not standard on-demand pricing
+            skip_patterns = ["-flex", "-priority", "-latency-optimized", "-custom-model"]
+            if any(p in usage_type.lower() for p in skip_patterns):
+                continue
 
             # Get price
             term_data = terms.get(sku)
@@ -83,13 +97,17 @@ class AWSBedrockProvider(BaseProvider):
 
             term = list(term_data.values())[0]
             price_dim = list(term["priceDimensions"].values())[0]
-            price_usd = float(price_dim["pricePerUnit"].get("USD", "0"))
+            # Price is per 1K tokens in this data source - convert to per Million
+            price_per_1k = float(price_dim["pricePerUnit"].get("USD", "0"))
+            price_usd = price_per_1k * 1000  # Convert to per Million tokens
             description = price_dim.get("description", "")
 
             # Determine price type from description/usagetype
             is_input = "input" in usage_type.lower() or "input" in description.lower()
             is_output = "output" in usage_type.lower() or "output" in description.lower()
             is_batch = "batch" in usage_type.lower() or "batch" in description.lower()
+            is_cache_read = "cache-read" in usage_type.lower()
+            is_cache_write = "cache-write" in usage_type.lower()
 
             # Create or update model
             model_id, display_name = self._normalize_model_id(model_name)
@@ -115,24 +133,34 @@ class AWSBedrockProvider(BaseProvider):
 
             model = models[full_id]
 
-            # Update prices
+            # Update prices - only if not already set (first value wins)
             if is_batch:
                 if model.batch_pricing is None:
                     model.batch_pricing = BatchPricing()
-                if is_input:
+                if is_input and model.batch_pricing.input is None:
                     model.batch_pricing.input = price_usd
-                elif is_output:
+                elif is_output and model.batch_pricing.output is None:
                     model.batch_pricing.output = price_usd
-            else:
-                if is_input:
+            elif is_cache_read:
+                if model.pricing.cached_input is None:
+                    model.pricing.cached_input = price_usd
+            elif is_cache_write:
+                if model.pricing.cached_write is None:
+                    model.pricing.cached_write = price_usd
+            elif is_input:
+                if model.pricing.input is None:
                     model.pricing.input = price_usd
-                elif is_output:
+            elif is_output:
+                if model.pricing.output is None:
                     model.pricing.output = price_usd
 
     def _parse_fm_data(
         self, data: dict, models: Dict[str, ModelPricing]
     ) -> None:
-        """Parse AmazonBedrockFoundationModels pricing data."""
+        """Parse AmazonBedrockFoundationModels pricing data.
+
+        NOTE: This data source prices are per Million tokens (standard unit).
+        """
         products = data.get("products", {})
         terms = data.get("terms", {}).get("OnDemand", {})
 
@@ -164,10 +192,21 @@ class AWSBedrockProvider(BaseProvider):
             is_batch = "batch" in usage_type.lower() or "Batch" in description
             is_cache_read = "CacheRead" in usage_type or "Cache Read" in description
             is_cache_write = "CacheWrite" in usage_type or "Cache Write" in description
+            # Long context pricing is more expensive (2x) - skip it, use standard pricing
+            is_long_context = "LCtx" in usage_type or "Long Context" in description
 
-            # Skip provisioned throughput and other non-token pricing
+            # Skip provisioned throughput, reserved capacity, and other non-token pricing
             if "ProvisionedThroughput" in usage_type:
                 continue
+            # Skip reserved capacity pricing (e.g., Reserved_1Month, Reserved_3Month)
+            if "Reserved" in usage_type:
+                continue
+            # Skip long context pricing - use standard pricing as the base rate
+            if is_long_context:
+                continue
+            # Skip regional pricing - prefer global pricing (_Global) which matches standard rates
+            # Regional pricing has a ~10% premium (e.g., $5.5 vs $5.0 for input)
+            is_regional = "Global" not in usage_type and "_Batch" not in usage_type
 
             # Create or update model
             model_id, display_name = self._normalize_model_id(model_name)
@@ -194,23 +233,30 @@ class AWSBedrockProvider(BaseProvider):
             model = models[full_id]
 
             # Update prices based on type
+            # Prefer global pricing over regional (global is standard, regional has ~10% premium)
             if is_batch:
                 if model.batch_pricing is None:
                     model.batch_pricing = BatchPricing()
                 if is_input:
-                    model.batch_pricing.input = price_usd
+                    # Prefer global batch pricing
+                    if model.batch_pricing.input is None or not is_regional:
+                        model.batch_pricing.input = price_usd
                 elif is_output:
-                    model.batch_pricing.output = price_usd
+                    if model.batch_pricing.output is None or not is_regional:
+                        model.batch_pricing.output = price_usd
             elif is_cache_read:
-                model.pricing.cached_input = price_usd
+                # Prefer global cache pricing
+                if model.pricing.cached_input is None or not is_regional:
+                    model.pricing.cached_input = price_usd
             elif is_cache_write:
-                model.pricing.cached_write = price_usd
+                if model.pricing.cached_write is None or not is_regional:
+                    model.pricing.cached_write = price_usd
             elif is_input and not is_cache_read and not is_cache_write:
-                # Only set if not already set (prefer standard over latency optimized)
-                if model.pricing.input is None:
+                # Prefer global pricing over regional
+                if model.pricing.input is None or not is_regional:
                     model.pricing.input = price_usd
             elif is_output:
-                if model.pricing.output is None:
+                if model.pricing.output is None or not is_regional:
                     model.pricing.output = price_usd
 
     def _detect_capabilities(self, display_name: str) -> List[str]:
