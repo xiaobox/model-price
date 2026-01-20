@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { useModels } from './hooks/useModels';
 import {
@@ -10,17 +9,12 @@ import {
 } from './components';
 import { APP_VERSION } from './config';
 
-interface AppProps {
-  editable?: boolean;
-}
-
 function formatPrice(price: number): string {
   if (price === 0) return 'Free';
   return '$' + price.toFixed(2);
 }
 
-function App({ editable = false }: AppProps) {
-  const navigate = useNavigate();
+function App() {
   const {
     models,
     providers,
@@ -29,7 +23,6 @@ function App({ editable = false }: AppProps) {
     loading,
     error,
     refreshing,
-    updating,
     view,
     filters,
     sortConfig,
@@ -37,14 +30,7 @@ function App({ editable = false }: AppProps) {
     setFilters,
     handleSort,
     refresh,
-    updateModel,
   } = useModels();
-
-
-
-  const handleModeToggle = () => {
-    navigate(editable ? '/' : '/admin');
-  };
 
   return (
     <div className="app">
@@ -59,15 +45,6 @@ function App({ editable = false }: AppProps) {
           <p className="tagline">AI 模型定价一览表</p>
         </div>
         <div className="header-glow"></div>
-
-        {/* Mode Toggle */}
-        <button
-          className={`mode-toggle ${editable ? 'admin-mode' : 'view-mode'}`}
-          onClick={handleModeToggle}
-        >
-          <span className="mode-icon">{editable ? '👁️' : '✏️'}</span>
-          <span className="mode-label">{editable ? '退出编辑' : '进入编辑'}</span>
-        </button>
       </header>
 
       {/* Stats Bar */}
@@ -147,8 +124,6 @@ function App({ editable = false }: AppProps) {
                 models={models}
                 sortConfig={sortConfig}
                 onSort={handleSort}
-                onUpdateModel={editable ? updateModel : undefined}
-                updating={updating}
               />
             )}
 
