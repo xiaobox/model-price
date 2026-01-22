@@ -4,7 +4,6 @@ import {
   FilterBar,
   ModelCard,
   VirtualTable,
-  RefreshButton,
   ViewToggle,
 } from './components';
 import { APP_VERSION } from './config';
@@ -22,7 +21,6 @@ function App() {
     stats,
     loading,
     error,
-    refreshing,
     view,
     filters,
     sortConfig,
@@ -102,7 +100,6 @@ function App() {
                 families={families}
               />
               <div className="controls-right">
-                <RefreshButton refreshing={refreshing} onRefresh={refresh} />
                 <ViewToggle view={view} onViewChange={setView} />
               </div>
             </div>
