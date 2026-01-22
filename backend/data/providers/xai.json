@@ -1,6 +1,6 @@
 {
   "provider": "xai",
-  "last_updated": "2026-01-22T11:28:10.546212",
+  "last_updated": "2026-01-22T16:46:21.739270",
   "models": [
     {
       "id": "xai:grok-4-1-fast-reasoning",
@@ -35,7 +35,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.545864"
+      "last_updated": "2026-01-22T16:46:21.739044"
     },
     {
       "id": "xai:grok-4-1-fast-non-reasoning",
@@ -69,7 +69,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.545981"
+      "last_updated": "2026-01-22T16:46:21.739123"
     },
     {
       "id": "xai:grok-code-fast-1",
@@ -104,7 +104,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546021"
+      "last_updated": "2026-01-22T16:46:21.739148"
     },
     {
       "id": "xai:grok-4-fast-reasoning",
@@ -137,7 +137,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546047"
+      "last_updated": "2026-01-22T16:46:21.739166"
     },
     {
       "id": "xai:grok-4-fast-non-reasoning",
@@ -169,7 +169,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546076"
+      "last_updated": "2026-01-22T16:46:21.739185"
     },
     {
       "id": "xai:grok-4-0709",
@@ -204,7 +204,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546092"
+      "last_updated": "2026-01-22T16:46:21.739199"
     },
     {
       "id": "xai:grok-3-mini",
@@ -237,7 +237,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546120"
+      "last_updated": "2026-01-22T16:46:21.739220"
     },
     {
       "id": "xai:grok-3",
@@ -272,7 +272,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546151"
+      "last_updated": "2026-01-22T16:46:21.739238"
     },
     {
       "id": "xai:grok-2-vision-1212",
@@ -306,7 +306,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:28:10.546183"
+      "last_updated": "2026-01-22T16:46:21.739253"
     },
     {
       "id": "xai:grok-2-image-1212",
@@ -337,7 +337,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-22T11:28:10.546212"
+      "last_updated": "2026-01-22T16:46:21.739270"
     }
   ]
 }

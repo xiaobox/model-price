@@ -1,16 +1,16 @@
 {
   "provider": "openai",
-  "last_updated": "2026-01-22T11:29:13.142338",
+  "last_updated": "2026-01-22T16:46:38.571829",
   "models": [
     {
-      "id": "openai:gpt-5.2",
+      "id": "openai:gpt-52",
       "provider": "openai",
-      "model_id": "gpt-5.2",
-      "model_name": "GPT-5.2",
+      "model_id": "gpt-52",
+      "model_name": "gpt-5.2",
       "pricing": {
-        "input": 1.75,
-        "output": 14.0,
-        "cached_input": 0.175,
+        "input": 0.875,
+        "output": 7.0,
+        "cached_input": 0.0875,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -18,9 +18,12 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
-      "context_length": 272000,
-      "max_output_tokens": 128000,
+      "batch_pricing": {
+        "input": 3.5,
+        "output": 28.0
+      },
+      "context_length": null,
+      "max_output_tokens": null,
       "is_open_source": false,
       "capabilities": [
         "text",
@@ -35,17 +38,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140339"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-5.2-pro",
+      "id": "openai:gpt-51",
       "provider": "openai",
-      "model_id": "gpt-5.2-pro",
-      "model_name": "GPT-5.2 Pro",
+      "model_id": "gpt-51",
+      "model_name": "gpt-5.1",
       "pricing": {
-        "input": 21.0,
-        "output": 168.0,
-        "cached_input": 2.1,
+        "input": 0.625,
+        "output": 5.0,
+        "cached_input": 0.0625,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -53,9 +56,12 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
-      "context_length": 272000,
-      "max_output_tokens": 128000,
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 20.0
+      },
+      "context_length": null,
+      "max_output_tokens": null,
       "is_open_source": false,
       "capabilities": [
         "text",
@@ -70,85 +76,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140391"
-    },
-    {
-      "id": "openai:gpt-5.1",
-      "provider": "openai",
-      "model_id": "gpt-5.1",
-      "model_name": "GPT-5.1",
-      "pricing": {
-        "input": 1.25,
-        "output": 10.0,
-        "cached_input": 0.125,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 272000,
-      "max_output_tokens": 128000,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "reasoning",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140422"
-    },
-    {
-      "id": "openai:gpt-5.1-codex",
-      "provider": "openai",
-      "model_id": "gpt-5.1-codex",
-      "model_name": "GPT-5.1 Codex",
-      "pricing": {
-        "input": 1.25,
-        "output": 10.0,
-        "cached_input": 0.125,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 272000,
-      "max_output_tokens": 128000,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "reasoning",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140450"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:gpt-5",
       "provider": "openai",
       "model_id": "gpt-5",
-      "model_name": "GPT-5",
+      "model_name": "gpt-5",
       "pricing": {
-        "input": 1.25,
-        "output": 10.0,
-        "cached_input": 0.125,
+        "input": 0.625,
+        "output": 5.0,
+        "cached_input": 0.0625,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -156,7 +94,10 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 20.0
+      },
       "context_length": 272000,
       "max_output_tokens": 128000,
       "is_open_source": false,
@@ -173,50 +114,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140475"
-    },
-    {
-      "id": "openai:gpt-5-codex",
-      "provider": "openai",
-      "model_id": "gpt-5-codex",
-      "model_name": "GPT-5 Codex",
-      "pricing": {
-        "input": 1.25,
-        "output": 10.0,
-        "cached_input": 0.125,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 272000,
-      "max_output_tokens": 128000,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "reasoning",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140491"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:gpt-5-mini",
       "provider": "openai",
       "model_id": "gpt-5-mini",
-      "model_name": "GPT-5 Mini",
+      "model_name": "gpt-5-mini",
       "pricing": {
-        "input": 0.25,
-        "output": 2.0,
-        "cached_input": 0.025,
+        "input": 0.125,
+        "output": 1.0,
+        "cached_input": 0.0125,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -224,7 +132,10 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 0.45,
+        "output": 3.6
+      },
       "context_length": 272000,
       "max_output_tokens": 128000,
       "is_open_source": false,
@@ -241,17 +152,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140506"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:gpt-5-nano",
       "provider": "openai",
       "model_id": "gpt-5-nano",
-      "model_name": "GPT-5 Nano",
+      "model_name": "gpt-5-nano",
       "pricing": {
-        "input": 0.05,
-        "output": 0.4,
-        "cached_input": 0.005,
+        "input": 0.025,
+        "output": 0.2,
+        "cached_input": 0.0025,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -259,7 +170,10 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 0.05,
+        "output": 0.4
+      },
       "context_length": 272000,
       "max_output_tokens": 128000,
       "is_open_source": false,
@@ -274,17 +188,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140520"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-5-pro",
+      "id": "openai:gpt-52-pro",
       "provider": "openai",
-      "model_id": "gpt-5-pro",
-      "model_name": "GPT-5 Pro",
+      "model_id": "gpt-52-pro",
+      "model_name": "gpt-5.2-pro",
       "pricing": {
-        "input": 15.0,
-        "output": 120.0,
-        "cached_input": 1.5,
+        "input": 10.5,
+        "output": null,
+        "cached_input": null,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -292,7 +206,48 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 21.0,
+        "output": null
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-5-pro",
+      "provider": "openai",
+      "model_id": "gpt-5-pro",
+      "model_name": "gpt-5-pro",
+      "pricing": {
+        "input": 7.5,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 15.0,
+        "output": null
+      },
       "context_length": 128000,
       "max_output_tokens": 272000,
       "is_open_source": false,
@@ -309,47 +264,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140534"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4.5-preview",
+      "id": "openai:gpt-41",
       "provider": "openai",
-      "model_id": "gpt-4.5-preview",
-      "model_name": "GPT-4.5 Preview",
-      "pricing": {
-        "input": 75.0,
-        "output": 150.0,
-        "cached_input": 37.5,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140548"
-    },
-    {
-      "id": "openai:gpt-4.1",
-      "provider": "openai",
-      "model_id": "gpt-4.1",
-      "model_name": "GPT-4.1",
+      "model_id": "gpt-41",
+      "model_name": "gpt-4.1",
       "pricing": {
         "input": 2.0,
         "output": 8.0,
@@ -362,31 +283,29 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 1.0,
-        "output": 4.0
+        "input": 3.5,
+        "output": 14.0
       },
-      "context_length": 1047576,
-      "max_output_tokens": 32768,
+      "context_length": null,
+      "max_output_tokens": null,
       "is_open_source": false,
       "capabilities": [
         "text",
-        "vision",
         "tool_use"
       ],
       "input_modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140569"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4.1-mini",
+      "id": "openai:gpt-41-mini",
       "provider": "openai",
-      "model_id": "gpt-4.1-mini",
-      "model_name": "GPT-4.1 Mini",
+      "model_id": "gpt-41-mini",
+      "model_name": "gpt-4.1-mini",
       "pricing": {
         "input": 0.4,
         "output": 1.6,
@@ -399,31 +318,29 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.2,
-        "output": 0.8
+        "input": 0.7,
+        "output": 2.8
       },
-      "context_length": 1047576,
-      "max_output_tokens": 32768,
+      "context_length": 128000,
+      "max_output_tokens": 16384,
       "is_open_source": false,
       "capabilities": [
         "text",
-        "vision",
         "tool_use"
       ],
       "input_modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140588"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4.1-nano",
+      "id": "openai:gpt-41-nano",
       "provider": "openai",
-      "model_id": "gpt-4.1-nano",
-      "model_name": "GPT-4.1 Nano",
+      "model_id": "gpt-41-nano",
+      "model_name": "gpt-4.1-nano",
       "pricing": {
         "input": 0.1,
         "output": 0.4,
@@ -436,31 +353,29 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.05,
-        "output": 0.2
+        "input": 0.2,
+        "output": 0.8
       },
-      "context_length": 1047576,
-      "max_output_tokens": 32768,
+      "context_length": 272000,
+      "max_output_tokens": 128000,
       "is_open_source": false,
       "capabilities": [
         "text",
-        "vision",
         "tool_use"
       ],
       "input_modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140610"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:gpt-4o",
       "provider": "openai",
       "model_id": "gpt-4o",
-      "model_name": "GPT-4o",
+      "model_name": "gpt-4o",
       "pricing": {
         "input": 2.5,
         "output": 10.0,
@@ -473,8 +388,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 1.25,
-        "output": 5.0
+        "input": 4.25,
+        "output": 17.0
       },
       "context_length": 128000,
       "max_output_tokens": 16384,
@@ -491,17 +406,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140638"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:chatgpt-4o-latest",
+      "id": "openai:gpt-4o-2024-05-13",
       "provider": "openai",
-      "model_id": "chatgpt-4o-latest",
-      "model_name": "ChatGPT-4o Latest",
+      "model_id": "gpt-4o-2024-05-13",
+      "model_name": "gpt-4o-2024-05-13",
       "pricing": {
-        "input": 5.0,
-        "output": 15.0,
-        "cached_input": 2.5,
+        "input": 2.5,
+        "output": null,
+        "cached_input": null,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -509,7 +424,10 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 8.75,
+        "output": null
+      },
       "context_length": 128000,
       "max_output_tokens": 4096,
       "is_open_source": false,
@@ -525,13 +443,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140653"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:gpt-4o-mini",
       "provider": "openai",
       "model_id": "gpt-4o-mini",
-      "model_name": "GPT-4o Mini",
+      "model_name": "gpt-4o-mini",
       "pricing": {
         "input": 0.15,
         "output": 0.6,
@@ -544,8 +462,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.075,
-        "output": 0.3
+        "input": 0.25,
+        "output": 1.0
       },
       "context_length": 128000,
       "max_output_tokens": 16384,
@@ -562,121 +480,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140670"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4o-search-preview",
+      "id": "openai:o1",
       "provider": "openai",
-      "model_id": "gpt-4o-search-preview",
-      "model_name": "GPT-4o Search Preview",
+      "model_id": "o1",
+      "model_name": "o1",
       "pricing": {
-        "input": 2.5,
-        "output": 10.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "web_search",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140748"
-    },
-    {
-      "id": "openai:gpt-4o-mini-search-preview",
-      "provider": "openai",
-      "model_id": "gpt-4o-mini-search-preview",
-      "model_name": "GPT-4o Mini Search Preview",
-      "pricing": {
-        "input": 0.15,
-        "output": 0.6,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "web_search",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140825"
-    },
-    {
-      "id": "openai:computer-use-preview",
-      "provider": "openai",
-      "model_id": "computer-use-preview",
-      "model_name": "Computer Use Preview",
-      "pricing": {
-        "input": 3.0,
-        "output": 12.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 8192,
-      "max_output_tokens": 1024,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "computer_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.140855"
-    },
-    {
-      "id": "openai:o3",
-      "provider": "openai",
-      "model_id": "o3",
-      "model_name": "O3",
-      "pricing": {
-        "input": 2.0,
-        "output": 8.0,
-        "cached_input": 1.0,
+        "input": 15.0,
+        "output": 60.0,
+        "cached_input": 7.5,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -685,8 +499,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 1.0,
-        "output": 4.0
+        "input": 15.0,
+        "output": 60.0
       },
       "context_length": 200000,
       "max_output_tokens": 100000,
@@ -704,52 +518,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.140919"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:o3-pro",
+      "id": "openai:o1-pro",
       "provider": "openai",
-      "model_id": "o3-pro",
-      "model_name": "O3 Pro",
+      "model_id": "o1-pro",
+      "model_name": "o1-pro",
       "pricing": {
-        "input": 20.0,
-        "output": 80.0,
-        "cached_input": 10.0,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 200000,
-      "max_output_tokens": 100000,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "reasoning",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141031"
-    },
-    {
-      "id": "openai:o3-mini",
-      "provider": "openai",
-      "model_id": "o3-mini",
-      "model_name": "O3 Mini",
-      "pricing": {
-        "input": 1.1,
-        "output": 4.4,
-        "cached_input": 0.55,
+        "input": 75.0,
+        "output": null,
+        "cached_input": null,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -758,8 +537,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.55,
-        "output": 2.2
+        "input": 150.0,
+        "output": null
       },
       "context_length": 200000,
       "max_output_tokens": 100000,
@@ -774,13 +553,89 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141093"
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:o3-pro",
+      "provider": "openai",
+      "model_id": "o3-pro",
+      "model_name": "o3-pro",
+      "pricing": {
+        "input": 10.0,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 20.0,
+        "output": null
+      },
+      "context_length": 200000,
+      "max_output_tokens": 100000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:o3",
+      "provider": "openai",
+      "model_id": "o3",
+      "model_name": "o3",
+      "pricing": {
+        "input": 1.0,
+        "output": 4.0,
+        "cached_input": 0.25,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 3.5,
+        "output": 14.0
+      },
+      "context_length": 200000,
+      "max_output_tokens": 100000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:o3-deep-research",
       "provider": "openai",
       "model_id": "o3-deep-research",
-      "model_name": "O3 Deep Research",
+      "model_name": "o3-deep-research",
       "pricing": {
         "input": 10.0,
         "output": 40.0,
@@ -792,7 +647,10 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 40.0
+      },
       "context_length": 200000,
       "max_output_tokens": 100000,
       "is_open_source": false,
@@ -800,7 +658,8 @@
         "text",
         "vision",
         "reasoning",
-        "tool_use"
+        "tool_use",
+        "web_search"
       ],
       "input_modalities": [
         "text",
@@ -809,17 +668,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141118"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:o4-mini",
       "provider": "openai",
       "model_id": "o4-mini",
-      "model_name": "O4 Mini",
+      "model_name": "o4-mini",
       "pricing": {
-        "input": 1.1,
-        "output": 4.4,
-        "cached_input": 0.55,
+        "input": 0.55,
+        "output": 2.2,
+        "cached_input": 0.138,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -828,8 +687,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.55,
-        "output": 2.2
+        "input": 2.0,
+        "output": 8.0
       },
       "context_length": 200000,
       "max_output_tokens": 100000,
@@ -847,52 +706,17 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141139"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
       "id": "openai:o4-mini-deep-research",
       "provider": "openai",
       "model_id": "o4-mini-deep-research",
-      "model_name": "O4 Mini Deep Research",
+      "model_name": "o4-mini-deep-research",
       "pricing": {
         "input": 2.0,
         "output": 8.0,
-        "cached_input": 1.0,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 200000,
-      "max_output_tokens": 100000,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "vision",
-        "reasoning",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141157"
-    },
-    {
-      "id": "openai:o1",
-      "provider": "openai",
-      "model_id": "o1",
-      "model_name": "O1",
-      "pricing": {
-        "input": 15.0,
-        "output": 60.0,
-        "cached_input": 7.5,
+        "cached_input": 0.5,
         "cached_write": null,
         "reasoning": null,
         "image_input": null,
@@ -901,8 +725,8 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 7.5,
-        "output": 30.0
+        "input": 2.0,
+        "output": 8.0
       },
       "context_length": 200000,
       "max_output_tokens": 100000,
@@ -911,7 +735,8 @@
         "text",
         "vision",
         "reasoning",
-        "tool_use"
+        "tool_use",
+        "web_search"
       ],
       "input_modalities": [
         "text",
@@ -920,13 +745,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141223"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:o1-mini",
+      "id": "openai:o3-mini",
       "provider": "openai",
-      "model_id": "o1-mini",
-      "model_name": "O1 Mini",
+      "model_id": "o3-mini",
+      "model_name": "o3-mini",
       "pricing": {
         "input": 1.1,
         "output": 4.4,
@@ -939,8 +764,43 @@
         "embedding": null
       },
       "batch_pricing": {
-        "input": 0.55,
-        "output": 2.2
+        "input": 1.1,
+        "output": 4.4
+      },
+      "context_length": 200000,
+      "max_output_tokens": 100000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:o1-mini",
+      "provider": "openai",
+      "model_id": "o1-mini",
+      "model_name": "o1-mini",
+      "pricing": {
+        "input": 1.1,
+        "output": 4.4,
+        "cached_input": 0.55,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.1,
+        "output": 4.4
       },
       "context_length": 128000,
       "max_output_tokens": 65536,
@@ -955,16 +815,16 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141260"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:o1-pro",
+      "id": "openai:computer-use-preview",
       "provider": "openai",
-      "model_id": "o1-pro",
-      "model_name": "O1 Pro",
+      "model_id": "computer-use-preview",
+      "model_name": "computer-use-preview",
       "pricing": {
-        "input": 150.0,
-        "output": 600.0,
+        "input": 1.5,
+        "output": null,
         "cached_input": null,
         "cached_write": null,
         "reasoning": null,
@@ -973,13 +833,16 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
-      "context_length": 200000,
-      "max_output_tokens": 100000,
+      "batch_pricing": {
+        "input": 3.0,
+        "output": null
+      },
+      "context_length": 8192,
+      "max_output_tokens": 1024,
       "is_open_source": false,
       "capabilities": [
         "text",
-        "reasoning"
+        "computer_use"
       ],
       "input_modalities": [
         "text"
@@ -987,13 +850,565 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141279"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:codex-mini",
+      "id": "openai:gpt-52-chat-latest",
       "provider": "openai",
-      "model_id": "codex-mini",
-      "model_name": "Codex Mini",
+      "model_id": "gpt-52-chat-latest",
+      "model_name": "gpt-5.2-chat-latest",
+      "pricing": {
+        "input": 1.75,
+        "output": 14.0,
+        "cached_input": 0.175,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.75,
+        "output": 14.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-51-chat-latest",
+      "provider": "openai",
+      "model_id": "gpt-51-chat-latest",
+      "model_name": "gpt-5.1-chat-latest",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.25,
+        "output": 10.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-5-chat-latest",
+      "provider": "openai",
+      "model_id": "gpt-5-chat-latest",
+      "model_name": "gpt-5-chat-latest",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.25,
+        "output": 10.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-52-codex",
+      "provider": "openai",
+      "model_id": "gpt-52-codex",
+      "model_name": "gpt-5.2-codex",
+      "pricing": {
+        "input": 1.75,
+        "output": 14.0,
+        "cached_input": 0.175,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 3.5,
+        "output": 28.0
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-51-codex-max",
+      "provider": "openai",
+      "model_id": "gpt-51-codex-max",
+      "model_name": "gpt-5.1-codex-max",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 20.0
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-51-codex",
+      "provider": "openai",
+      "model_id": "gpt-51-codex",
+      "model_name": "gpt-5.1-codex",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 20.0
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-5-codex",
+      "provider": "openai",
+      "model_id": "gpt-5-codex",
+      "model_name": "gpt-5-codex",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.5,
+        "output": 20.0
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-realtime",
+      "provider": "openai",
+      "model_id": "gpt-realtime",
+      "model_name": "gpt-realtime",
+      "pricing": {
+        "input": 4.0,
+        "output": 16.0,
+        "cached_input": 0.4,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 32.0,
+        "output": 64.0
+      },
+      "context_length": 32000,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-realtime-mini",
+      "provider": "openai",
+      "model_id": "gpt-realtime-mini",
+      "model_name": "gpt-realtime-mini",
+      "pricing": {
+        "input": 0.6,
+        "output": 2.4,
+        "cached_input": 0.06,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 20.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "audio"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-realtime-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-realtime-preview",
+      "model_name": "gpt-4o-realtime-preview",
+      "pricing": {
+        "input": 5.0,
+        "output": 20.0,
+        "cached_input": 2.5,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 40.0,
+        "output": 80.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-realtime-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-realtime-preview",
+      "model_name": "gpt-4o-mini-realtime-preview",
+      "pricing": {
+        "input": 0.6,
+        "output": 2.4,
+        "cached_input": 0.3,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 20.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "audio",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "audio"
+      ],
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-audio",
+      "provider": "openai",
+      "model_id": "gpt-audio",
+      "model_name": "gpt-audio",
+      "pricing": {
+        "input": 2.5,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 32.0,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-audio-mini",
+      "provider": "openai",
+      "model_id": "gpt-audio-mini",
+      "model_name": "gpt-audio-mini",
+      "pricing": {
+        "input": 0.6,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-audio-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-audio-preview",
+      "model_name": "gpt-4o-audio-preview",
+      "pricing": {
+        "input": 2.5,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 40.0,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-audio-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-audio-preview",
+      "model_name": "gpt-4o-mini-audio-preview",
+      "pricing": {
+        "input": 0.15,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-51-codex-mini",
+      "provider": "openai",
+      "model_id": "gpt-51-codex-mini",
+      "model_name": "gpt-5.1-codex-mini",
       "pricing": {
         "input": 0.25,
         "output": 2.0,
@@ -1005,9 +1420,620 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": 0.25,
+        "output": 2.0
+      },
+      "context_length": 272000,
+      "max_output_tokens": 128000,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:codex-mini-latest",
+      "provider": "openai",
+      "model_id": "codex-mini-latest",
+      "model_name": "codex-mini-latest",
+      "pricing": {
+        "input": 1.5,
+        "output": 6.0,
+        "cached_input": 0.375,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 6.0
+      },
       "context_length": 200000,
       "max_output_tokens": 100000,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-5-search-api",
+      "provider": "openai",
+      "model_id": "gpt-5-search-api",
+      "model_name": "gpt-5-search-api",
+      "pricing": {
+        "input": 1.25,
+        "output": 10.0,
+        "cached_input": 0.125,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.25,
+        "output": 10.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use",
+        "web_search"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-search-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-search-preview",
+      "model_name": "gpt-4o-mini-search-preview",
+      "pricing": {
+        "input": 0.15,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.15,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use",
+        "web_search"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-search-preview",
+      "provider": "openai",
+      "model_id": "gpt-4o-search-preview",
+      "model_name": "gpt-4o-search-preview",
+      "pricing": {
+        "input": 2.5,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.5,
+        "output": null
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use",
+        "web_search"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-image-15",
+      "provider": "openai",
+      "model_id": "gpt-image-15",
+      "model_name": "gpt-image-1.5",
+      "pricing": {
+        "input": 5.0,
+        "output": 10.0,
+        "cached_input": 1.25,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.013
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:chatgpt-image-latest",
+      "provider": "openai",
+      "model_id": "chatgpt-image-latest",
+      "model_name": "chatgpt-image-latest",
+      "pricing": {
+        "input": 5.0,
+        "output": 10.0,
+        "cached_input": 1.25,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 8.0,
+        "output": 32.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-image-1",
+      "provider": "openai",
+      "model_id": "gpt-image-1",
+      "model_name": "gpt-image-1",
+      "pricing": {
+        "input": 10.0,
+        "output": 40.0,
+        "cached_input": 2.5,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.016
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-image-1-mini",
+      "provider": "openai",
+      "model_id": "gpt-image-1-mini",
+      "model_name": "gpt-image-1-mini",
+      "pricing": {
+        "input": 2.5,
+        "output": 8.0,
+        "cached_input": 0.25,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.006
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:sora-2",
+      "provider": "openai",
+      "model_id": "sora-2",
+      "model_name": "sora-2",
+      "pricing": {
+        "input": 720.0,
+        "output": 0.1,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 720.0,
+        "output": 0.1
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:sora-2-pro",
+      "provider": "openai",
+      "model_id": "sora-2-pro",
+      "model_name": "sora-2-pro",
+      "pricing": {
+        "input": 720.0,
+        "output": 0.3,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1024.0,
+        "output": 0.5
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:o4-mini-2025-04-16",
+      "provider": "openai",
+      "model_id": "o4-mini-2025-04-16",
+      "model_name": "o4-mini-2025-04-16",
+      "pricing": {
+        "input": 100.0,
+        "output": 0.5,
+        "cached_input": 2.0,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 100.0,
+        "output": 1.0
+      },
+      "context_length": 200000,
+      "max_output_tokens": 100000,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "vision",
+        "reasoning",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-41-2025-04-14",
+      "provider": "openai",
+      "model_id": "gpt-41-2025-04-14",
+      "model_name": "gpt-4.1-2025-04-14",
+      "pricing": {
+        "input": 25.0,
+        "output": 0.5,
+        "cached_input": 1.5,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 25.0,
+        "output": 0.75
+      },
+      "context_length": 1047576,
+      "max_output_tokens": 32768,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-41-mini-2025-04-14",
+      "provider": "openai",
+      "model_id": "gpt-41-mini-2025-04-14",
+      "model_name": "gpt-4.1-mini-2025-04-14",
+      "pricing": {
+        "input": 5.0,
+        "output": 0.1,
+        "cached_input": 0.4,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 5.0,
+        "output": 0.2
+      },
+      "context_length": 1047576,
+      "max_output_tokens": 32768,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-41-nano-2025-04-14",
+      "provider": "openai",
+      "model_id": "gpt-41-nano-2025-04-14",
+      "model_name": "gpt-4.1-nano-2025-04-14",
+      "pricing": {
+        "input": 1.5,
+        "output": 0.025,
+        "cached_input": 0.1,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 0.05
+      },
+      "context_length": 1047576,
+      "max_output_tokens": 32768,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-2024-08-06",
+      "provider": "openai",
+      "model_id": "gpt-4o-2024-08-06",
+      "model_name": "gpt-4o-2024-08-06",
+      "pricing": {
+        "input": 25.0,
+        "output": 0.9,
+        "cached_input": 2.225,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 25.0,
+        "output": 1.875
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-2024-07-18",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-2024-07-18",
+      "model_name": "gpt-4o-mini-2024-07-18",
+      "pricing": {
+        "input": 3.0,
+        "output": 0.075,
+        "cached_input": 0.15,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 3.0,
+        "output": 0.15
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "vision",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-turbo",
+      "provider": "openai",
+      "model_id": "gpt-35-turbo",
+      "model_name": "gpt-3.5-turbo",
+      "pricing": {
+        "input": 0.5,
+        "output": 1.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.5,
+        "output": 1.5
+      },
+      "context_length": 4097,
+      "max_output_tokens": 4096,
       "is_open_source": false,
       "capabilities": [
         "text"
@@ -1018,15 +2044,279 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141299"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4-turbo",
+      "id": "openai:davinci-002",
       "provider": "openai",
-      "model_id": "gpt-4-turbo",
-      "model_name": "GPT-4 Turbo",
+      "model_id": "davinci-002",
+      "model_name": "davinci-002",
       "pricing": {
-        "input": 10.0,
+        "input": 1.0,
+        "output": 1.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 2.0,
+        "output": 2.0
+      },
+      "context_length": 16384,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:babbage-002",
+      "provider": "openai",
+      "model_id": "babbage-002",
+      "model_name": "babbage-002",
+      "pricing": {
+        "input": 0.2,
+        "output": 0.2,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.4,
+        "output": 0.4
+      },
+      "context_length": 16384,
+      "max_output_tokens": 4096,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-tts",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-tts",
+      "model_name": "gpt-4o-mini-tts",
+      "pricing": {
+        "input": 0.6,
+        "output": null,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.015
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "tts"
+      ],
+      "input_modalities": [],
+      "output_modalities": [],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-transcribe",
+      "provider": "openai",
+      "model_id": "gpt-4o-transcribe",
+      "model_name": "gpt-4o-transcribe",
+      "pricing": {
+        "input": 2.5,
+        "output": 0.006,
+        "cached_input": 10.0,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 6.0,
+        "output": null
+      },
+      "context_length": 16000,
+      "max_output_tokens": 2000,
+      "is_open_source": false,
+      "capabilities": [
+        "audio"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-transcribe-diarize",
+      "provider": "openai",
+      "model_id": "gpt-4o-transcribe-diarize",
+      "model_name": "gpt-4o-transcribe-diarize",
+      "pricing": {
+        "input": 2.5,
+        "output": 0.006,
+        "cached_input": 10.0,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 6.0,
+        "output": null
+      },
+      "context_length": 16000,
+      "max_output_tokens": 2000,
+      "is_open_source": false,
+      "capabilities": [
+        "audio"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4o-mini-transcribe",
+      "provider": "openai",
+      "model_id": "gpt-4o-mini-transcribe",
+      "model_name": "gpt-4o-mini-transcribe",
+      "pricing": {
+        "input": 1.25,
+        "output": 0.003,
+        "cached_input": 5.0,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 3.0,
+        "output": null
+      },
+      "context_length": 16000,
+      "max_output_tokens": 2000,
+      "is_open_source": false,
+      "capabilities": [
+        "audio"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:whisper",
+      "provider": "openai",
+      "model_id": "whisper",
+      "model_name": "Whisper",
+      "pricing": {
+        "input": null,
+        "output": 0.006,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.006
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "audio"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:tts",
+      "provider": "openai",
+      "model_id": "tts",
+      "model_name": "TTS",
+      "pricing": {
+        "input": null,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 15.0
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "tts"
+      ],
+      "input_modalities": [],
+      "output_modalities": [],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:tts-hd",
+      "provider": "openai",
+      "model_id": "tts-hd",
+      "model_name": "TTS HD",
+      "pricing": {
+        "input": null,
         "output": 30.0,
         "cached_input": null,
         "cached_write": null,
@@ -1036,7 +2326,591 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
+      "batch_pricing": {
+        "input": null,
+        "output": 30.0
+      },
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "tts"
+      ],
+      "input_modalities": [],
+      "output_modalities": [],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-image-latest",
+      "provider": "openai",
+      "model_id": "gpt-image-latest",
+      "model_name": "GPT Image Latest",
+      "pricing": {
+        "input": null,
+        "output": 0.013,
+        "cached_input": 0.009,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": null,
+        "output": 0.013
+      },
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": true,
+      "capabilities": [
+        "image_generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:text-embedding-3-small",
+      "provider": "openai",
+      "model_id": "text-embedding-3-small",
+      "model_name": "text-embedding-3-small",
+      "pricing": {
+        "input": 0.02,
+        "output": 0.03,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.02,
+        "output": 0.01
+      },
+      "context_length": 8191,
+      "max_output_tokens": 8191,
+      "is_open_source": false,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:text-embedding-3-large",
+      "provider": "openai",
+      "model_id": "text-embedding-3-large",
+      "model_name": "text-embedding-3-large",
+      "pricing": {
+        "input": 0.13,
+        "output": 0.02,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.13,
+        "output": 0.065
+      },
+      "context_length": 8191,
+      "max_output_tokens": 8191,
+      "is_open_source": false,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:text-embedding-ada-002",
+      "provider": "openai",
+      "model_id": "text-embedding-ada-002",
+      "model_name": "text-embedding-ada-002",
+      "pricing": {
+        "input": 0.1,
+        "output": 0.1,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.1,
+        "output": 0.05
+      },
+      "context_length": 8191,
+      "max_output_tokens": 8191,
+      "is_open_source": false,
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-turbo-2024-04-09",
+      "provider": "openai",
+      "model_id": "gpt-4-turbo-2024-04-09",
+      "model_name": "gpt-4-turbo-2024-04-09",
+      "pricing": {
+        "input": 5.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-0125-preview",
+      "provider": "openai",
+      "model_id": "gpt-4-0125-preview",
+      "model_name": "gpt-4-0125-preview",
+      "pricing": {
+        "input": 5.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-1106-preview",
+      "provider": "openai",
+      "model_id": "gpt-4-1106-preview",
+      "model_name": "gpt-4-1106-preview",
+      "pricing": {
+        "input": 5.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-1106-vision-preview",
+      "provider": "openai",
+      "model_id": "gpt-4-1106-vision-preview",
+      "model_name": "gpt-4-1106-vision-preview",
+      "pricing": {
+        "input": 5.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 10.0,
+        "output": 30.0
+      },
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-0613",
+      "provider": "openai",
+      "model_id": "gpt-4-0613",
+      "model_name": "gpt-4-0613",
+      "pricing": {
+        "input": 15.0,
+        "output": 30.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 30.0,
+        "output": 60.0
+      },
+      "context_length": 8192,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-0314",
+      "provider": "openai",
+      "model_id": "gpt-4-0314",
+      "model_name": "gpt-4-0314",
+      "pricing": {
+        "input": 15.0,
+        "output": 30.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 30.0,
+        "output": 60.0
+      },
+      "context_length": 8192,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-4-32k",
+      "provider": "openai",
+      "model_id": "gpt-4-32k",
+      "model_name": "gpt-4-32k",
+      "pricing": {
+        "input": 30.0,
+        "output": 60.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 60.0,
+        "output": 120.0
+      },
+      "context_length": 32768,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-turbo-0125",
+      "provider": "openai",
+      "model_id": "gpt-35-turbo-0125",
+      "model_name": "gpt-3.5-turbo-0125",
+      "pricing": {
+        "input": 0.25,
+        "output": 0.75,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 0.5,
+        "output": 1.5
+      },
+      "context_length": 16384,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-turbo-1106",
+      "provider": "openai",
+      "model_id": "gpt-35-turbo-1106",
+      "model_name": "gpt-3.5-turbo-1106",
+      "pricing": {
+        "input": 1.0,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.0,
+        "output": 2.0
+      },
+      "context_length": 16384,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-turbo-0613",
+      "provider": "openai",
+      "model_id": "gpt-35-turbo-0613",
+      "model_name": "gpt-3.5-turbo-0613",
+      "pricing": {
+        "input": 1.5,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 2.0
+      },
+      "context_length": 4097,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-0301",
+      "provider": "openai",
+      "model_id": "gpt-35-0301",
+      "model_name": "gpt-3.5-0301",
+      "pricing": {
+        "input": 1.5,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 2.0
+      },
+      "context_length": 4097,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:gpt-35-turbo-16k-0613",
+      "provider": "openai",
+      "model_id": "gpt-35-turbo-16k-0613",
+      "model_name": "gpt-3.5-turbo-16k-0613",
+      "pricing": {
+        "input": 1.5,
+        "output": 2.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 3.0,
+        "output": 4.0
+      },
+      "context_length": 16385,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T16:46:38.571829"
+    },
+    {
+      "id": "openai:chatgpt-4o-latest",
+      "provider": "openai",
+      "model_id": "chatgpt-4o-latest",
+      "model_name": "chatgpt-4o-latest",
+      "pricing": {
+        "input": 5.0,
+        "output": 15.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": {
+        "input": 5.0,
+        "output": 15.0
+      },
       "context_length": 128000,
       "max_output_tokens": 4096,
       "is_open_source": false,
@@ -1052,112 +2926,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141315"
+      "last_updated": "2026-01-22T16:46:38.571829"
     },
     {
-      "id": "openai:gpt-4",
+      "id": "openai:gpt-35-turbo-instruct",
       "provider": "openai",
-      "model_id": "gpt-4",
-      "model_name": "GPT-4",
-      "pricing": {
-        "input": 30.0,
-        "output": 60.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 8192,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141336"
-    },
-    {
-      "id": "openai:gpt-4-32k",
-      "provider": "openai",
-      "model_id": "gpt-4-32k",
-      "model_name": "GPT-4 32K",
-      "pricing": {
-        "input": 60.0,
-        "output": 120.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 32768,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141350"
-    },
-    {
-      "id": "openai:gpt-3.5-turbo",
-      "provider": "openai",
-      "model_id": "gpt-3.5-turbo",
-      "model_name": "GPT-3.5 Turbo",
-      "pricing": {
-        "input": 0.5,
-        "output": 1.5,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": {
-        "input": 0.25,
-        "output": 0.75
-      },
-      "context_length": 16385,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141368"
-    },
-    {
-      "id": "openai:gpt-3.5-turbo-instruct",
-      "provider": "openai",
-      "model_id": "gpt-3.5-turbo-instruct",
-      "model_name": "GPT-3.5 Turbo Instruct",
+      "model_id": "gpt-35-turbo-instruct",
+      "model_name": "gpt-3.5-turbo-instruct",
       "pricing": {
         "input": 1.5,
         "output": 2.0,
@@ -1169,8 +2944,11 @@
         "audio_output": null,
         "embedding": null
       },
-      "batch_pricing": null,
-      "context_length": 8192,
+      "batch_pricing": {
+        "input": 1.5,
+        "output": 2.0
+      },
+      "context_length": 4097,
       "max_output_tokens": 4096,
       "is_open_source": false,
       "capabilities": [
@@ -1182,609 +2960,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-22T11:29:13.141383"
-    },
-    {
-      "id": "openai:gpt-4o-realtime",
-      "provider": "openai",
-      "model_id": "gpt-4o-realtime",
-      "model_name": "GPT-4o Realtime",
-      "pricing": {
-        "input": 5.0,
-        "output": 20.0,
-        "cached_input": 2.5,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 40.0,
-        "audio_output": 80.0,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "audio"
-      ],
-      "input_modalities": [
-        "text",
-        "audio"
-      ],
-      "output_modalities": [
-        "text",
-        "audio"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141424"
-    },
-    {
-      "id": "openai:gpt-4o-mini-realtime",
-      "provider": "openai",
-      "model_id": "gpt-4o-mini-realtime",
-      "model_name": "GPT-4o Mini Realtime",
-      "pricing": {
-        "input": 0.6,
-        "output": 2.4,
-        "cached_input": 0.3,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 10.0,
-        "audio_output": 20.0,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "audio"
-      ],
-      "input_modalities": [
-        "text",
-        "audio"
-      ],
-      "output_modalities": [
-        "text",
-        "audio"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141487"
-    },
-    {
-      "id": "openai:gpt-4o-audio-preview",
-      "provider": "openai",
-      "model_id": "gpt-4o-audio-preview",
-      "model_name": "GPT-4o Audio Preview",
-      "pricing": {
-        "input": 2.5,
-        "output": 10.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 40.0,
-        "audio_output": 80.0,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "audio"
-      ],
-      "input_modalities": [
-        "text",
-        "audio"
-      ],
-      "output_modalities": [
-        "text",
-        "audio"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141577"
-    },
-    {
-      "id": "openai:gpt-4o-mini-audio-preview",
-      "provider": "openai",
-      "model_id": "gpt-4o-mini-audio-preview",
-      "model_name": "GPT-4o Mini Audio Preview",
-      "pricing": {
-        "input": 0.15,
-        "output": 0.6,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 10.0,
-        "audio_output": 20.0,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "audio"
-      ],
-      "input_modalities": [
-        "text",
-        "audio"
-      ],
-      "output_modalities": [
-        "text",
-        "audio"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141665"
-    },
-    {
-      "id": "openai:gpt-4o-transcribe",
-      "provider": "openai",
-      "model_id": "gpt-4o-transcribe",
-      "model_name": "GPT-4o Transcribe",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 6.0,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 16000,
-      "max_output_tokens": 2000,
-      "is_open_source": false,
-      "capabilities": [
-        "audio"
-      ],
-      "input_modalities": [
-        "audio"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141740"
-    },
-    {
-      "id": "openai:gpt-4o-mini-transcribe",
-      "provider": "openai",
-      "model_id": "gpt-4o-mini-transcribe",
-      "model_name": "GPT-4o Mini Transcribe",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 3.0,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 16000,
-      "max_output_tokens": 2000,
-      "is_open_source": false,
-      "capabilities": [
-        "audio"
-      ],
-      "input_modalities": [
-        "audio"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141778"
-    },
-    {
-      "id": "openai:whisper",
-      "provider": "openai",
-      "model_id": "whisper",
-      "model_name": "Whisper",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": 6.0,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "audio"
-      ],
-      "input_modalities": [
-        "audio"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141876"
-    },
-    {
-      "id": "openai:tts-1",
-      "provider": "openai",
-      "model_id": "tts-1",
-      "model_name": "TTS-1",
-      "pricing": {
-        "input": null,
-        "output": 15.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "tts"
-      ],
-      "input_modalities": [],
-      "output_modalities": [],
-      "last_updated": "2026-01-22T11:29:13.141917"
-    },
-    {
-      "id": "openai:tts-1-hd",
-      "provider": "openai",
-      "model_id": "tts-1-hd",
-      "model_name": "TTS-1 HD",
-      "pricing": {
-        "input": null,
-        "output": 30.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "tts"
-      ],
-      "input_modalities": [],
-      "output_modalities": [],
-      "last_updated": "2026-01-22T11:29:13.141937"
-    },
-    {
-      "id": "openai:text-embedding-3-small",
-      "provider": "openai",
-      "model_id": "text-embedding-3-small",
-      "model_name": "Text Embedding 3 Small",
-      "pricing": {
-        "input": null,
-        "output": 0.03,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": 0.02
-      },
-      "batch_pricing": {
-        "input": 0.01,
-        "output": null
-      },
-      "context_length": 8191,
-      "max_output_tokens": 8191,
-      "is_open_source": false,
-      "capabilities": [
-        "embedding"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "embedding"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141958"
-    },
-    {
-      "id": "openai:text-embedding-3-large",
-      "provider": "openai",
-      "model_id": "text-embedding-3-large",
-      "model_name": "Text Embedding 3 Large",
-      "pricing": {
-        "input": null,
-        "output": 0.02,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": 0.13
-      },
-      "batch_pricing": {
-        "input": 0.065,
-        "output": null
-      },
-      "context_length": 8191,
-      "max_output_tokens": 8191,
-      "is_open_source": false,
-      "capabilities": [
-        "embedding"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "embedding"
-      ],
-      "last_updated": "2026-01-22T11:29:13.141982"
-    },
-    {
-      "id": "openai:text-embedding-ada-002",
-      "provider": "openai",
-      "model_id": "text-embedding-ada-002",
-      "model_name": "Text Embedding Ada 002",
-      "pricing": {
-        "input": null,
-        "output": 0.1,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": 0.1
-      },
-      "batch_pricing": {
-        "input": 0.05,
-        "output": null
-      },
-      "context_length": 8191,
-      "max_output_tokens": 8191,
-      "is_open_source": false,
-      "capabilities": [
-        "embedding"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "embedding"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142057"
-    },
-    {
-      "id": "openai:gpt-image-1.5",
-      "provider": "openai",
-      "model_id": "gpt-image-1.5",
-      "model_name": "GPT Image 1.5",
-      "pricing": {
-        "input": 4.0,
-        "output": 32.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": false,
-      "capabilities": [
-        "image_generation"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "image"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142092"
-    },
-    {
-      "id": "openai:gpt-image-1",
-      "provider": "openai",
-      "model_id": "gpt-image-1",
-      "model_name": "GPT Image 1",
-      "pricing": {
-        "input": 5.0,
-        "output": 40.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": false,
-      "capabilities": [
-        "image_generation"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "image"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142113"
-    },
-    {
-      "id": "openai:dall-e-3",
-      "provider": "openai",
-      "model_id": "dall-e-3",
-      "model_name": "DALL-E 3",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "image_generation"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "image"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142130"
-    },
-    {
-      "id": "openai:dall-e-2",
-      "provider": "openai",
-      "model_id": "dall-e-2",
-      "model_name": "DALL-E 2",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "image_generation"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "image"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142206"
-    },
-    {
-      "id": "openai:gpt-oss-20b",
-      "provider": "openai",
-      "model_id": "gpt-oss-20b",
-      "model_name": "GPT-OSS 20B",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 131072,
-      "max_output_tokens": 131072,
-      "is_open_source": true,
-      "capabilities": [
-        "text"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142260"
-    },
-    {
-      "id": "openai:gpt-oss-120b",
-      "provider": "openai",
-      "model_id": "gpt-oss-120b",
-      "model_name": "GPT-OSS 120B",
-      "pricing": {
-        "input": null,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 131072,
-      "max_output_tokens": 131072,
-      "is_open_source": true,
-      "capabilities": [
-        "text"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142283"
-    },
-    {
-      "id": "openai:omni-moderation",
-      "provider": "openai",
-      "model_id": "omni-moderation",
-      "model_name": "Omni Moderation",
-      "pricing": {
-        "input": 0.0,
-        "output": null,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 32768,
-      "max_output_tokens": 0,
-      "is_open_source": null,
-      "capabilities": [
-        "moderation"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-22T11:29:13.142338"
+      "last_updated": "2026-01-22T16:46:38.571829"
     }
   ]
 }
