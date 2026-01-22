@@ -1,7 +1,195 @@
 {
   "provider": "openrouter",
-  "last_updated": "2026-01-19T22:08:34.041993",
+  "last_updated": "2026-01-22T11:28:12.207694",
   "models": [
+    {
+      "id": "openrouter:writer/palmyra-x5",
+      "provider": "openrouter",
+      "model_id": "writer/palmyra-x5",
+      "model_name": "Writer: Palmyra X5",
+      "pricing": {
+        "input": 0.6,
+        "output": 6.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": false,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:liquid/lfm-2.5-1.2b-thinking:free",
+      "provider": "openrouter",
+      "model_id": "liquid/lfm-2.5-1.2b-thinking:free",
+      "model_name": "LiquidAI: LFM2.5-1.2B-Thinking (free)",
+      "pricing": {
+        "input": 0.0,
+        "output": 0.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:liquid/lfm-2.5-1.2b-instruct:free",
+      "provider": "openrouter",
+      "model_id": "liquid/lfm-2.5-1.2b-instruct:free",
+      "model_name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
+      "pricing": {
+        "input": 0.0,
+        "output": 0.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:openai/gpt-audio",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-audio",
+      "model_name": "OpenAI: GPT Audio",
+      "pricing": {
+        "input": 2.5,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": 32.0,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:openai/gpt-audio-mini",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-audio-mini",
+      "model_name": "OpenAI: GPT Audio Mini",
+      "pricing": {
+        "input": 0.6,
+        "output": 2.4,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": 0.6,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:z-ai/glm-4.7-flash",
+      "provider": "openrouter",
+      "model_id": "z-ai/glm-4.7-flash",
+      "model_name": "Z.AI: GLM 4.7 Flash",
+      "pricing": {
+        "input": 0.07,
+        "output": 0.39999999999999997,
+        "cached_input": 0.01,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
     {
       "id": "openrouter:openai/gpt-5.2-codex",
       "provider": "openrouter",
@@ -33,7 +221,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/molmo-2-8b:free",
@@ -64,7 +252,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-3.1-32b-instruct",
@@ -96,7 +284,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:bytedance-seed/seed-1.6-flash",
@@ -106,8 +294,8 @@
       "pricing": {
         "input": 0.075,
         "output": 0.3,
-        "cached_input": null,
-        "cached_write": null,
+        "cached_input": 0.0,
+        "cached_write": 0.0,
         "reasoning": 0.0,
         "image_input": 0.0,
         "audio_input": null,
@@ -128,7 +316,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:bytedance-seed/seed-1.6",
@@ -138,8 +326,8 @@
       "pricing": {
         "input": 0.25,
         "output": 2.0,
-        "cached_input": null,
-        "cached_write": null,
+        "cached_input": 0.0,
+        "cached_write": 0.0,
         "reasoning": 0.0,
         "image_input": 0.0,
         "audio_input": null,
@@ -160,7 +348,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:minimax/minimax-m2.1",
@@ -192,7 +380,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.7",
@@ -224,7 +412,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-3-flash-preview",
@@ -258,7 +446,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-small-creative",
@@ -290,7 +478,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-3.1-32b-think",
@@ -322,7 +510,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:xiaomi/mimo-v2-flash:free",
@@ -354,7 +542,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:xiaomi/mimo-v2-flash",
@@ -386,7 +574,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-3-nano-30b-a3b:free",
@@ -418,7 +606,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-3-nano-30b-a3b",
@@ -450,7 +638,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.2-chat",
@@ -485,7 +673,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.2-pro",
@@ -520,7 +708,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.2",
@@ -555,7 +743,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/devstral-2512:free",
@@ -587,7 +775,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/devstral-2512",
@@ -619,7 +807,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:relace/relace-search",
@@ -651,7 +839,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.6v",
@@ -683,7 +871,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nex-agi/deepseek-v3.1-nex-n1",
@@ -716,7 +904,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:essentialai/rnj-1-instruct",
@@ -747,7 +935,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openrouter/bodybuilder",
@@ -778,7 +966,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.1-codex-max",
@@ -811,7 +999,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:amazon/nova-2-lite-v1",
@@ -843,7 +1031,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/ministral-14b-2512",
@@ -877,7 +1065,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/ministral-8b-2512",
@@ -911,7 +1099,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/ministral-3b-2512",
@@ -945,7 +1133,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-large-2512",
@@ -977,7 +1165,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/trinity-mini:free",
@@ -1009,7 +1197,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/trinity-mini",
@@ -1041,7 +1229,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-v3.2-speciale",
@@ -1073,7 +1261,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-v3.2",
@@ -1105,7 +1293,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:prime-intellect/intellect-3",
@@ -1137,7 +1325,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/tng-r1t-chimera:free",
@@ -1170,7 +1358,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/tng-r1t-chimera",
@@ -1203,7 +1391,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-opus-4.5",
@@ -1215,8 +1403,8 @@
         "output": 25.0,
         "cached_input": 0.5,
         "cached_write": 6.25,
-        "reasoning": 0.0,
-        "image_input": 0.0,
+        "reasoning": null,
+        "image_input": null,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
@@ -1238,7 +1426,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-3-32b-think",
@@ -1270,7 +1458,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-3-7b-instruct",
@@ -1301,7 +1489,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-3-7b-think",
@@ -1333,7 +1521,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-3-pro-image-preview",
@@ -1367,7 +1555,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-4.1-fast",
@@ -1399,7 +1587,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-3-pro-preview",
@@ -1433,7 +1621,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepcogito/cogito-v2.1-671b",
@@ -1464,7 +1652,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.1",
@@ -1499,7 +1687,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.1-chat",
@@ -1534,7 +1722,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.1-codex",
@@ -1567,7 +1755,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5.1-codex-mini",
@@ -1600,7 +1788,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:kwaipilot/kat-coder-pro",
@@ -1632,7 +1820,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-k2-thinking",
@@ -1665,7 +1853,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:amazon/nova-premier-v1",
@@ -1697,7 +1885,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:perplexity/sonar-pro-search",
@@ -1728,7 +1916,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/voxtral-small-24b-2507",
@@ -1760,7 +1948,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-safeguard-20b",
@@ -1792,7 +1980,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-nano-12b-v2-vl:free",
@@ -1824,7 +2012,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-nano-12b-v2-vl",
@@ -1855,7 +2043,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:minimax/minimax-m2",
@@ -1887,7 +2075,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-32b-instruct",
@@ -1919,13 +2107,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:liquid/lfm2-8b-a1b",
       "provider": "openrouter",
       "model_id": "liquid/lfm2-8b-a1b",
-      "model_name": "LiquidAI/LFM2-8B-A1B",
+      "model_name": "LiquidAI: LFM2-8B-A1B",
       "pricing": {
         "input": 0.01,
         "output": 0.02,
@@ -1950,13 +2138,13 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:liquid/lfm-2.2-6b",
       "provider": "openrouter",
       "model_id": "liquid/lfm-2.2-6b",
-      "model_name": "LiquidAI/LFM2-2.6B",
+      "model_name": "LiquidAI: LFM2-2.6B",
       "pricing": {
         "input": 0.01,
         "output": 0.02,
@@ -1981,7 +2169,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:ibm-granite/granite-4.0-h-micro",
@@ -2012,7 +2200,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepcogito/cogito-v2-preview-llama-405b",
@@ -2046,7 +2234,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-image-mini",
@@ -2081,7 +2269,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-haiku-4.5",
@@ -2093,8 +2281,8 @@
         "output": 5.0,
         "cached_input": 0.09999999999999999,
         "cached_write": 1.25,
-        "reasoning": 0.0,
-        "image_input": 0.0,
+        "reasoning": null,
+        "image_input": null,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
@@ -2116,7 +2304,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-8b-thinking",
@@ -2149,7 +2337,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-8b-instruct",
@@ -2181,7 +2369,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-image",
@@ -2216,7 +2404,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o3-deep-research",
@@ -2251,7 +2439,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o4-mini-deep-research",
@@ -2286,7 +2474,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -2318,7 +2506,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:baidu/ernie-4.5-21b-a3b-thinking",
@@ -2350,7 +2538,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-flash-image",
@@ -2388,7 +2576,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-30b-a3b-thinking",
@@ -2421,7 +2609,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-30b-a3b-instruct",
@@ -2453,7 +2641,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-pro",
@@ -2488,7 +2676,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.6",
@@ -2520,7 +2708,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.6:exacto",
@@ -2552,7 +2740,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-sonnet-4.5",
@@ -2564,8 +2752,8 @@
         "output": 15.0,
         "cached_input": 0.3,
         "cached_write": 3.75,
-        "reasoning": 0.0,
-        "image_input": 4800.0,
+        "reasoning": null,
+        "image_input": null,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
@@ -2587,7 +2775,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-v3.2-exp",
@@ -2619,7 +2807,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:thedrummer/cydonia-24b-v4.1",
@@ -2650,7 +2838,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:relace/relace-apply-3",
@@ -2681,7 +2869,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-flash-preview-09-2025",
@@ -2691,8 +2879,8 @@
       "pricing": {
         "input": 0.3,
         "output": 2.5,
-        "cached_input": 0.075,
-        "cached_write": 0.0833,
+        "cached_input": 0.03,
+        "cached_write": 0.08333333333333334,
         "reasoning": 0.0,
         "image_input": 1238.0,
         "audio_input": 1.0,
@@ -2719,7 +2907,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-flash-lite-preview-09-2025",
@@ -2730,10 +2918,10 @@
         "input": 0.09999999999999999,
         "output": 0.39999999999999997,
         "cached_input": 0.01,
-        "cached_write": 0.0833,
+        "cached_write": 0.08333333333333334,
         "reasoning": 0.0,
         "image_input": 0.0,
-        "audio_input": null,
+        "audio_input": 0.3,
         "audio_output": null,
         "embedding": null
       },
@@ -2757,7 +2945,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-235b-a22b-thinking",
@@ -2765,8 +2953,8 @@
       "model_id": "qwen/qwen3-vl-235b-a22b-thinking",
       "model_name": "Qwen: Qwen3 VL 235B A22B Thinking",
       "pricing": {
-        "input": 0.98,
-        "output": 3.95,
+        "input": 0.44999999999999996,
+        "output": 3.5,
         "cached_input": null,
         "cached_write": null,
         "reasoning": 0.0,
@@ -2790,7 +2978,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-vl-235b-a22b-instruct",
@@ -2822,7 +3010,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-max",
@@ -2854,7 +3042,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder-plus",
@@ -2886,7 +3074,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-codex",
@@ -2919,7 +3107,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-v3.1-terminus:exacto",
@@ -2952,7 +3140,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-v3.1-terminus",
@@ -2985,7 +3173,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-4-fast",
@@ -3017,7 +3205,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:alibaba/tongyi-deepresearch-30b-a3b",
@@ -3049,7 +3237,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder-flash",
@@ -3081,7 +3269,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:opengvlab/internvl3-78b",
@@ -3112,7 +3300,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-next-80b-a3b-thinking",
@@ -3145,7 +3333,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-next-80b-a3b-instruct:free",
@@ -3177,7 +3365,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-next-80b-a3b-instruct",
@@ -3209,7 +3397,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meituan/longcat-flash-chat",
@@ -3240,7 +3428,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-plus-2025-07-28",
@@ -3272,7 +3460,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-plus-2025-07-28:thinking",
@@ -3305,7 +3493,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-nano-9b-v2:free",
@@ -3337,7 +3525,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/nemotron-nano-9b-v2",
@@ -3369,7 +3557,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-k2-0905",
@@ -3401,7 +3589,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-k2-0905:exacto",
@@ -3433,7 +3621,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepcogito/cogito-v2-preview-llama-70b",
@@ -3465,7 +3653,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepcogito/cogito-v2-preview-llama-109b-moe",
@@ -3497,7 +3685,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:stepfun-ai/step3",
@@ -3529,7 +3717,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-30b-a3b-thinking-2507",
@@ -3562,7 +3750,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-code-fast-1",
@@ -3594,7 +3782,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-4-70b",
@@ -3626,7 +3814,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-4-405b",
@@ -3657,7 +3845,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-chat-v3.1",
@@ -3689,7 +3877,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-audio-preview",
@@ -3721,7 +3909,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-medium-3.1",
@@ -3753,7 +3941,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:baidu/ernie-4.5-21b-a3b",
@@ -3785,7 +3973,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:baidu/ernie-4.5-vl-28b-a3b",
@@ -3817,7 +4005,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.5v",
@@ -3849,7 +4037,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:ai21/jamba-mini-1.7",
@@ -3881,7 +4069,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:ai21/jamba-large-1.7",
@@ -3913,7 +4101,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-chat",
@@ -3948,7 +4136,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5",
@@ -3983,7 +4171,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-mini",
@@ -4018,7 +4206,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-5-nano",
@@ -4051,7 +4239,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-120b:free",
@@ -4083,7 +4271,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-120b",
@@ -4115,7 +4303,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-120b:exacto",
@@ -4147,7 +4335,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-20b:free",
@@ -4179,7 +4367,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-oss-20b",
@@ -4211,7 +4399,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-opus-4.1",
@@ -4246,7 +4434,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/codestral-2508",
@@ -4278,7 +4466,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder-30b-a3b-instruct",
@@ -4310,7 +4498,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-30b-a3b-instruct-2507",
@@ -4342,7 +4530,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.5",
@@ -4374,7 +4562,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.5-air:free",
@@ -4406,7 +4594,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4.5-air",
@@ -4438,7 +4626,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-235b-a22b-thinking-2507",
@@ -4471,7 +4659,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:z-ai/glm-4-32b",
@@ -4503,7 +4691,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder:free",
@@ -4535,7 +4723,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder",
@@ -4567,7 +4755,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-coder:exacto",
@@ -4599,7 +4787,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:bytedance/ui-tars-1.5-7b",
@@ -4630,7 +4818,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-flash-lite",
@@ -4641,10 +4829,10 @@
         "input": 0.09999999999999999,
         "output": 0.39999999999999997,
         "cached_input": 0.01,
-        "cached_write": 0.0833,
+        "cached_write": 0.08333333333333334,
         "reasoning": 0.0,
         "image_input": 0.0,
-        "audio_input": null,
+        "audio_input": 0.3,
         "audio_output": null,
         "embedding": null
       },
@@ -4668,7 +4856,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-235b-a22b-2507",
@@ -4700,7 +4888,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:switchpoint/router",
@@ -4731,7 +4919,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-k2:free",
@@ -4762,7 +4950,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-k2",
@@ -4794,7 +4982,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/devstral-medium",
@@ -4826,7 +5014,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/devstral-small",
@@ -4858,7 +5046,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
@@ -4890,7 +5078,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-4",
@@ -4922,7 +5110,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3n-e2b-it:free",
@@ -4953,7 +5141,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tencent/hunyuan-a13b-instruct",
@@ -4984,7 +5172,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/deepseek-r1t2-chimera:free",
@@ -5017,7 +5205,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/deepseek-r1t2-chimera",
@@ -5050,7 +5238,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:morph/morph-v3-large",
@@ -5081,7 +5269,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:morph/morph-v3-fast",
@@ -5112,7 +5300,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:baidu/ernie-4.5-vl-424b-a47b",
@@ -5143,7 +5331,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:baidu/ernie-4.5-300b-a47b",
@@ -5174,7 +5362,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:inception/mercury",
@@ -5206,7 +5394,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-small-3.2-24b-instruct",
@@ -5238,7 +5426,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:minimax/minimax-m1",
@@ -5270,7 +5458,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-flash",
@@ -5308,7 +5496,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-pro",
@@ -5346,7 +5534,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:moonshotai/kimi-dev-72b",
@@ -5377,7 +5565,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o3-pro",
@@ -5412,7 +5600,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-3-mini",
@@ -5447,7 +5635,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-3",
@@ -5482,7 +5670,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-pro-preview",
@@ -5520,7 +5708,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-r1-0528:free",
@@ -5553,7 +5741,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-r1-0528",
@@ -5586,7 +5774,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-opus-4",
@@ -5621,7 +5809,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-sonnet-4",
@@ -5656,7 +5844,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3n-e4b-it:free",
@@ -5687,7 +5875,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3n-e4b-it",
@@ -5718,7 +5906,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/deephermes-3-mistral-24b-preview",
@@ -5750,7 +5938,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-medium-3",
@@ -5782,7 +5970,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.5-pro-preview-05-06",
@@ -5820,7 +6008,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/spotlight",
@@ -5851,7 +6039,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/maestro-reasoning",
@@ -5882,7 +6070,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/virtuoso-large",
@@ -5914,7 +6102,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:arcee-ai/coder-large",
@@ -5945,7 +6133,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:inception/mercury-coder",
@@ -5977,7 +6165,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-4b:free",
@@ -6009,7 +6197,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-guard-4-12b",
@@ -6040,7 +6228,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-30b-a3b",
@@ -6072,7 +6260,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-8b",
@@ -6104,7 +6292,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-14b",
@@ -6136,7 +6324,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-32b",
@@ -6168,7 +6356,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen3-235b-a22b",
@@ -6200,7 +6388,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/deepseek-r1t-chimera:free",
@@ -6233,7 +6421,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:tngtech/deepseek-r1t-chimera",
@@ -6266,7 +6454,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o4-mini-high",
@@ -6301,7 +6489,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o3",
@@ -6336,7 +6524,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o4-mini",
@@ -6371,7 +6559,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen2.5-coder-7b-instruct",
@@ -6403,7 +6591,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4.1",
@@ -6437,7 +6625,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4.1-mini",
@@ -6471,7 +6659,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4.1-nano",
@@ -6503,7 +6691,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:eleutherai/llemma_7b",
@@ -6534,7 +6722,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:alfredpros/codellama-7b-instruct-solidity",
@@ -6565,7 +6753,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-3-mini-beta",
@@ -6600,7 +6788,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:x-ai/grok-3-beta",
@@ -6635,7 +6823,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -6667,7 +6855,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-4-maverick",
@@ -6701,7 +6889,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-4-scout",
@@ -6735,7 +6923,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen2.5-vl-32b-instruct",
@@ -6767,7 +6955,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-chat-v3-0324",
@@ -6799,7 +6987,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o1-pro",
@@ -6831,7 +7019,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-small-3.1-24b-instruct:free",
@@ -6863,7 +7051,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-small-3.1-24b-instruct",
@@ -6895,7 +7083,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:allenai/olmo-2-0325-32b-instruct",
@@ -6926,7 +7114,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-4b-it:free",
@@ -6957,7 +7145,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-4b-it",
@@ -6988,7 +7176,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-12b-it:free",
@@ -7019,7 +7207,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-12b-it",
@@ -7050,7 +7238,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:cohere/command-a",
@@ -7082,7 +7270,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-mini-search-preview",
@@ -7116,7 +7304,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-search-preview",
@@ -7150,7 +7338,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-27b-it:free",
@@ -7182,7 +7370,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-3-27b-it",
@@ -7214,7 +7402,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:thedrummer/skyfall-36b-v2",
@@ -7245,7 +7433,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:perplexity/sonar-reasoning-pro",
@@ -7276,7 +7464,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:perplexity/sonar-pro",
@@ -7307,7 +7495,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:perplexity/sonar-deep-research",
@@ -7339,7 +7527,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwq-32b",
@@ -7372,7 +7560,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.0-flash-lite-001",
@@ -7409,7 +7597,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-3.7-sonnet:thinking",
@@ -7444,7 +7632,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-3.7-sonnet",
@@ -7479,7 +7667,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-saba",
@@ -7511,7 +7699,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-guard-3-8b",
@@ -7542,7 +7730,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o3-mini-high",
@@ -7575,7 +7763,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.0-flash-001",
@@ -7586,7 +7774,7 @@
         "input": 0.09999999999999999,
         "output": 0.39999999999999997,
         "cached_input": 0.024999999999999998,
-        "cached_write": 0.0833,
+        "cached_write": 0.08333333333333334,
         "reasoning": 0.0,
         "image_input": 25.8,
         "audio_input": 0.7,
@@ -7612,7 +7800,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-vl-plus",
@@ -7644,7 +7832,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:aion-labs/aion-1.0",
@@ -7675,7 +7863,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:aion-labs/aion-1.0-mini",
@@ -7706,7 +7894,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:aion-labs/aion-rp-llama-3.1-8b",
@@ -7738,7 +7926,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-vl-max",
@@ -7770,7 +7958,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-turbo",
@@ -7802,7 +7990,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen2.5-vl-72b-instruct",
@@ -7834,7 +8022,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-plus",
@@ -7866,7 +8054,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-max",
@@ -7898,7 +8086,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o3-mini",
@@ -7931,7 +8119,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-small-24b-instruct-2501",
@@ -7963,7 +8151,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-r1-distill-qwen-32b",
@@ -7996,7 +8184,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:perplexity/sonar",
@@ -8027,7 +8215,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-r1-distill-llama-70b",
@@ -8060,7 +8248,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-r1",
@@ -8093,7 +8281,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:minimax/minimax-01",
@@ -8124,7 +8312,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:microsoft/phi-4",
@@ -8155,7 +8343,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:sao10k/l3.1-70b-hanami-x1",
@@ -8190,7 +8378,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:deepseek/deepseek-chat",
@@ -8222,7 +8410,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:sao10k/l3.3-euryale-70b",
@@ -8257,7 +8445,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/o1",
@@ -8292,7 +8480,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:cohere/command-r7b-12-2024",
@@ -8324,7 +8512,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemini-2.0-flash-exp:free",
@@ -8361,7 +8549,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.3-70b-instruct:free",
@@ -8393,7 +8581,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.3-70b-instruct",
@@ -8425,7 +8613,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:amazon/nova-lite-v1",
@@ -8457,7 +8645,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:amazon/nova-micro-v1",
@@ -8489,7 +8677,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:amazon/nova-pro-v1",
@@ -8521,7 +8709,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-2024-11-20",
@@ -8555,7 +8743,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-large-2411",
@@ -8587,7 +8775,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-large-2407",
@@ -8619,7 +8807,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/pixtral-large-2411",
@@ -8651,7 +8839,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-2.5-coder-32b-instruct",
@@ -8683,7 +8871,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:raifle/sorcererlm-8x22b",
@@ -8714,7 +8902,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:thedrummer/unslopnemo-12b",
@@ -8746,7 +8934,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-3.5-haiku",
@@ -8780,7 +8968,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-3.5-sonnet",
@@ -8815,7 +9003,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthracite-org/magnum-v4-72b",
@@ -8846,7 +9034,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/ministral-3b",
@@ -8880,7 +9068,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/ministral-8b",
@@ -8914,7 +9102,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-2.5-7b-instruct",
@@ -8946,7 +9134,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nvidia/llama-3.1-nemotron-70b-instruct",
@@ -8978,38 +9166,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:inflection/inflection-3-productivity",
-      "provider": "openrouter",
-      "model_id": "inflection/inflection-3-productivity",
-      "model_name": "Inflection: Inflection 3 Productivity",
-      "pricing": {
-        "input": 2.5,
-        "output": 10.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": 0.0,
-        "image_input": 0.0,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": null,
-      "is_open_source": null,
-      "capabilities": [
-        "text"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:inflection/inflection-3-pi",
@@ -9040,7 +9197,38 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:inflection/inflection-3-productivity",
+      "provider": "openrouter",
+      "model_id": "inflection/inflection-3-productivity",
+      "model_name": "Inflection: Inflection 3 Productivity",
+      "pricing": {
+        "input": 2.5,
+        "output": 10.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": null,
+      "is_open_source": null,
+      "capabilities": [
+        "text"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:thedrummer/rocinante-12b",
@@ -9072,7 +9260,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.2-1b-instruct",
@@ -9104,7 +9292,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.2-3b-instruct:free",
@@ -9136,7 +9324,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.2-3b-instruct",
@@ -9168,7 +9356,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.2-11b-vision-instruct",
@@ -9200,7 +9388,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-2.5-72b-instruct",
@@ -9232,7 +9420,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:neversleep/llama-3.1-lumimaid-8b",
@@ -9264,7 +9452,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/pixtral-12b",
@@ -9296,39 +9484,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:cohere/command-r-08-2024",
-      "provider": "openrouter",
-      "model_id": "cohere/command-r-08-2024",
-      "model_name": "Cohere: Command R (08-2024)",
-      "pricing": {
-        "input": 0.15,
-        "output": 0.6,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": 0.0,
-        "image_input": 0.0,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 16384,
-      "is_open_source": null,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:cohere/command-r-plus-08-2024",
@@ -9360,7 +9516,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:cohere/command-r-08-2024",
+      "provider": "openrouter",
+      "model_id": "cohere/command-r-08-2024",
+      "model_name": "Cohere: Command R (08-2024)",
+      "pricing": {
+        "input": 0.15,
+        "output": 0.6,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 16384,
+      "is_open_source": null,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-2.5-vl-7b-instruct:free",
@@ -9392,7 +9580,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:qwen/qwen-2.5-vl-7b-instruct",
@@ -9424,7 +9612,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:sao10k/l3.1-euryale-70b",
@@ -9459,7 +9647,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-3-llama-3.1-70b",
@@ -9491,7 +9679,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-3-llama-3.1-405b:free",
@@ -9523,7 +9711,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-3-llama-3.1-405b",
@@ -9555,7 +9743,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/chatgpt-4o-latest",
@@ -9589,7 +9777,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:sao10k/l3-lunaris-8b",
@@ -9624,7 +9812,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-2024-08-06",
@@ -9658,7 +9846,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.1-405b",
@@ -9690,7 +9878,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.1-70b-instruct",
@@ -9722,39 +9910,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:meta-llama/llama-3.1-8b-instruct",
-      "provider": "openrouter",
-      "model_id": "meta-llama/llama-3.1-8b-instruct",
-      "model_name": "Meta: Llama 3.1 8B Instruct",
-      "pricing": {
-        "input": 0.02,
-        "output": 0.049999999999999996,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": 0.0,
-        "image_input": 0.0,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 8192,
-      "max_output_tokens": 8192,
-      "is_open_source": true,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.1-405b-instruct:free",
@@ -9786,7 +9942,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3.1-405b-instruct",
@@ -9818,7 +9974,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:meta-llama/llama-3.1-8b-instruct",
+      "provider": "openrouter",
+      "model_id": "meta-llama/llama-3.1-8b-instruct",
+      "model_name": "Meta: Llama 3.1 8B Instruct",
+      "pricing": {
+        "input": 0.02,
+        "output": 0.049999999999999996,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 8192,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-nemo",
@@ -9850,7 +10038,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-mini",
@@ -9884,7 +10072,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o-mini-2024-07-18",
@@ -9918,7 +10106,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-2-27b-it",
@@ -9949,7 +10137,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:google/gemma-2-9b-it",
@@ -9980,7 +10168,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:sao10k/l3-euryale-70b",
@@ -10015,39 +10203,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:mistralai/mistral-7b-instruct-v0.3",
-      "provider": "openrouter",
-      "model_id": "mistralai/mistral-7b-instruct-v0.3",
-      "model_name": "Mistral: Mistral 7B Instruct v0.3",
-      "pricing": {
-        "input": 0.19999999999999998,
-        "output": 0.19999999999999998,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": 0.0,
-        "image_input": 0.0,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 16384,
-      "max_output_tokens": 16384,
-      "is_open_source": true,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-7b-instruct",
@@ -10079,7 +10235,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:nousresearch/hermes-2-pro-llama-3-8b",
@@ -10087,8 +10243,8 @@
       "model_id": "nousresearch/hermes-2-pro-llama-3-8b",
       "model_name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
       "pricing": {
-        "input": 0.024999999999999998,
-        "output": 0.08,
+        "input": 0.14,
+        "output": 0.14,
         "cached_input": null,
         "cached_write": null,
         "reasoning": 0.0,
@@ -10111,41 +10267,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
-      "id": "openrouter:openai/gpt-4o-2024-05-13",
+      "id": "openrouter:mistralai/mistral-7b-instruct-v0.3",
       "provider": "openrouter",
-      "model_id": "openai/gpt-4o-2024-05-13",
-      "model_name": "OpenAI: GPT-4o (2024-05-13)",
+      "model_id": "mistralai/mistral-7b-instruct-v0.3",
+      "model_name": "Mistral: Mistral 7B Instruct v0.3",
       "pricing": {
-        "input": 5.0,
-        "output": 15.0,
+        "input": 0.19999999999999998,
+        "output": 0.19999999999999998,
         "cached_input": null,
         "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
       },
       "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
+      "context_length": 16384,
+      "max_output_tokens": 16384,
+      "is_open_source": true,
       "capabilities": [
         "text",
-        "vision",
         "tool_use"
       ],
       "input_modalities": [
-        "text",
-        "image"
+        "text"
       ],
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-guard-2-8b",
@@ -10176,7 +10330,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o",
@@ -10210,7 +10364,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4o:extended",
@@ -10244,39 +10398,41 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
-      "id": "openrouter:meta-llama/llama-3-70b-instruct",
+      "id": "openrouter:openai/gpt-4o-2024-05-13",
       "provider": "openrouter",
-      "model_id": "meta-llama/llama-3-70b-instruct",
-      "model_name": "Meta: Llama 3 70B Instruct",
+      "model_id": "openai/gpt-4o-2024-05-13",
+      "model_name": "OpenAI: GPT-4o (2024-05-13)",
       "pricing": {
-        "input": 0.39999999999999997,
-        "output": 0.39999999999999997,
+        "input": 5.0,
+        "output": 15.0,
         "cached_input": null,
         "cached_write": null,
-        "reasoning": 0.0,
-        "image_input": 0.0,
+        "reasoning": null,
+        "image_input": null,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
       },
       "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": 8192,
-      "is_open_source": true,
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
       "capabilities": [
         "text",
+        "vision",
         "tool_use"
       ],
       "input_modalities": [
-        "text"
+        "text",
+        "image"
       ],
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:meta-llama/llama-3-8b-instruct",
@@ -10308,7 +10464,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:meta-llama/llama-3-70b-instruct",
+      "provider": "openrouter",
+      "model_id": "meta-llama/llama-3-70b-instruct",
+      "model_name": "Meta: Llama 3 70B Instruct",
+      "pricing": {
+        "input": 0.39999999999999997,
+        "output": 0.39999999999999997,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": 0.0,
+        "image_input": 0.0,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": 8192,
+      "is_open_source": true,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mixtral-8x22b-instruct",
@@ -10340,7 +10528,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:microsoft/wizardlm-2-8x22b",
@@ -10371,7 +10559,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4-turbo",
@@ -10403,7 +10591,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:anthropic/claude-3-haiku",
@@ -10415,8 +10603,8 @@
         "output": 1.25,
         "cached_input": 0.03,
         "cached_write": 0.3,
-        "reasoning": 0.0,
-        "image_input": 400.0,
+        "reasoning": null,
+        "image_input": null,
         "audio_input": null,
         "audio_output": null,
         "embedding": null
@@ -10437,7 +10625,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-large",
@@ -10469,39 +10657,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:openai/gpt-4-turbo-preview",
-      "provider": "openrouter",
-      "model_id": "openai/gpt-4-turbo-preview",
-      "model_name": "OpenAI: GPT-4 Turbo Preview",
-      "pricing": {
-        "input": 10.0,
-        "output": 30.0,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": 128000,
-      "max_output_tokens": 4096,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-3.5-turbo-0613",
@@ -10533,7 +10689,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:openai/gpt-4-turbo-preview",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-4-turbo-preview",
+      "model_name": "OpenAI: GPT-4 Turbo Preview",
+      "pricing": {
+        "input": 10.0,
+        "output": 30.0,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": 128000,
+      "max_output_tokens": 4096,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-tiny",
@@ -10565,7 +10753,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-7b-instruct-v0.2",
@@ -10597,7 +10785,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mixtral-8x7b-instruct",
@@ -10629,7 +10817,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:neversleep/noromaid-20b",
@@ -10660,7 +10848,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:alpindale/goliath-120b",
@@ -10691,7 +10879,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openrouter/auto",
@@ -10722,7 +10910,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4-1106-preview",
@@ -10754,7 +10942,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-3.5-turbo-instruct",
@@ -10786,7 +10974,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mistralai/mistral-7b-instruct-v0.1",
@@ -10818,7 +11006,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-3.5-turbo-16k",
@@ -10850,7 +11038,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:mancer/weaver",
@@ -10881,7 +11069,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:undi95/remm-slerp-l2-13b",
@@ -10912,7 +11100,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:gryphe/mythomax-l2-13b",
@@ -10943,39 +11131,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
-    },
-    {
-      "id": "openrouter:openai/gpt-3.5-turbo",
-      "provider": "openrouter",
-      "model_id": "openai/gpt-3.5-turbo",
-      "model_name": "OpenAI: GPT-3.5 Turbo",
-      "pricing": {
-        "input": 0.5,
-        "output": 1.5,
-        "cached_input": null,
-        "cached_write": null,
-        "reasoning": null,
-        "image_input": null,
-        "audio_input": null,
-        "audio_output": null,
-        "embedding": null
-      },
-      "batch_pricing": null,
-      "context_length": null,
-      "max_output_tokens": 4095,
-      "is_open_source": false,
-      "capabilities": [
-        "text",
-        "tool_use"
-      ],
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4-0314",
@@ -11007,7 +11163,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
     },
     {
       "id": "openrouter:openai/gpt-4",
@@ -11039,7 +11195,39 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:34.041993"
+      "last_updated": "2026-01-22T11:28:12.207694"
+    },
+    {
+      "id": "openrouter:openai/gpt-3.5-turbo",
+      "provider": "openrouter",
+      "model_id": "openai/gpt-3.5-turbo",
+      "model_name": "OpenAI: GPT-3.5 Turbo",
+      "pricing": {
+        "input": 0.5,
+        "output": 1.5,
+        "cached_input": null,
+        "cached_write": null,
+        "reasoning": null,
+        "image_input": null,
+        "audio_input": null,
+        "audio_output": null,
+        "embedding": null
+      },
+      "batch_pricing": null,
+      "context_length": null,
+      "max_output_tokens": 4095,
+      "is_open_source": false,
+      "capabilities": [
+        "text",
+        "tool_use"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "last_updated": "2026-01-22T11:28:12.207694"
     }
   ]
 }

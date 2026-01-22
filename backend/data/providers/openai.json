@@ -1,6 +1,6 @@
 {
   "provider": "openai",
-  "last_updated": "2026-01-19T22:09:34.619076",
+  "last_updated": "2026-01-22T11:29:13.142338",
   "models": [
     {
       "id": "openai:gpt-5.2",
@@ -35,7 +35,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.617929"
+      "last_updated": "2026-01-22T11:29:13.140339"
     },
     {
       "id": "openai:gpt-5.2-pro",
@@ -70,7 +70,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.617973"
+      "last_updated": "2026-01-22T11:29:13.140391"
     },
     {
       "id": "openai:gpt-5.1",
@@ -105,7 +105,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.617992"
+      "last_updated": "2026-01-22T11:29:13.140422"
     },
     {
       "id": "openai:gpt-5.1-codex",
@@ -138,7 +138,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618008"
+      "last_updated": "2026-01-22T11:29:13.140450"
     },
     {
       "id": "openai:gpt-5",
@@ -173,7 +173,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618023"
+      "last_updated": "2026-01-22T11:29:13.140475"
     },
     {
       "id": "openai:gpt-5-codex",
@@ -206,7 +206,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618037"
+      "last_updated": "2026-01-22T11:29:13.140491"
     },
     {
       "id": "openai:gpt-5-mini",
@@ -241,7 +241,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618051"
+      "last_updated": "2026-01-22T11:29:13.140506"
     },
     {
       "id": "openai:gpt-5-nano",
@@ -274,7 +274,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618065"
+      "last_updated": "2026-01-22T11:29:13.140520"
     },
     {
       "id": "openai:gpt-5-pro",
@@ -309,7 +309,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618079"
+      "last_updated": "2026-01-22T11:29:13.140534"
     },
     {
       "id": "openai:gpt-4.5-preview",
@@ -343,7 +343,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618093"
+      "last_updated": "2026-01-22T11:29:13.140548"
     },
     {
       "id": "openai:gpt-4.1",
@@ -380,7 +380,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618113"
+      "last_updated": "2026-01-22T11:29:13.140569"
     },
     {
       "id": "openai:gpt-4.1-mini",
@@ -417,7 +417,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618131"
+      "last_updated": "2026-01-22T11:29:13.140588"
     },
     {
       "id": "openai:gpt-4.1-nano",
@@ -454,7 +454,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618148"
+      "last_updated": "2026-01-22T11:29:13.140610"
     },
     {
       "id": "openai:gpt-4o",
@@ -491,7 +491,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618164"
+      "last_updated": "2026-01-22T11:29:13.140638"
     },
     {
       "id": "openai:chatgpt-4o-latest",
@@ -525,7 +525,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618178"
+      "last_updated": "2026-01-22T11:29:13.140653"
     },
     {
       "id": "openai:gpt-4o-mini",
@@ -562,7 +562,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618195"
+      "last_updated": "2026-01-22T11:29:13.140670"
     },
     {
       "id": "openai:gpt-4o-search-preview",
@@ -597,7 +597,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618210"
+      "last_updated": "2026-01-22T11:29:13.140748"
     },
     {
       "id": "openai:gpt-4o-mini-search-preview",
@@ -632,7 +632,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618224"
+      "last_updated": "2026-01-22T11:29:13.140825"
     },
     {
       "id": "openai:computer-use-preview",
@@ -666,7 +666,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618238"
+      "last_updated": "2026-01-22T11:29:13.140855"
     },
     {
       "id": "openai:o3",
@@ -704,7 +704,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618254"
+      "last_updated": "2026-01-22T11:29:13.140919"
     },
     {
       "id": "openai:o3-pro",
@@ -739,7 +739,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618268"
+      "last_updated": "2026-01-22T11:29:13.141031"
     },
     {
       "id": "openai:o3-mini",
@@ -774,7 +774,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618284"
+      "last_updated": "2026-01-22T11:29:13.141093"
     },
     {
       "id": "openai:o3-deep-research",
@@ -809,7 +809,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618298"
+      "last_updated": "2026-01-22T11:29:13.141118"
     },
     {
       "id": "openai:o4-mini",
@@ -847,7 +847,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618314"
+      "last_updated": "2026-01-22T11:29:13.141139"
     },
     {
       "id": "openai:o4-mini-deep-research",
@@ -882,7 +882,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618328"
+      "last_updated": "2026-01-22T11:29:13.141157"
     },
     {
       "id": "openai:o1",
@@ -920,7 +920,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618344"
+      "last_updated": "2026-01-22T11:29:13.141223"
     },
     {
       "id": "openai:o1-mini",
@@ -955,7 +955,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618360"
+      "last_updated": "2026-01-22T11:29:13.141260"
     },
     {
       "id": "openai:o1-pro",
@@ -987,7 +987,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618375"
+      "last_updated": "2026-01-22T11:29:13.141279"
     },
     {
       "id": "openai:codex-mini",
@@ -1018,7 +1018,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618388"
+      "last_updated": "2026-01-22T11:29:13.141299"
     },
     {
       "id": "openai:gpt-4-turbo",
@@ -1052,7 +1052,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618402"
+      "last_updated": "2026-01-22T11:29:13.141315"
     },
     {
       "id": "openai:gpt-4",
@@ -1084,7 +1084,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618416"
+      "last_updated": "2026-01-22T11:29:13.141336"
     },
     {
       "id": "openai:gpt-4-32k",
@@ -1116,7 +1116,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618429"
+      "last_updated": "2026-01-22T11:29:13.141350"
     },
     {
       "id": "openai:gpt-3.5-turbo",
@@ -1151,7 +1151,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618444"
+      "last_updated": "2026-01-22T11:29:13.141368"
     },
     {
       "id": "openai:gpt-3.5-turbo-instruct",
@@ -1182,7 +1182,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618458"
+      "last_updated": "2026-01-22T11:29:13.141383"
     },
     {
       "id": "openai:gpt-4o-realtime",
@@ -1216,7 +1216,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:09:34.618479"
+      "last_updated": "2026-01-22T11:29:13.141424"
     },
     {
       "id": "openai:gpt-4o-mini-realtime",
@@ -1250,7 +1250,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:09:34.618497"
+      "last_updated": "2026-01-22T11:29:13.141487"
     },
     {
       "id": "openai:gpt-4o-audio-preview",
@@ -1284,7 +1284,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:09:34.618514"
+      "last_updated": "2026-01-22T11:29:13.141577"
     },
     {
       "id": "openai:gpt-4o-mini-audio-preview",
@@ -1318,7 +1318,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:09:34.618530"
+      "last_updated": "2026-01-22T11:29:13.141665"
     },
     {
       "id": "openai:gpt-4o-transcribe",
@@ -1349,7 +1349,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618551"
+      "last_updated": "2026-01-22T11:29:13.141740"
     },
     {
       "id": "openai:gpt-4o-mini-transcribe",
@@ -1380,7 +1380,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618569"
+      "last_updated": "2026-01-22T11:29:13.141778"
     },
     {
       "id": "openai:whisper",
@@ -1411,7 +1411,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.618585"
+      "last_updated": "2026-01-22T11:29:13.141876"
     },
     {
       "id": "openai:tts-1",
@@ -1438,7 +1438,7 @@
       ],
       "input_modalities": [],
       "output_modalities": [],
-      "last_updated": "2026-01-19T22:09:34.618600"
+      "last_updated": "2026-01-22T11:29:13.141917"
     },
     {
       "id": "openai:tts-1-hd",
@@ -1465,7 +1465,7 @@
       ],
       "input_modalities": [],
       "output_modalities": [],
-      "last_updated": "2026-01-19T22:09:34.618613"
+      "last_updated": "2026-01-22T11:29:13.141937"
     },
     {
       "id": "openai:text-embedding-3-small",
@@ -1499,7 +1499,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:09:34.618632"
+      "last_updated": "2026-01-22T11:29:13.141958"
     },
     {
       "id": "openai:text-embedding-3-large",
@@ -1533,7 +1533,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:09:34.618649"
+      "last_updated": "2026-01-22T11:29:13.141982"
     },
     {
       "id": "openai:text-embedding-ada-002",
@@ -1567,7 +1567,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:09:34.618665"
+      "last_updated": "2026-01-22T11:29:13.142057"
     },
     {
       "id": "openai:gpt-image-1.5",
@@ -1598,7 +1598,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:09:34.618679"
+      "last_updated": "2026-01-22T11:29:13.142092"
     },
     {
       "id": "openai:gpt-image-1",
@@ -1629,7 +1629,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:09:34.618915"
+      "last_updated": "2026-01-22T11:29:13.142113"
     },
     {
       "id": "openai:dall-e-3",
@@ -1660,7 +1660,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:09:34.619006"
+      "last_updated": "2026-01-22T11:29:13.142130"
     },
     {
       "id": "openai:dall-e-2",
@@ -1691,7 +1691,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:09:34.619029"
+      "last_updated": "2026-01-22T11:29:13.142206"
     },
     {
       "id": "openai:gpt-oss-20b",
@@ -1722,7 +1722,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.619046"
+      "last_updated": "2026-01-22T11:29:13.142260"
     },
     {
       "id": "openai:gpt-oss-120b",
@@ -1753,7 +1753,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.619060"
+      "last_updated": "2026-01-22T11:29:13.142283"
     },
     {
       "id": "openai:omni-moderation",
@@ -1784,7 +1784,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:09:34.619076"
+      "last_updated": "2026-01-22T11:29:13.142338"
     }
   ]
 }

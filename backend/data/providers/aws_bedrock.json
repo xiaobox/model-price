@@ -1,6 +1,6 @@
 {
   "provider": "aws_bedrock",
-  "last_updated": "2026-01-19T22:08:36.183670",
+  "last_updated": "2026-01-22T11:28:13.850384",
   "models": [
     {
       "id": "aws_bedrock:nova-2.0-pro",
@@ -35,7 +35,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.170739"
+      "last_updated": "2026-01-22T11:28:13.836132"
     },
     {
       "id": "aws_bedrock:nova-2.0-omni",
@@ -70,7 +70,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.170821"
+      "last_updated": "2026-01-22T11:28:13.836210"
     },
     {
       "id": "aws_bedrock:llama-3-8b",
@@ -102,7 +102,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.170872"
+      "last_updated": "2026-01-22T11:28:13.836258"
     },
     {
       "id": "aws_bedrock:ministral-8b-3.0",
@@ -136,7 +136,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.170918"
+      "last_updated": "2026-01-22T11:28:13.836302"
     },
     {
       "id": "aws_bedrock:mixtral-8x7b",
@@ -167,7 +167,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171012"
+      "last_updated": "2026-01-22T11:28:13.836388"
     },
     {
       "id": "aws_bedrock:nemotron-nano-3-30b",
@@ -201,7 +201,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171073"
+      "last_updated": "2026-01-22T11:28:13.836432"
     },
     {
       "id": "aws_bedrock:nova-sonic",
@@ -236,7 +236,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:36.171156"
+      "last_updated": "2026-01-22T11:28:13.836504"
     },
     {
       "id": "aws_bedrock:nova-2.0-lite",
@@ -271,7 +271,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171202"
+      "last_updated": "2026-01-22T11:28:13.836550"
     },
     {
       "id": "aws_bedrock:kimi-k2-thinking",
@@ -305,7 +305,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171279"
+      "last_updated": "2026-01-22T11:28:13.836621"
     },
     {
       "id": "aws_bedrock:llama-3.1-8b",
@@ -340,7 +340,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171399"
+      "last_updated": "2026-01-22T11:28:13.836665"
     },
     {
       "id": "aws_bedrock:gpt-oss-120b",
@@ -374,7 +374,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171501"
+      "last_updated": "2026-01-22T11:28:13.836707"
     },
     {
       "id": "aws_bedrock:llama-3.2-1b",
@@ -406,7 +406,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171585"
+      "last_updated": "2026-01-22T11:28:13.836749"
     },
     {
       "id": "aws_bedrock:pixtral-large-25.02",
@@ -439,7 +439,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171712"
+      "last_updated": "2026-01-22T11:28:13.836816"
     },
     {
       "id": "aws_bedrock:ministral-3b-3.0",
@@ -473,7 +473,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171829"
+      "last_updated": "2026-01-22T11:28:13.836872"
     },
     {
       "id": "aws_bedrock:claude-2.1",
@@ -505,7 +505,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.171908"
+      "last_updated": "2026-01-22T11:28:13.836916"
     },
     {
       "id": "aws_bedrock:gpt-oss-safeguard-20b",
@@ -539,7 +539,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172036"
+      "last_updated": "2026-01-22T11:28:13.836959"
     },
     {
       "id": "aws_bedrock:llama-4-scout-17b",
@@ -576,7 +576,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172138"
+      "last_updated": "2026-01-22T11:28:13.837008"
     },
     {
       "id": "aws_bedrock:qwen3-32b",
@@ -610,7 +610,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172253"
+      "last_updated": "2026-01-22T11:28:13.837045"
     },
     {
       "id": "aws_bedrock:llama-3.2-3b",
@@ -642,7 +642,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172362"
+      "last_updated": "2026-01-22T11:28:13.837106"
     },
     {
       "id": "aws_bedrock:mistral-small",
@@ -677,7 +677,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172530"
+      "last_updated": "2026-01-22T11:28:13.837217"
     },
     {
       "id": "aws_bedrock:nova-canvas",
@@ -709,7 +709,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172620"
+      "last_updated": "2026-01-22T11:28:13.837285"
     },
     {
       "id": "aws_bedrock:llama-3.1-405b",
@@ -744,7 +744,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172760"
+      "last_updated": "2026-01-22T11:28:13.837352"
     },
     {
       "id": "aws_bedrock:gemma-3-12b",
@@ -778,7 +778,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172828"
+      "last_updated": "2026-01-22T11:28:13.837421"
     },
     {
       "id": "aws_bedrock:llama-4-maverick-17b",
@@ -815,7 +815,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172925"
+      "last_updated": "2026-01-22T11:28:13.837542"
     },
     {
       "id": "aws_bedrock:deepseek-r1",
@@ -848,7 +848,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.172974"
+      "last_updated": "2026-01-22T11:28:13.837602"
     },
     {
       "id": "aws_bedrock:llama-3.1-70b",
@@ -883,7 +883,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173022"
+      "last_updated": "2026-01-22T11:28:13.837677"
     },
     {
       "id": "aws_bedrock:voxtral-small-1.0",
@@ -920,7 +920,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:36.173083"
+      "last_updated": "2026-01-22T11:28:13.837760"
     },
     {
       "id": "aws_bedrock:nova-premier",
@@ -955,7 +955,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173152"
+      "last_updated": "2026-01-22T11:28:13.837833"
     },
     {
       "id": "aws_bedrock:nova-micro",
@@ -990,7 +990,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173220"
+      "last_updated": "2026-01-22T11:28:13.837920"
     },
     {
       "id": "aws_bedrock:llama-3.2-11b",
@@ -1022,7 +1022,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173269"
+      "last_updated": "2026-01-22T11:28:13.837991"
     },
     {
       "id": "aws_bedrock:nova-pro",
@@ -1057,7 +1057,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173383"
+      "last_updated": "2026-01-22T11:28:13.838160"
     },
     {
       "id": "aws_bedrock:gpt-oss-safeguard-120b",
@@ -1091,7 +1091,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173434"
+      "last_updated": "2026-01-22T11:28:13.838235"
     },
     {
       "id": "aws_bedrock:qwen3-vl-235b-a22b",
@@ -1127,7 +1127,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173482"
+      "last_updated": "2026-01-22T11:28:13.838303"
     },
     {
       "id": "aws_bedrock:nova-reel",
@@ -1159,7 +1159,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173582"
+      "last_updated": "2026-01-22T11:28:13.838436"
     },
     {
       "id": "aws_bedrock:gpt-oss-20b",
@@ -1193,7 +1193,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173644"
+      "last_updated": "2026-01-22T11:28:13.838522"
     },
     {
       "id": "aws_bedrock:mistral-large",
@@ -1225,7 +1225,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173695"
+      "last_updated": "2026-01-22T11:28:13.838592"
     },
     {
       "id": "aws_bedrock:voxtral-mini-1.0",
@@ -1262,7 +1262,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:36.173797"
+      "last_updated": "2026-01-22T11:28:13.838739"
     },
     {
       "id": "aws_bedrock:ministral-14b-3.0",
@@ -1296,7 +1296,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173847"
+      "last_updated": "2026-01-22T11:28:13.838810"
     },
     {
       "id": "aws_bedrock:gemma-3-27b",
@@ -1330,7 +1330,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.173975"
+      "last_updated": "2026-01-22T11:28:13.838955"
     },
     {
       "id": "aws_bedrock:nvidia-nemotron-nano-2",
@@ -1364,7 +1364,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174073"
+      "last_updated": "2026-01-22T11:28:13.839031"
     },
     {
       "id": "aws_bedrock:nova-sonic-2.0",
@@ -1399,7 +1399,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:36.174134"
+      "last_updated": "2026-01-22T11:28:13.839104"
     },
     {
       "id": "aws_bedrock:gemma-3-4b",
@@ -1433,7 +1433,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174180"
+      "last_updated": "2026-01-22T11:28:13.839169"
     },
     {
       "id": "aws_bedrock:nova-lite",
@@ -1468,7 +1468,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174254"
+      "last_updated": "2026-01-22T11:28:13.839277"
     },
     {
       "id": "aws_bedrock:nvidia-nemotron-nano-2-vl",
@@ -1504,7 +1504,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174489"
+      "last_updated": "2026-01-22T11:28:13.839491"
     },
     {
       "id": "aws_bedrock:minimax-m2",
@@ -1538,7 +1538,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174720"
+      "last_updated": "2026-01-22T11:28:13.839630"
     },
     {
       "id": "aws_bedrock:claude-3-sonnet",
@@ -1575,7 +1575,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.174976"
+      "last_updated": "2026-01-22T11:28:13.839926"
     },
     {
       "id": "aws_bedrock:llama-3.2-90b",
@@ -1607,7 +1607,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.175129"
+      "last_updated": "2026-01-22T11:28:13.840101"
     },
     {
       "id": "aws_bedrock:claude-2.0",
@@ -1639,7 +1639,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.175177"
+      "last_updated": "2026-01-22T11:28:13.840169"
     },
     {
       "id": "aws_bedrock:magistral-small-1.2",
@@ -1673,7 +1673,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.175361"
+      "last_updated": "2026-01-22T11:28:13.840335"
     },
     {
       "id": "aws_bedrock:claude-3-haiku",
@@ -1710,7 +1710,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.175502"
+      "last_updated": "2026-01-22T11:28:13.840437"
     },
     {
       "id": "aws_bedrock:llama-3-70b",
@@ -1742,7 +1742,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.176041"
+      "last_updated": "2026-01-22T11:28:13.840877"
     },
     {
       "id": "aws_bedrock:llama-3.3-70b",
@@ -1777,7 +1777,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.176676"
+      "last_updated": "2026-01-22T11:28:13.841454"
     },
     {
       "id": "aws_bedrock:mistral-large-3",
@@ -1814,7 +1814,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.177032"
+      "last_updated": "2026-01-22T11:28:13.841838"
     },
     {
       "id": "aws_bedrock:mistral-7b",
@@ -1846,7 +1846,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.177118"
+      "last_updated": "2026-01-22T11:28:13.841949"
     },
     {
       "id": "aws_bedrock:qwen3-coder-30b-a3b",
@@ -1880,7 +1880,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.177553"
+      "last_updated": "2026-01-22T11:28:13.842543"
     },
     {
       "id": "aws_bedrock:claude-instant",
@@ -1912,7 +1912,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.177693"
+      "last_updated": "2026-01-22T11:28:13.842722"
     },
     {
       "id": "aws_bedrock:claude-sonnet-4.5",
@@ -1950,7 +1950,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179427"
+      "last_updated": "2026-01-22T11:28:13.845159"
     },
     {
       "id": "aws_bedrock:claude-haiku-4.5",
@@ -1988,7 +1988,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179486"
+      "last_updated": "2026-01-22T11:28:13.845264"
     },
     {
       "id": "aws_bedrock:claude-opus-4.5",
@@ -2026,7 +2026,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179542"
+      "last_updated": "2026-01-22T11:28:13.845347"
     },
     {
       "id": "aws_bedrock:meta-llama-2-chat-70b",
@@ -2058,7 +2058,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179591"
+      "last_updated": "2026-01-22T11:28:13.845420"
     },
     {
       "id": "aws_bedrock:claude-3.5-sonnet-v2",
@@ -2096,7 +2096,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179642"
+      "last_updated": "2026-01-22T11:28:13.845485"
     },
     {
       "id": "aws_bedrock:claude-3.5-sonnet",
@@ -2134,7 +2134,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179692"
+      "last_updated": "2026-01-22T11:28:13.845561"
     },
     {
       "id": "aws_bedrock:claude-3-opus",
@@ -2171,7 +2171,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179749"
+      "last_updated": "2026-01-22T11:28:13.845649"
     },
     {
       "id": "aws_bedrock:meta-llama-2-chat-13b",
@@ -2203,7 +2203,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179799"
+      "last_updated": "2026-01-22T11:28:13.845718"
     },
     {
       "id": "aws_bedrock:jamba-1.5-large",
@@ -2234,7 +2234,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179838"
+      "last_updated": "2026-01-22T11:28:13.845776"
     },
     {
       "id": "aws_bedrock:twelvelabs-marengo-embed-3.0",
@@ -2265,7 +2265,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:36.179904"
+      "last_updated": "2026-01-22T11:28:13.845878"
     },
     {
       "id": "aws_bedrock:stable-image-ultra",
@@ -2298,7 +2298,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.179946"
+      "last_updated": "2026-01-22T11:28:13.845939"
     },
     {
       "id": "aws_bedrock:cohere-command-r",
@@ -2330,7 +2330,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180006"
+      "last_updated": "2026-01-22T11:28:13.846036"
     },
     {
       "id": "aws_bedrock:twelvelabs-pegasus-1.2",
@@ -2361,7 +2361,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180060"
+      "last_updated": "2026-01-22T11:28:13.846097"
     },
     {
       "id": "aws_bedrock:palmyra-x4",
@@ -2392,7 +2392,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180129"
+      "last_updated": "2026-01-22T11:28:13.846197"
     },
     {
       "id": "aws_bedrock:stable-diffusion-3.5-large-v1.0",
@@ -2423,7 +2423,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:36.180196"
+      "last_updated": "2026-01-22T11:28:13.846295"
     },
     {
       "id": "aws_bedrock:claude-instant-100k",
@@ -2455,7 +2455,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180250"
+      "last_updated": "2026-01-22T11:28:13.846363"
     },
     {
       "id": "aws_bedrock:cohere-embed-4-model",
@@ -2486,7 +2486,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:36.180309"
+      "last_updated": "2026-01-22T11:28:13.846450"
     },
     {
       "id": "aws_bedrock:claude-opus-4",
@@ -2524,7 +2524,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180350"
+      "last_updated": "2026-01-22T11:28:13.846513"
     },
     {
       "id": "aws_bedrock:claude-3.7-sonnet",
@@ -2562,7 +2562,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180391"
+      "last_updated": "2026-01-22T11:28:13.846577"
     },
     {
       "id": "aws_bedrock:palmyra-x5",
@@ -2593,7 +2593,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180474"
+      "last_updated": "2026-01-22T11:28:13.846690"
     },
     {
       "id": "aws_bedrock:stable-image-core",
@@ -2626,7 +2626,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180556"
+      "last_updated": "2026-01-22T11:28:13.846807"
     },
     {
       "id": "aws_bedrock:cohere-generate-model---command",
@@ -2658,7 +2658,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180599"
+      "last_updated": "2026-01-22T11:28:13.846877"
     },
     {
       "id": "aws_bedrock:cohere-embed-3-model---english",
@@ -2689,7 +2689,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:36.180652"
+      "last_updated": "2026-01-22T11:28:13.846944"
     },
     {
       "id": "aws_bedrock:jamba-1.5-mini",
@@ -2720,7 +2720,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180711"
+      "last_updated": "2026-01-22T11:28:13.847025"
     },
     {
       "id": "aws_bedrock:cohere-embed-model-3---multilingual",
@@ -2751,7 +2751,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:36.180795"
+      "last_updated": "2026-01-22T11:28:13.847153"
     },
     {
       "id": "aws_bedrock:claude-opus-4.1",
@@ -2786,7 +2786,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180932"
+      "last_updated": "2026-01-22T11:28:13.847360"
     },
     {
       "id": "aws_bedrock:claude-sonnet-4",
@@ -2824,7 +2824,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.180980"
+      "last_updated": "2026-01-22T11:28:13.847423"
     },
     {
       "id": "aws_bedrock:claude-3.5-haiku",
@@ -2861,7 +2861,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.181040"
+      "last_updated": "2026-01-22T11:28:13.847479"
     },
     {
       "id": "aws_bedrock:twelvelabs-marengo-embed-2.7",
@@ -2892,7 +2892,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:36.181164"
+      "last_updated": "2026-01-22T11:28:13.847634"
     },
     {
       "id": "aws_bedrock:jurassic-2-ultra",
@@ -2923,7 +2923,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.181273"
+      "last_updated": "2026-01-22T11:28:13.847733"
     },
     {
       "id": "aws_bedrock:cohere-rerank-v3.5",
@@ -2954,7 +2954,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.181338"
+      "last_updated": "2026-01-22T11:28:13.847809"
     },
     {
       "id": "aws_bedrock:cohere-generate-model---command-light",
@@ -2986,7 +2986,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.181593"
+      "last_updated": "2026-01-22T11:28:13.848160"
     },
     {
       "id": "aws_bedrock:stable-diffusion-3-large-v1.0",
@@ -3017,7 +3017,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:36.181911"
+      "last_updated": "2026-01-22T11:28:13.848335"
     },
     {
       "id": "aws_bedrock:claude-100k",
@@ -3049,7 +3049,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.182051"
+      "last_updated": "2026-01-22T11:28:13.848509"
     },
     {
       "id": "aws_bedrock:jurassic-2-mid",
@@ -3080,7 +3080,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.182112"
+      "last_updated": "2026-01-22T11:28:13.848594"
     },
     {
       "id": "aws_bedrock:jamba-instruct",
@@ -3111,7 +3111,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.183511"
+      "last_updated": "2026-01-22T11:28:13.850281"
     },
     {
       "id": "aws_bedrock:claude",
@@ -3143,7 +3143,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:36.183670"
+      "last_updated": "2026-01-22T11:28:13.850384"
     }
   ]
 }

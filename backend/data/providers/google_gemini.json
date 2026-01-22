@@ -1,6 +1,6 @@
 {
   "provider": "google_gemini",
-  "last_updated": "2026-01-19T22:08:42.805661",
+  "last_updated": "2026-01-22T11:28:21.293981",
   "models": [
     {
       "id": "google_gemini:gemini-3-pro-preview",
@@ -37,7 +37,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-3-flash-preview",
@@ -74,7 +74,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-3-pro-image-preview",
@@ -110,7 +110,7 @@
         "text",
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-pro",
@@ -148,7 +148,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash",
@@ -186,7 +186,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-preview",
@@ -224,7 +224,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-lite",
@@ -258,7 +258,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-lite-preview",
@@ -292,7 +292,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-native-audio",
@@ -330,7 +330,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-image",
@@ -366,7 +366,7 @@
         "text",
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-flash-preview-tts",
@@ -401,7 +401,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-pro-preview-tts",
@@ -436,7 +436,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.0-flash",
@@ -473,7 +473,7 @@
         "text",
         "audio"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.0-flash-lite",
@@ -507,7 +507,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:imagen-4",
@@ -538,7 +538,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:imagen-3",
@@ -569,7 +569,7 @@
       "output_modalities": [
         "image"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:veo-3.1",
@@ -600,7 +600,7 @@
       "output_modalities": [
         "video"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:veo-3",
@@ -631,7 +631,7 @@
       "output_modalities": [
         "video"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:veo-2",
@@ -662,7 +662,7 @@
       "output_modalities": [
         "video"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-embedding",
@@ -693,7 +693,7 @@
       "output_modalities": [
         "embedding"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-robotics-er-1.5-preview",
@@ -727,7 +727,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemini-2.5-computer-use-preview",
@@ -762,7 +762,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemma-3",
@@ -793,7 +793,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     },
     {
       "id": "google_gemini:gemma-3n",
@@ -824,7 +824,7 @@
       "output_modalities": [
         "text"
       ],
-      "last_updated": "2026-01-19T22:08:42.805661"
+      "last_updated": "2026-01-22T11:28:21.293981"
     }
   ]
 }
