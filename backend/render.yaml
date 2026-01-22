@@ -1,0 +1,19 @@
+# Render Blueprint specification
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: model-price-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    region: singapore  # 或 oregon, frankfurt 等
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://your-frontend-domain.vercel.app,https://your-custom-domain.com
+      - key: RELOAD
+        value: "false"
+      - key: LOG_LEVEL
+        value: INFO
