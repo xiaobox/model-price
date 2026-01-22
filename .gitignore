@@ -28,3 +28,4 @@ dist/
 
 # Claude settings (local only)
 .claude/
+CLAUDE.md
