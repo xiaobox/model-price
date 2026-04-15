@@ -66,19 +66,19 @@ export function EntityDrawer({
           </Link>
         </header>
 
-        {loading ? (
-          <div className="v2-drawer-loading">{t('detail.loading')}</div>
-        ) : notFound ? (
-          <div className="v2-drawer-empty">
-            {t('detail.not_found_fmt', { slug: slug ?? '' })}
-          </div>
-        ) : detail ? (
+        {detail ? (
           <DrawerContent
             detail={detail}
             onToggleBasket={onToggleBasket}
             isInBasket={isInBasket}
             onNavigateSlug={onNavigateSlug}
           />
+        ) : notFound ? (
+          <div className="v2-drawer-empty">
+            {t('detail.not_found_fmt', { slug: slug ?? '' })}
+          </div>
+        ) : loading ? (
+          <div className="v2-drawer-loading">{t('detail.loading')}</div>
         ) : null}
       </aside>
     </>
