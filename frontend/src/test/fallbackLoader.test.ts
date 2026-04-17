@@ -7,9 +7,11 @@ import {
 import type { EntityCoreV2, OfferingV2 } from '../types/v2';
 
 function entity(overrides: Partial<EntityCoreV2> & { slug: string }): EntityCoreV2 {
+  // ``slug`` is guaranteed by the ``overrides`` type, so we pick it up
+  // from the spread. Defaults that derive from slug (``canonical_id``,
+  // ``name``) sit before the spread so callers can still override them.
   return {
     canonical_id: overrides.slug,
-    slug: overrides.slug,
     name: overrides.slug,
     family: 'Claude',
     maker: 'Anthropic',
