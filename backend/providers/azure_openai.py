@@ -1,4 +1,16 @@
-"""Azure OpenAI pricing provider."""
+"""Azure AI pricing provider.
+
+Historically named ``azure_openai`` because the only thing hosted on
+Azure AI was GPT; Microsoft folded the old "Azure OpenAI Service" into
+the broader "Azure AI" catalog in 2025, and the Retail Prices
+API this scraper uses now reports everything — GPT, Grok, Llama, Phi,
+DeepSeek, Mistral, Flux — under ``serviceName eq 'Foundry Models'``.
+
+The slug emitted here is therefore ``azure_ai`` so the UI
+labels each row correctly. The module filename and class name still
+read ``azure_openai*`` to keep the git diff minimal; rename can come
+later if we want a cosmetic cleanup.
+"""
 
 import logging
 import re
@@ -135,10 +147,14 @@ MODEL_PATTERNS: List[Tuple[str, str, str]] = [
 
 
 class AzureOpenAIProvider(BaseProvider):
-    """Provider for Azure OpenAI pricing data."""
+    """Provider for Azure AI (formerly Azure OpenAI) pricing.
 
-    name = "azure_openai"
-    display_name = "Azure OpenAI"
+    Legacy class name kept so the registration site doesn't churn; the
+    slug and display name reflect the current Azure product reality.
+    """
+
+    name = "azure_ai"
+    display_name = "Azure AI"
 
     # Products to include (AI models only)
     INCLUDED_PRODUCTS = {

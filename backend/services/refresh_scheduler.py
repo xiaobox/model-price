@@ -38,6 +38,12 @@ class RefreshScheduler:
         logger.info("Auto refresh scheduler stopped")
 
     async def _run(self) -> None:
+        # Kick an initial refresh immediately. Waiting one full interval
+        # before the first run means Render free-tier users see stale
+        # snapshot data for up to `interval_seconds` after every cold
+        # boot — the very window in which freshness matters most.
+        await self._refresh_once()
+
         while not self._stop_event.is_set():
             try:
                 await asyncio.wait_for(
@@ -51,12 +57,15 @@ class RefreshScheduler:
             if self._stop_event.is_set():
                 break
 
-            try:
-                report = await get_store().refresh_from_pipeline(force_network=True)
-                logger.info(
-                    "Scheduled v2 refresh completed: %s entities, %s offerings",
-                    report.counts.entities_total,
-                    report.counts.offerings_total,
-                )
-            except Exception:
-                logger.exception("Scheduled v2 refresh failed")
+            await self._refresh_once()
+
+    async def _refresh_once(self) -> None:
+        try:
+            report = await get_store().refresh_from_pipeline(force_network=True)
+            logger.info(
+                "Scheduled v2 refresh completed: %s entities, %s offerings",
+                report.counts.entities_total,
+                report.counts.offerings_total,
+            )
+        except Exception:
+            logger.exception("Scheduled v2 refresh failed")

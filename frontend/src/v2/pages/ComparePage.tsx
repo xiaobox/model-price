@@ -11,7 +11,10 @@ import {
   makerColor,
   providerLabel,
 } from '../utils/format';
+import { compareFromFallback, loadFallback } from '../fallbackLoader';
 import './ComparePage.css';
+
+const BACKEND_TIMEOUT_MS = 15000;
 
 export function ComparePage() {
   const { ids = '' } = useParams<{ ids: string }>();
@@ -19,7 +22,7 @@ export function ComparePage() {
     data: CompareResultV2 | null;
     loading: boolean;
     error: string | null;
-  }>({ data: null, loading: true, error: null });
+  }>({ data: null, loading: Boolean(ids), error: null });
   const basket = useCompareBasket();
   const navigate = useNavigate();
   const { t } = useI18n();
@@ -28,37 +31,73 @@ export function ComparePage() {
     if (!ids) return;
     let cancelled = false;
     setState({ data: null, loading: true, error: null });
-    fetch(`${API_V2_BASE}/compare?ids=${encodeURIComponent(ids)}`)
-      .then(async (response) => {
+
+    (async () => {
+      // Stage 1: synth compare result from the bundled snapshot so the
+      // grid paints instantly during a cold Render boot. The backend
+      // fetch below swaps in fresh data when it arrives.
+      const snapshot = await loadFallback();
+      if (cancelled) return;
+      let paintedFallback = false;
+      if (snapshot) {
+        const requested = ids.split(',');
+        const fallback = compareFromFallback(snapshot, requested);
+        if (fallback.entities.length > 0) {
+          setState({ data: fallback, loading: true, error: null });
+          paintedFallback = true;
+        }
+      }
+
+      // Stage 2: real backend call. Keep the snapshot visible on
+      // timeout / error so the user is never stranded on a spinner.
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
+      try {
+        const response = await fetch(
+          `${API_V2_BASE}/compare?ids=${encodeURIComponent(ids)}`,
+          { signal: controller.signal },
+        );
         if (cancelled) return;
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = (await response.json()) as CompareResultV2;
         setState({ data, loading: false, error: null });
-      })
-      .catch((err) => {
+      } catch (err) {
         if (cancelled) return;
-        setState({
-          data: null,
+        setState((prev) => ({
+          data: prev.data,
           loading: false,
-          error: err instanceof Error ? err.message : 'fetch failed',
-        });
-      });
+          error: paintedFallback
+            ? null
+            : err instanceof Error
+              ? err.message
+              : 'fetch failed',
+        }));
+      } finally {
+        clearTimeout(timeout);
+      }
+    })();
+
     return () => {
       cancelled = true;
     };
   }, [ids]);
 
-  if (state.loading) return <div className="v2-loading">{t('detail.loading')}</div>;
-  if (state.error)
-    return (
-      <div className="v2-error">
-        <p>{t('compare.failed_fmt', { error: state.error })}</p>
-        <Link to="/" className="v2-link-accent">
-          {t('detail.back_to_home')}
-        </Link>
-      </div>
-    );
-  if (!state.data) return null;
+  // Render whatever data we have first; only fall back to spinner /
+  // error when we genuinely have nothing to paint.
+  if (!state.data) {
+    if (state.error)
+      return (
+        <div className="v2-error">
+          <p>{t('compare.failed_fmt', { error: state.error })}</p>
+          <Link to="/" className="v2-link-accent">
+            {t('detail.back_to_home')}
+          </Link>
+        </div>
+      );
+    if (state.loading)
+      return <div className="v2-loading">{t('detail.loading')}</div>;
+    return null;
+  }
 
   const { entities, common_capabilities, missing_ids } = state.data;
 

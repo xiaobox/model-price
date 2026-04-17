@@ -1,36 +1,21 @@
-"""xAI (Grok) pricing provider.
+"""xAI (Grok) pricing provider — mirrored via the LiteLLM registry.
 
-Sources pricing data from xAI's documentation.
-Since xAI doesn't provide a public pricing API, this uses static data
-that should be updated periodically.
-
-Reference: https://docs.x.ai/docs/models
+xAI does not publish a scraped-friendly pricing page and our old
+static data (``data/fallback/xai.json``, last verified 2026-01)
+rotted — it missed Grok 4, Grok 4 Fast, Grok 4.1, Grok code-fast-1.
+LiteLLM tracks xAI's own model_prices file and carries ~35 Grok
+entries today, updated within hours of a release.
 """
 
-import logging
-from typing import List
-
-from models import ModelPricing
-from .base import BaseProvider
+from ._litellm_first_party import LiteLLMFirstPartyProvider
 from .registry import ProviderRegistry
 
-logger = logging.getLogger(__name__)
 
-
-class XAIProvider(BaseProvider):
-    """Provider for xAI (Grok) pricing data.
-
-    Uses static pricing data from xAI documentation.
-    xAI does not provide a public pricing API.
-    """
-
+class XAIProvider(LiteLLMFirstPartyProvider):
     name = "xai"
     display_name = "xAI"
-
-    async def fetch(self) -> List[ModelPricing]:
-        """Fetch xAI pricing from static fallback data."""
-        return self.load_fallback_data()
+    litellm_tags = frozenset({"xai"})
+    is_open_source = False
 
 
-# Register provider
 ProviderRegistry.register(XAIProvider())

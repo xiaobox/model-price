@@ -7,7 +7,9 @@ export const en = {
   // Brand / chrome
   'nav.search_placeholder': 'Search models…',
   'nav.open_palette': 'Open command palette',
-  'footer.tagline': 'Model Price · compare 600+ LLMs from 6 providers',
+  'nav.updated_fmt': 'Updated {relative}',
+  'nav.updated_tooltip_fmt': 'Pricing snapshot built {absolute}',
+  'footer.tagline': 'Model Price · compare LLMs across every major provider',
   'footer.unit': 'Prices per 1M tokens',
   'footer.github': 'GitHub',
 
@@ -67,6 +69,12 @@ export const en = {
   'detail.col.cache_read': 'Cache read',
   'detail.col.batch_in': 'Batch in',
   'detail.primary_tag': 'primary',
+  'detail.source_via_litellm': 'via LiteLLM',
+  'detail.source_via_litellm_tooltip':
+    "Pricing mirrored through the LiteLLM community registry, which tracks this provider's official prices.",
+  'detail.source_placeholder': 'placeholder',
+  'detail.source_placeholder_tooltip':
+    'No direct provider offering yet; reference pricing from LiteLLM.',
   'detail.alternatives': 'Same tier, cheaper',
   'detail.context_suffix': 'context',
   'detail.max_output_suffix': 'max output',
@@ -147,7 +155,9 @@ export type MessageKey = keyof typeof en;
 export const zh: Record<MessageKey, string> = {
   'nav.search_placeholder': '搜索模型…',
   'nav.open_palette': '打开命令面板',
-  'footer.tagline': 'Model Price · 对比 600+ LLM,覆盖 6 大提供商',
+  'nav.updated_fmt': '数据更新于 {relative}',
+  'nav.updated_tooltip_fmt': '定价快照生成于 {absolute}',
+  'footer.tagline': 'Model Price · 一站对比主流 LLM 定价',
   'footer.unit': '价格按每百万 token 计',
   'footer.github': 'GitHub',
 
@@ -203,6 +213,12 @@ export const zh: Record<MessageKey, string> = {
   'detail.col.cache_read': '缓存读取',
   'detail.col.batch_in': '批处理输入',
   'detail.primary_tag': '首选',
+  'detail.source_via_litellm': '数据源 LiteLLM',
+  'detail.source_via_litellm_tooltip':
+    '该报价经由 LiteLLM 社区注册表同步自该提供商的官方定价,并非直接从提供商 API 抓取。',
+  'detail.source_placeholder': '占位',
+  'detail.source_placeholder_tooltip':
+    '暂无任何直连提供商报价,此处仅展示 LiteLLM 注册表里的参考价格。',
   'detail.alternatives': '同档更便宜',
   'detail.context_suffix': '上下文',
   'detail.max_output_suffix': '最大输出',

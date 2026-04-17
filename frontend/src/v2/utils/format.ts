@@ -56,15 +56,38 @@ export function capabilityLabel(cap: string): string {
 }
 
 const PROVIDER_LABEL: Record<string, string> = {
+  // First-party maker-operators (pricing mirrored via LiteLLM, except
+  // google_gemini which scrapes ai.google.dev directly).
+  ai21: 'AI21',
+  alibaba_qwen: 'Alibaba Qwen',
   anthropic: 'Anthropic',
-  aws_bedrock: 'AWS Bedrock',
-  azure_openai: 'Azure OpenAI',
-  openai: 'OpenAI',
+  volcengine: 'Volcengine',
+  // Retained for older cached snapshots; current slug is `volcengine`.
+  bytedance_doubao: 'Volcengine',
+  cohere: 'Cohere',
+  deepseek: 'DeepSeek',
+  gigachat: 'Sber GigaChat',
   google_gemini: 'Google Gemini',
-  google_vertex_ai: 'Google Vertex',
-  openrouter: 'OpenRouter',
+  google_vertex_ai: 'Google Vertex AI',
+  meta_llama: 'Meta Llama API',
+  minimax: 'MiniMax',
+  mistral: 'Mistral AI',
+  moonshot: 'Moonshot AI',
+  openai: 'OpenAI',
   xai: 'xAI',
+  zai: 'Z.AI',
+  // Cloud distribution channels.
+  aws_bedrock: 'AWS Bedrock',
+  azure_ai: 'Azure AI',
+  openrouter: 'OpenRouter',
+  // Retained for older cached snapshots; current pipeline emits
+  // `azure_ai` for every Azure-hosted model (formerly `azure_openai`
+  // and briefly `azure_ai_foundry`).
+  azure_openai: 'Azure AI',
+  azure_ai_foundry: 'Azure AI',
+  // Placeholder when no real provider attaches.
   litellm_fallback: 'LiteLLM fallback',
+  litellm: 'LiteLLM',
 };
 
 export function providerLabel(provider: string): string {

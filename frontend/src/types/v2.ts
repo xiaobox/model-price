@@ -19,7 +19,11 @@ export interface BatchPricingV2 {
   output: number | null;
 }
 
-export type OfferingSource = 'provider_api' | 'provider_scrape' | 'litellm_fallback';
+export type OfferingSource =
+  | 'provider_api'      // Directly from the provider's own API / scrape
+  | 'provider_scrape'   // Playwright scrape of the provider's pricing page
+  | 'via_litellm'       // Mirror of provider's first-party pricing via LiteLLM
+  | 'litellm_fallback'; // Placeholder when no real provider is attached
 
 export interface OfferingV2 {
   provider: string;

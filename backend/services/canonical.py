@@ -88,6 +88,26 @@ KNOWN_AGGREGATOR_ALIASES: dict[str, str] = {
     # The aws api occasionally collapses dashes — accept both forms.
     "cohere-embed-model-3-multilingual": "embed-multilingual",
     "cohere-embed-model-3-english": "embed-english",
+    # Vertex double-prefix: ``vertex_ai/mistralai/<model>``. Our slugify
+    # only drops the first ``vertex_ai/`` so the ``mistralai-`` residue
+    # is left behind, creating orphan entities alongside the real ones.
+    # Hard-code the collapse so both Vertex forms resolve to the same
+    # dangling target and cluster together.
+    "mistralai-codestral-2": "codestral-2",
+    "mistralai-codestral-2-001": "codestral-2-001",
+    "mistralai-mistral-medium-3": "mistral-medium-3",
+    "mistralai-mistral-medium-3-001": "mistral-medium-3-001",
+    # LiteLLM upstream is inconsistent about Ministral 3 naming: some
+    # canonical entries carry the family number ``-3-`` and some skip
+    # it. Without aliasing the two sides would become parallel entity
+    # pairs (ministral-14b-2512 vs ministral-3-14b-2512).
+    "ministral-14b-2512": "ministral-3-14b-2512",
+    "ministral-3b-2512": "ministral-3-3b-2512",
+    "ministral-8b-2512": "ministral-3-8b-2512",
+    # LiteLLM publishes Qwen3 Coder canonically as ``qwen3-coder`` but
+    # some aggregator paths surface it as ``qwen3-coder-480b-a35b``
+    # with the full parameter stamp.
+    "qwen3-coder-480b-a35b": "qwen3-coder",
 }
 
 
@@ -209,5 +229,8 @@ def build_resolver(registry: LiteLLMRegistry) -> CanonicalResolver:
     `cohere-embed-4-model`) as members of the right canonical entity.
     """
     for alias, canonical_id in KNOWN_AGGREGATOR_ALIASES.items():
-        registry.register_alias(alias, canonical_id)
+        # ``allow_dangling`` so aliases can point at synthetic-only
+        # targets like ``codestral-2`` that exist as merged synthetic
+        # entities but not as a LiteLLM canonical row.
+        registry.register_alias(alias, canonical_id, allow_dangling=True)
     return CanonicalResolver(registry)
