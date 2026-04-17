@@ -13,7 +13,12 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel, Field
 
 
-OfferingSource = Literal["provider_api", "provider_scrape", "litellm_fallback"]
+OfferingSource = Literal[
+    "provider_api",       # Directly scraped / fetched from the provider's own API
+    "provider_scrape",    # Playwright scrape of the provider's pricing page
+    "via_litellm",        # Mirror of provider's first-party pricing via LiteLLM
+    "litellm_fallback",   # Placeholder for entities with no real provider attached
+]
 
 
 class PricingV2(BaseModel):

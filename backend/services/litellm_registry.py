@@ -107,23 +107,11 @@ AGGREGATOR_LITELLM_PROVIDERS = {
     "replicate",
 }
 
-# Our app's provider slugs → LiteLLM provider tags they correspond to.
-APP_PROVIDER_TO_LITELLM = {
-    "aws_bedrock": ["bedrock", "bedrock_converse"],
-    "azure_openai": ["azure", "azure_text", "azure_ai"],
-    "openai": ["openai", "text-completion-openai"],
-    "google_gemini": ["gemini", "google", "vertex_ai-language-models"],
-    "google_vertex_ai": [
-        "vertex_ai-language-models",
-        "vertex_ai-anthropic_models",
-        "vertex_ai-mistral_models",
-        "vertex_ai-llama_models",
-    ],
-    "anthropic": ["anthropic"],
-    "openrouter": ["openrouter"],
-    "xai": ["xai"],
-    "deepseek": ["deepseek"],
-}
+# Historical map of our provider slugs → LiteLLM tags. Never actually
+# read by the pipeline — each provider in ``backend/providers/`` owns
+# its own filter against ``LiteLLMEntry.litellm_provider``. Kept here
+# removed to avoid giving the false impression that a slug has a
+# backing provider just because it appears in this table.
 
 # Only the 7 capabilities users actually care about when shopping for
 # a model. Internal LiteLLM flags like prompt_caching / pdf / web_search
@@ -174,6 +162,8 @@ FAMILY_PATTERNS: List[tuple[str, str, List[str]]] = [
     ("Imagen", "Google", ["imagen"]),
     ("Veo", "Google", ["veo-"]),
     ("LearnLM", "Google", ["learnlm"]),
+    ("MedLM", "Google", ["medlm"]),
+    ("Google Deep Research", "Google", ["deep-research"]),
     # Codex must be checked BEFORE GPT because model names like
     # "gpt-5-codex" and "gpt-5.1-codex-max" contain the "gpt-" needle
     # and would otherwise collapse into the GPT family.
@@ -271,6 +261,37 @@ _VARIANT_TAGS = (
     "-32e",
     "-16e",
     "-8e",
+    # Vertex AI's ``@default`` suffix means "this model's default
+    # variant"; after slugify it lands as ``-default`` on an id that
+    # already represents the same model (claude-opus-4-7@default →
+    # claude-opus-4-7).
+    "-default",
+    # ``-latest`` is a floating alias that providers publish alongside
+    # the pinned-date canonical. We used to preserve it as a distinct
+    # product because the underlying target drifts over time, but from
+    # the user's perspective it was pure noise — every Mistral /
+    # Grok / Qwen / Devstral / Codex product showed up twice
+    # ("mistral-large" vs "mistral-large-latest") with the same maker
+    # and typically identical pricing. Strip it; rely on
+    # _dedupe_offerings_per_provider to pick the offering with
+    # complete pricing when the two variants differ.
+    "-latest",
+    # Gemma uses ``-it`` (instruction-tuned) to mark the main product
+    # variant. The bare name (``gemma-3-12b``) and the ``-it`` form
+    # (``gemma-3-12b-it``) are the same model in practice — Google
+    # publishes Gemma only as instruction-tuned for API consumption.
+    # Non-Gemma families do not use ``-it`` so this is safe globally.
+    "-it",
+    # OpenRouter ships ``*-free`` variants that are the same model on
+    # the same infrastructure with a $0 price cap / rate limit. Merge
+    # them so users see a single entity with both the regular and
+    # the free-tier offering rows.
+    "-free",
+    # Vertex AI Model Garden / Alibaba Model Studio (dashscope)
+    # expose their hosted-service offerings with a ``@maas`` suffix
+    # ("Model as a Service"). After slugify it lands as ``-maas`` on
+    # otherwise identical model ids, so it's pure packaging.
+    "-maas",
 )
 # Tags that look like packaging but actually carry product identity
 # and must NOT be stripped:
@@ -281,8 +302,8 @@ _VARIANT_TAGS = (
 #             diverges from gemini-2.5-pro over time.
 # -exp / -experimental : DeepSeek v3.2-exp is a distinct product tier
 #             from deepseek-v3.2 (confirmed by $0.27 vs $0.26 pricing).
-# -latest   : an alias whose identity changes over time.
-# -chat / -base : legitimate product names (deepseek-chat, qwen-base).
+# -chat / -base : legitimate product names (deepseek-chat, qwen-base,
+#             gpt-5-chat is a distinct endpoint from gpt-5).
 
 
 def strip_version_suffix(slug: str) -> str:
@@ -298,6 +319,14 @@ def strip_version_suffix(slug: str) -> str:
     llama-4-maverick-17b-128e-instruct-v1-0 → llama-4-maverick-17b
     """
     s = slug
+    # Leading resolution prefix from LiteLLM image-model pricing rows:
+    # ``1024-x-1024-gpt-image-1-5`` / ``1024-x-1536-gpt-image-1-5`` /
+    # ``1536-x-1024-gpt-image-1-5`` / ``1792-x-1024-dall-e-3``. These
+    # encode per-resolution pricing for the same logical model and
+    # should collapse into one canonical entity. Match only digits +
+    # ``-x-`` + digits at the start so a random ``-x-`` elsewhere
+    # never gets shaved.
+    s = re.sub(r"^\d+-x-\d+-", "", s)
     prev = None
     while s != prev:
         prev = s
@@ -309,6 +338,25 @@ def strip_version_suffix(slug: str) -> str:
         s = re.sub(r"-\d{8}$", "", s)
         # YYYY-MM-DD
         s = re.sub(r"-\d{4}-\d{2}-\d{2}$", "", s)
+        # 6-digit compact date (YYMMDD), e.g. Volcengine's
+        # deepseek-v3-2-251201 → deepseek-v3-2. Tightly anchored to
+        # plausible 21st-century dates so arbitrary 6-digit numeric
+        # tails in model names do not get shaved accidentally:
+        #   - year 20-29 (``2\d``)
+        #   - month 01-12
+        #   - day 01-31
+        s = re.sub(
+            r"-2\d(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])$", "", s
+        )
+        # 4-digit compact date (MM-DD), e.g.
+        # ``gemini-2-5-pro-preview-05-06`` / ``pixtral-large-25-02``.
+        # Both month and day are two digits and zero-padded, so this
+        # cannot accidentally match version numbers like
+        # ``claude-sonnet-4-5`` (``-4-5`` has single digits without
+        # leading zero).
+        s = re.sub(
+            r"-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$", "", s
+        )
         # Variant tags
         for tag in _VARIANT_TAGS:
             if s.endswith(tag):
@@ -539,22 +587,64 @@ class LiteLLMRegistry:
         return self._entries.get(canonical_id)
 
     def resolve_alias(self, key: str) -> Optional[str]:
-        """Return canonical_id for a lookup key, or None."""
+        """Return canonical_id for a lookup key, or None.
+
+        Follows alias chains so a two-hop path like
+        ``vertex_ai/mistralai/codestral-2`` → ``mistralai-codestral-2``
+        → ``codestral-2`` lands on the final target rather than
+        stopping at the intermediate one. A ``seen`` guard stops any
+        accidental cycles.
+        """
         if not key:
             return None
-        direct = self._alias.get(key)
-        if direct is not None:
-            return direct
-        normalized = slugify(key)
-        if normalized in self._alias:
-            return self._alias[normalized]
-        stripped = strip_version_suffix(normalized)
-        if stripped in self._alias:
-            return self._alias[stripped]
-        return None
 
-    def register_alias(self, key: str, canonical_id: str) -> None:
-        if not key or canonical_id not in self._entries:
+        seen: set[str] = set()
+        current: Optional[str] = key
+        last_resolved: Optional[str] = None
+        while current is not None and current not in seen:
+            seen.add(current)
+            # Direct hit; normalize + strip fallbacks come last so an
+            # exact alias always wins over a normalized one.
+            target = self._alias.get(current)
+            if target is None:
+                normalized = slugify(current)
+                if normalized in self._alias:
+                    target = self._alias[normalized]
+                else:
+                    stripped = strip_version_suffix(normalized)
+                    if stripped in self._alias:
+                        target = self._alias[stripped]
+            if target is None:
+                break
+            last_resolved = target
+            if target == current:
+                break
+            current = target
+        return last_resolved
+
+    def register_alias(
+        self,
+        key: str,
+        canonical_id: str,
+        *,
+        allow_dangling: bool = False,
+    ) -> None:
+        """Register an alias pointing at ``canonical_id``.
+
+        Normally the target must be a real canonical entry; otherwise
+        we'd pollute the alias table with broken links. The
+        ``allow_dangling`` escape hatch is for
+        :data:`canonical.KNOWN_AGGREGATOR_ALIASES` entries whose target
+        is itself a synthesized canonical created by the merger's
+        dangling-target clustering — e.g. ``codestral-2`` exists only
+        as a synthetic, never as a LiteLLM canonical, so the Vertex
+        ``mistralai-codestral-2`` alias has to be allowed to point at
+        the dangling id for the merger to collapse both into one
+        synthetic entity.
+        """
+        if not key:
+            return
+        if canonical_id not in self._entries and not allow_dangling:
             return
         self._alias[key] = canonical_id
         self._alias[slugify(key)] = canonical_id

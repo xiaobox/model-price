@@ -6,7 +6,7 @@ import {
   formatOverlap,
   capabilityLabel,
   makerColor,
-} from './format';
+} from '../v2/utils/format';
 
 describe('formatPrice', () => {
   it('renders em-dash for null/undefined', () => {

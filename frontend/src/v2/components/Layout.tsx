@@ -4,6 +4,8 @@ import { CompareBasket } from './CompareBasket';
 import { ThemeToggle } from './ThemeToggle';
 import { LocaleToggle } from './LocaleToggle';
 import { useI18n } from '../i18n/localeContext';
+import { useFreshness } from '../../hooks/useFreshness';
+import { formatRelativeTime } from '../utils/relativeTime';
 import './Layout.css';
 
 interface LayoutProps {
@@ -13,8 +15,13 @@ interface LayoutProps {
 
 export function Layout({ children, onOpenPalette }: LayoutProps) {
   const location = useLocation();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const isHome = location.pathname === '/';
+  const { lastRefresh } = useFreshness();
+  const relative = formatRelativeTime(lastRefresh, locale);
+  const absolute = lastRefresh
+    ? new Date(lastRefresh).toLocaleString(locale === 'zh' ? 'zh-CN' : 'en')
+    : '';
 
   return (
     <div className="v2-shell">
@@ -30,6 +37,15 @@ export function Layout({ children, onOpenPalette }: LayoutProps) {
           <span className="v2-brand-name">Model Price</span>
         </Link>
         <div className="v2-topbar-right">
+          {relative && lastRefresh && (
+            <time
+              className="v2-topbar-updated"
+              dateTime={lastRefresh}
+              title={t('nav.updated_tooltip_fmt', { absolute })}
+            >
+              {t('nav.updated_fmt', { relative })}
+            </time>
+          )}
           {!isHome && (
             <button
               type="button"

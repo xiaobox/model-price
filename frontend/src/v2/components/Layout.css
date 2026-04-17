@@ -56,6 +56,15 @@
   margin-left: auto;
 }
 
+.v2-topbar-updated {
+  color: var(--fg-3);
+  font-size: var(--text-xs);
+  letter-spacing: 0.01em;
+  padding: 0 var(--sp-2);
+  white-space: nowrap;
+  cursor: help;
+}
+
 /* Shared style for every single-purpose action in the topbar
  * (locale, theme, GitHub). All three are 32×32 pill buttons with
  * identical visual weight so the row reads as one row of chips. */
@@ -175,6 +184,9 @@
     padding: var(--sp-2);
   }
   .v2-topbar-search-label {
+    display: none;
+  }
+  .v2-topbar-updated {
     display: none;
   }
   .v2-main {

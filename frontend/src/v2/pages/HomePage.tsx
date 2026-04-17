@@ -59,7 +59,7 @@ export function HomePage(_props: HomePageProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  const { entities, loading, error } = useEntitiesV2(query);
+  const { entities, loading, error, fromFallback } = useEntitiesV2(query);
 
   const { totalEntities, makers, families } = useTotals();
 
@@ -114,7 +114,7 @@ export function HomePage(_props: HomePageProps) {
           <p>Backend unreachable. Start uvicorn on :8000.</p>
           <pre>{error}</pre>
         </div>
-      ) : loading && entities.length === 0 ? (
+      ) : loading && !fromFallback && entities.length === 0 ? (
         <div className="v2-loading">Loading…</div>
       ) : (
         <EntityTable

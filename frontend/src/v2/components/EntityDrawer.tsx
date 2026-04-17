@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import { PUBLIC_BASE_URL } from '../../config';
 import { useEntityV2 } from '../../hooks/useEntityV2';
 import { AlternativesList } from './AlternativesList';
+import { OfferingRow } from './OfferingRow';
 import { ShareActions } from './ShareActions';
 import {
   formatContext,
-  formatPrice,
   makerColor,
-  providerLabel,
 } from '../utils/format';
 import { useI18n } from '../i18n/localeContext';
 import type { MessageKey } from '../i18n/messages';
@@ -204,33 +203,13 @@ function DrawerContent({
             <span>{t('detail.col.cache_read')}</span>
             <span>{t('detail.col.batch_in')}</span>
           </div>
-          {offerings.map((o) => {
-            const isPrimary = o.provider === entity.primary_offering_provider;
-            return (
-              <div
-                key={`${o.provider}-${o.provider_model_id}`}
-                className={`v2-offer${isPrimary ? ' is-primary' : ''}`}
-              >
-                <div className="v2-offer-provider">
-                  <span>{providerLabel(o.provider)}</span>
-                  {isPrimary ? (
-                    <span className="v2-offer-tag">{t('detail.primary_tag')}</span>
-                  ) : null}
-                  {o.notes ? (
-                    <span className="v2-offer-note" title={o.notes}>
-                      ⓘ
-                    </span>
-                  ) : null}
-                </div>
-                <span className="num">{formatPrice(o.pricing.input)}</span>
-                <span className="num">{formatPrice(o.pricing.output)}</span>
-                <span className="num v2-muted">{formatPrice(o.pricing.cache_read)}</span>
-                <span className="num v2-muted">
-                  {formatPrice(o.batch_pricing?.input ?? null)}
-                </span>
-              </div>
-            );
-          })}
+          {offerings.map((o) => (
+            <OfferingRow
+              key={`${o.provider}-${o.provider_model_id}`}
+              offering={o}
+              primaryProvider={entity.primary_offering_provider}
+            />
+          ))}
         </div>
       </section>
 

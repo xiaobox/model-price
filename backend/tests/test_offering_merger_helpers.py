@@ -97,6 +97,32 @@ class TestUnmatchedClusterKey:
         key = _unmatched_cluster_key(model)
         assert "kimi" in key or "moonshot" in key
 
+    def test_strips_date_suffix_before_clustering(self):
+        """Regression: Vertex's ``claude-3-5-haiku@20241022`` used to
+        cluster as ``claude-3-5-haiku-20241022`` and live as its own
+        synthetic next to ``claude-3-5-haiku``. strip_version_suffix
+        now runs on the cluster key so both collapse.
+
+        Bedrock's ``anthropic.claude-...-v1:0`` form keeps its
+        ``anthropic-`` prefix after slugify (we don't strip maker
+        prefixes at cluster-key time — that would collapse
+        ``qwen-turbo`` → ``turbo``). Bedrock rows merge via the
+        dangling-target path in ``run_refresh_pipeline`` instead."""
+        vertex_dated = _make_model("vertex_ai/claude-3-5-haiku@20241022")
+        undated = _make_model("claude-3-5-haiku")
+        assert (
+            _unmatched_cluster_key(vertex_dated)
+            == _unmatched_cluster_key(undated)
+            == "claude-3-5-haiku"
+        )
+
+    def test_strips_default_suffix_before_clustering(self):
+        """Vertex's ``@default`` variant must collapse into the bare
+        canonical id, not live as its own synthetic."""
+        at_default = _make_model("vertex_ai/claude-opus-4-7@default")
+        undated = _make_model("claude-opus-4-7")
+        assert _unmatched_cluster_key(at_default) == _unmatched_cluster_key(undated)
+
 
 class TestMakerFromModelId:
     def test_known_authors(self):
@@ -166,6 +192,114 @@ class TestIsStubOfferingSet:
             _api_offering("openrouter", 0.1, 0.3),
         ]
         assert _is_stub_offering_set(offs) is False
+
+    def test_via_litellm_with_null_prices_is_stub(self):
+        """Regression: Volcengine's RMB-only upstream rows (e.g.
+        deepseek-v3-2-251201) land as via_litellm offerings with
+        input=null / output=null. They used to escape the stub filter
+        and surfaced as a single "Volcengine" row with no numbers."""
+        off = OfferingV2(
+            provider="volcengine",
+            provider_model_id="deepseek-v3-2-251201",
+            pricing=PricingV2(input=None, output=None),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        assert _is_stub_offering_set([off]) is True
+
+    def test_via_litellm_with_real_price_not_stub(self):
+        """Anthropic / OpenAI / ... via_litellm rows with real prices
+        must survive — they are first-party pricing mirrored through
+        LiteLLM and are the headline data for those makers."""
+        off = OfferingV2(
+            provider="anthropic",
+            provider_model_id="claude-opus-4-7",
+            pricing=PricingV2(input=5.0, output=25.0),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        assert _is_stub_offering_set([off]) is False
+
+    def test_mixed_via_litellm_and_real_not_stub(self):
+        """via_litellm with null prices gets rescued if any real
+        provider_api row has actual pricing — same logic as fallback."""
+        via = OfferingV2(
+            provider="volcengine",
+            provider_model_id="deepseek-v3-2-251201",
+            pricing=PricingV2(input=None, output=None),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        offs = [via, _api_offering("openrouter", 0.3, 0.5)]
+        assert _is_stub_offering_set(offs) is False
+
+    def test_first_party_null_price_rescued_by_maker(self):
+        """Regression: Doubao / GigaChat have LiteLLM canonical rows
+        but null USD prices (RMB-only upstream). Without the
+        first-party rescue, the stub filter pruned every Doubao entity
+        and Doubao vanished from the site. A ByteDance entity whose
+        only offering is Volcengine must stay — it is a first-party
+        pairing, price column is allowed to show '—'."""
+        off = OfferingV2(
+            provider="volcengine",
+            provider_model_id="doubao-seed-2-0-pro",
+            pricing=PricingV2(input=None, output=None),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        assert _is_stub_offering_set([off], entity_maker="ByteDance") is False
+
+    def test_third_party_null_price_still_pruned(self):
+        """Counter-case: Volcengine hosting DeepSeek with null prices is
+        NOT a first-party pairing (Volcengine belongs to ByteDance, not
+        DeepSeek), so it should still be pruned. This protects against
+        the Volcengine-redistributes-everything inflation path."""
+        off = OfferingV2(
+            provider="volcengine",
+            provider_model_id="deepseek-v3-2-251201",
+            pricing=PricingV2(input=None, output=None),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        assert _is_stub_offering_set([off], entity_maker="DeepSeek") is True
+
+    def test_rescue_requires_entity_maker_argument(self):
+        """Legacy call sites that don't pass entity_maker stay on the
+        strict all-null rule; this preserves the invariant that the
+        public helper is safe to call without the new context."""
+        off = OfferingV2(
+            provider="volcengine",
+            provider_model_id="doubao-seed-2-0-pro",
+            pricing=PricingV2(input=None, output=None),
+            batch_pricing=None,
+            availability="ga",
+            region=None,
+            notes=None,
+            last_updated=datetime.utcnow(),
+            source="via_litellm",
+        )
+        # No entity_maker → rescue skipped → classified as stub.
+        assert _is_stub_offering_set([off]) is True
 
 
 class TestIsEmbeddingPriceOutlier:

@@ -267,8 +267,13 @@
   grid-template-columns: 1.6fr 0.8fr 0.8fr 0.8fr 0.8fr;
   gap: var(--sp-2);
   align-items: center;
-  padding: var(--sp-2) var(--sp-3);
+  padding: var(--sp-3);
   font-size: var(--text-xs);
+  min-height: 44px;
+}
+
+.v2-offer-head {
+  min-height: 32px;
 }
 
 .v2-offer-head {
@@ -292,28 +297,74 @@
 
 .v2-offer.is-primary {
   background: var(--accent-soft);
-  color: var(--fg-0);
+}
+
+.v2-offer.is-placeholder {
+  background: var(--bg-1);
+}
+
+.v2-offer.is-placeholder .v2-offer-name,
+.v2-offer.is-placeholder .num {
+  color: var(--fg-3);
 }
 
 .v2-offer-provider {
   display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.v2-offer-name-row {
+  display: flex;
   align-items: center;
   gap: var(--sp-2);
+  min-width: 0;
+}
+
+.v2-offer-name {
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.v2-offer-name.is-primary {
+  color: var(--accent-strong);
+  font-weight: var(--fw-semibold);
+}
+
+.v2-offer-sub {
+  font-size: var(--text-2xs);
+  color: var(--fg-3);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.v2-offer-sub-sep {
+  margin: 0 4px;
+  opacity: 0.5;
+}
+
+.v2-offer-sub-primary {
+  color: var(--accent-strong);
   font-weight: var(--fw-medium);
 }
 
-.v2-offer-tag {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  padding: 1px var(--sp-2);
-  background: var(--accent-strong);
-  color: var(--bg-0);
-  border-radius: var(--rad-sm);
+.v2-offer-sub-src {
+  cursor: help;
+  border-bottom: 1px dotted var(--border-default);
+}
+
+.v2-offer-sub-placeholder {
+  cursor: help;
+  font-style: italic;
 }
 
 .v2-offer-note {
   color: var(--fg-3);
   cursor: help;
+  flex-shrink: 0;
 }
 
 .v2-muted {

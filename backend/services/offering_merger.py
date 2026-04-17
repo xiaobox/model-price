@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -32,7 +33,6 @@ from providers.registry import ProviderRegistry
 from .canonical import CanonicalResolver, build_resolver
 from .drift_reporter import DriftReporter
 from .litellm_registry import (
-    APP_PROVIDER_TO_LITELLM,
     DISPLAY_CAPABILITIES,
     LiteLLMEntry,
     LiteLLMRegistry,
@@ -145,6 +145,43 @@ def _family_from_model_name(name: Optional[str]) -> Optional[str]:
     return None
 
 
+# Double-prefix patterns that Vertex AI / Alibaba Model Studio use
+# for publisher-qualified model ids:
+# ``meta-llama-4-scout``, ``deepseek-ai-deepseek-v3``,
+# ``qwen-qwen3-coder``, ``minimaxai-minimax-m2``,
+# ``moonshotai-kimi-k2``, ``openai-gpt-oss-120b``, ``zai-org-glm-5``,
+# ``mistralai-codestral-2``. Strip only when the prefix is one of
+# these explicit vendor prefixes and only once, so we never chew into
+# real model names (``mistral-large`` must stay ``mistral-large``,
+# not become ``large``).
+_MAKER_PUBLISHER_PREFIXES = (
+    "meta-llama-",
+    "deepseek-ai-",
+    "mistralai-",
+    "minimaxai-",
+    "moonshotai-",
+    "zai-org-",
+    "openai-",
+    "qwen-qwen",  # ``qwen-qwen3-*`` → ``qwen3-*`` (keep trailing no dash)
+    "qwen-",
+)
+
+
+def _strip_publisher_prefix(slug: str) -> str:
+    """Drop a single Vertex-style ``<publisher>-`` prefix.
+
+    The prefix list is explicit rather than "anything before the first
+    dash" — otherwise ``mistral-large`` would collapse to ``large`` and
+    ``qwen-turbo`` to ``turbo``, which are legit product names."""
+    for prefix in _MAKER_PUBLISHER_PREFIXES:
+        if slug.startswith(prefix):
+            tail = slug[len(prefix):]
+            # Avoid producing an empty slug.
+            if tail and tail != slug:
+                return tail
+    return slug
+
+
 def _unmatched_cluster_key(model: ModelPricing) -> str:
     """Derive a stable cluster key from an unmatched v1 record so that
     the same underlying model from different providers ends up in one
@@ -154,9 +191,22 @@ def _unmatched_cluster_key(model: ModelPricing) -> str:
     Priority: model_id slug (most stable across providers, carries the
     version bits like ".5" or "-thinking") → fallback to model_name slug
     if the id isn't informative enough.
+
+    The candidate runs through:
+      1. ``strip_version_suffix`` — drops ``-maas`` / ``-20241022`` /
+         ``-latest`` / ``-default`` / ``-free`` / ``-it`` etc. so
+         ``vertex_ai/claude-3-5-haiku@20241022`` and
+         ``anthropic.claude-3-5-haiku-20241022-v1:0`` cluster together.
+      2. ``_strip_publisher_prefix`` — drops Vertex / dashscope style
+         ``<publisher>-`` prefixes so ``qwen-qwen3-coder-*-maas`` and
+         ``qwen3-coder`` cluster together.
     """
-    id_candidate = slugify(model.model_id or "")
-    name_candidate = slugify(model.model_name or "")
+    id_candidate = _strip_publisher_prefix(
+        strip_version_suffix(slugify(model.model_id or ""))
+    )
+    name_candidate = _strip_publisher_prefix(
+        strip_version_suffix(slugify(model.model_name or ""))
+    )
     # A good id_candidate has at least two dash-separated segments
     # ("kimi-k2-5" good, "chat" bad).
     if len(id_candidate) >= 4 and "-" in id_candidate:
@@ -169,39 +219,269 @@ def _unmatched_cluster_key(model: ModelPricing) -> str:
 # one "primary" to show. We derive it from the entity's maker, falling
 # back to whichever offering comes first.
 AUTHORITY_BY_MAKER: Dict[str, List[str]] = {
-    "Anthropic": ["anthropic", "aws_bedrock", "azure_openai", "openrouter"],
-    "OpenAI": ["openai", "azure_openai", "openrouter"],
+    # First-party maker-operators go first; then major clouds in
+    # typical availability order; then OpenRouter as the catch-all.
+    "Anthropic": ["anthropic", "aws_bedrock", "google_vertex_ai", "azure_ai", "openrouter"],
+    "OpenAI": ["openai", "azure_ai", "openrouter"],
     "Google": ["google_gemini", "google_vertex_ai", "openrouter"],
-    "xAI": ["xai", "openrouter"],
-    "DeepSeek": ["deepseek", "openrouter"],
-    "Meta": ["aws_bedrock", "openrouter"],
-    "Mistral": ["aws_bedrock", "openrouter"],
+    "xAI": ["xai", "azure_ai", "openrouter"],
+    "DeepSeek": ["deepseek", "aws_bedrock", "google_vertex_ai", "azure_ai", "openrouter"],
+    "Meta": ["meta_llama", "aws_bedrock", "google_vertex_ai", "azure_ai", "openrouter"],
+    "Mistral": ["mistral", "aws_bedrock", "google_vertex_ai", "azure_ai", "openrouter"],
     "Amazon": ["aws_bedrock"],
-    "Cohere": ["aws_bedrock", "openrouter"],
-    "AI21": ["aws_bedrock", "openrouter"],
+    "Cohere": ["cohere", "aws_bedrock", "azure_ai", "openrouter"],
+    "AI21": ["ai21", "aws_bedrock", "openrouter"],
     "NVIDIA": ["openrouter"],
+    "Microsoft": ["azure_ai", "openrouter"],
+    "Black Forest Labs": ["azure_ai", "openrouter"],
+    # First-party maker-operators we just added.
+    "Moonshot AI": ["moonshot", "openrouter"],
+    "Alibaba": ["alibaba_qwen", "google_vertex_ai", "openrouter"],
+    "Z.AI": ["zai", "openrouter"],
+    "MiniMax": ["minimax", "google_vertex_ai", "openrouter"],
+    "ByteDance": ["volcengine", "openrouter"],
+    "Sber": ["gigachat"],
 }
 
 
-def _is_stub_offering_set(offerings: List[OfferingV2]) -> bool:
-    """True if the entity has only LiteLLM-fallback placeholder offerings.
+_STUB_SOURCES = frozenset({"litellm_fallback", "via_litellm"})
 
-    A "stub" is an entity whose every offering is:
-    - sourced from litellm_fallback (no real provider ever confirmed
-      the pricing), AND
-    - has both input and output price equal to 0 or missing.
 
-    These come from LiteLLM stub entries for newly-announced models
-    (no price known yet) or per-request APIs like text-moderation /
-    rerank whose pricing model doesn't fit per-1M-token. Showing them
-    as "free $0" misleads users — we drop them entirely. Real free
-    models come in through OpenRouter's provider_api (e.g. the
-    *-free variants), which passes this check and is preserved.
+# ─── Display-name styling ───────────────────────────────────────
+#
+# Until this lived in one place we had ``_pretty_model_name`` blindly
+# uppercasing every short alphanum segment (so ``4o`` → ``4O``) on the
+# canonical path, while ``_synthetic_entity_from_v1`` used whatever
+# ``model_name`` the provider scraper reported (often with hyphens and
+# mixed case: "GPT-4o Realtime"). The list view ended up showing the
+# same family with "GPT 4O Realtime Preview" and "GPT-4o Realtime"
+# side-by-side, which users read as duplicates.
+#
+# ``_polish_display_name`` is the single styling rule every entity
+# name runs through on the way out.
+
+_ALWAYS_UPPER_TOKENS = {
+    # Real acronyms — letters standing for separate words. Everything
+    # else that's just a short English word (Max, Air, Pro, Exp, Her)
+    # should default to Title Case, not UPPER.
+    "gpt", "ai", "api", "sdk", "llm", "mm", "mllm",
+    "vl", "vlm", "pt", "dpo",
+    "tts", "stt", "ocr", "oss", "hd", "ui", "ux",
+    "cot", "moe", "rag", "kv",
+    "ft",  # Fine-tuned; also see _polish_display_name for name rewrite
+    # Model family acronyms that read as the whole product name.
+    "glm", "qwq", "mlm", "lfm",
+    # Version markers that read as acronyms upstream.
+    "v1", "v2", "v3", "v4", "v5", "r1",
+    # Vendor brand acronyms.
+    "ibm", "nvidia", "nvda", "rwkv", "sdxl",
+}
+
+# Brand suffixes that are deliberately lower-case — the letter after
+# the digit is a product tag, not an acronym. ``4o`` is OpenAI's
+# "omni" naming; ``3n`` is Google's Gemma 3n variant.
+_KEEP_LOWERCASE_TOKENS = {
+    "4o", "3n", "4n",
+}
+
+# Compressed-word brand names that Python's ``.capitalize()`` would
+# mangle ("chatgpt" → "Chatgpt" instead of "ChatGPT"). Match is done
+# case-insensitively on the raw token; the value carries the exact
+# mixed-case form we want to render.
+_BRAND_CASE_TOKEN = {
+    "chatgpt": "ChatGPT",
+    "deepseek": "DeepSeek",
+    "minimax": "MiniMax",
+    "openrouter": "OpenRouter",
+    "openai": "OpenAI",
+    "bytedance": "ByteDance",
+    "mistralai": "MistralAI",
+    "moonshotai": "MoonshotAI",
+    "aionlabs": "AionLabs",
+    "allenai": "AllenAI",
+    "nousresearch": "NousResearch",
+    "thedrummer": "TheDrummer",
+    "openchat": "OpenChat",
+    "qwq": "QwQ",  # Qwen with Questions
+}
+
+# Parameter-size tokens: "70b" → "70B", "480m" → "480M", "8k" → "8K",
+# "1.5t" → "1.5T". Anchored so random digit-letter combos don't match.
+_PARAM_SIZE_RE = re.compile(r"^(\d+(?:\.\d+)?)([kmbt])$", re.IGNORECASE)
+
+# MoE-style "active parameters" tokens like ``A22b`` / ``A3b`` /
+# ``A47b`` / ``R7b``: a single letter, a digit run, a single unit
+# letter. The unit letter should render uppercase so it reads
+# consistently with plain parameter sizes (``235B A22B`` vs
+# ``235B A22b``).
+_ACTIVE_PARAM_RE = re.compile(r"^([a-zA-Z])(\d+)([kmbt])$", re.IGNORECASE)
+
+
+def _style_name_token(token: str) -> str:
+    """Make one token display-ready.
+
+    Policy (previous short-word UPPER default is gone — it was turning
+    every Max / Air / Pro / Exp into an all-caps pseudo-acronym):
+
+    1. Compressed-word brand lookup first, so ``chatgpt`` becomes
+       ``ChatGPT`` and ``deepseek`` becomes ``DeepSeek``.
+    2. Brand suffixes that must stay lowercase (``4o`` / ``3n``).
+    3. Explicit acronym whitelist (``GPT`` / ``TTS`` / ``OCR`` / ...).
+    4. Parameter-size tokens (``70b`` → ``70B``, ``1.5t`` → ``1.5T``).
+    5. Active-param MoE tokens (``A22b`` → ``A22B``).
+    6. Pure digits pass through.
+    7. Everything else (short or long) → Title Case.
+    """
+    if not token:
+        return token
+    lower = token.lower()
+    if lower in _BRAND_CASE_TOKEN:
+        return _BRAND_CASE_TOKEN[lower]
+    if lower in _KEEP_LOWERCASE_TOKENS:
+        return lower
+    if lower in _ALWAYS_UPPER_TOKENS:
+        return lower.upper()
+    match = _PARAM_SIZE_RE.match(token)
+    if match:
+        return f"{match.group(1)}{match.group(2).upper()}"
+    match = _ACTIVE_PARAM_RE.match(token)
+    if match:
+        return (
+            match.group(1).upper()
+            + match.group(2)
+            + match.group(3).upper()
+        )
+    if token.isdigit():
+        return token
+    if token.isalpha():
+        return token.capitalize()
+    # Mixed alphanumeric: ``qwen3`` / ``glm4`` / ``llama2``. Capitalise
+    # just the first character so the digit run stays intact.
+    return token[:1].upper() + token[1:].lower()
+
+
+def _polish_display_name(name: str) -> str:
+    """Canonical styling pass for display names.
+
+    Tokenises on whitespace / hyphens / underscores, styles each token
+    via :func:`_style_name_token`, then stitches trailing digit runs
+    back together with dots so ``["4", "5"]`` reads "4.5".
+
+    Strips surrounding parentheses so OpenRouter-style tails like
+    ``"Gemma 3n 2B (free)"`` or ``"Claude Opus 4.6 (fast)"`` turn into
+    ``"Gemma 3n 2B Free"`` / ``"Claude Opus 4.6 Fast"`` — the
+    parenthesised token is a product variant label, not annotation.
+    """
+    if not name:
+        return name
+    # Drop parentheses but keep their contents; they carry product
+    # tags like "(free)" / "(thinking)" / "(extended)" that should
+    # be tokenised alongside the rest of the name.
+    cleaned = name.replace("(", " ").replace(")", " ")
+    tokens = re.split(r"[\s\-_]+", cleaned.strip())
+    styled = [_style_name_token(t) for t in tokens if t]
+    # Reassemble trailing digit runs as version numbers: "4 5" →
+    # "4.5", "M2 5" → "M2.5". Merge when the previous token ends in a
+    # digit and the current token is pure digits. This covers both
+    # "Claude Sonnet 4 5" (four-five version) and "MiniMax M2 5"
+    # (M2.5 product line). Prior tokens ending in a letter (``70B``)
+    # naturally don't merge.
+    merged: List[str] = []
+    for token in styled:
+        if (
+            token.isdigit()
+            and merged
+            and merged[-1][-1:].isdigit()
+        ):
+            merged[-1] = f"{merged[-1]}.{token}"
+        else:
+            merged.append(token)
+    result = " ".join(merged)
+
+    # OpenAI fine-tuning endpoints come in as ``FT GPT 4.1 Mini``; the
+    # bare ``FT`` prefix isn't self-explanatory to anyone who hasn't
+    # used the fine-tune API. Rewrite it as a trailing "(Fine-tuned)"
+    # tag so the list view reads like a product variant.
+    if result.startswith("FT "):
+        result = f"{result[3:]} (Fine-tuned)"
+    return result
+
+
+# Reverse map: app provider slug → the maker that provider is the
+# first-party API for. Used by the stub filter to rescue entities
+# whose only surviving offering is a first-party LiteLLM mirror with
+# upstream-null pricing (e.g. ByteDance's Doubao on Volcengine, which
+# LiteLLM lists but leaves priced as null because Volcengine publishes
+# RMB only — we still want the user to see the model exists).
+#
+# Aggregator-style providers are intentionally absent: aws_bedrock,
+# azure_ai, google_vertex_ai, openrouter redistribute many makers and
+# are nobody's "home". google_gemini is included because AI Studio is
+# Google's own endpoint for Gemini.
+FIRST_PARTY_PROVIDER_TO_MAKER: Dict[str, str] = {
+    "ai21": "AI21",
+    "alibaba_qwen": "Alibaba",
+    "anthropic": "Anthropic",
+    "cohere": "Cohere",
+    "deepseek": "DeepSeek",
+    "gigachat": "Sber",
+    "google_gemini": "Google",
+    "meta_llama": "Meta",
+    "minimax": "MiniMax",
+    "mistral": "Mistral",
+    "moonshot": "Moonshot AI",
+    "openai": "OpenAI",
+    "volcengine": "ByteDance",
+    "xai": "xAI",
+    "zai": "Z.AI",
+}
+
+
+def _is_stub_offering_set(
+    offerings: List[OfferingV2],
+    *,
+    entity_maker: Optional[str] = None,
+) -> bool:
+    """True if the entity has only LiteLLM-mirrored offerings with no
+    usable price AND is not a first-party row we should preserve.
+
+    A "stub" entity is one whose every offering is:
+
+    - sourced from ``litellm_fallback`` or ``via_litellm``, AND
+    - has both input and output price at 0 or missing.
+
+    **First-party rescue (requires ``entity_maker``):** if any
+    offering's provider is the entity maker's first-party API (e.g.
+    ``volcengine`` for ``maker="ByteDance"``), the entity is kept
+    even with all-null prices. Users expect Doubao / GigaChat /
+    other-makers-with-RMB-pricing to show up as existing models with
+    a blank price column rather than vanish silently. Without an
+    ``entity_maker`` (legacy callers / unit tests), the rescue is
+    skipped and the rule is strictly "all mirrored + all null".
+
+    Third-party null mirrors (Volcengine's ``deepseek-v3-2-251201``
+    before the YYMMDD normalization fix) still get pruned because
+    ``volcengine`` is not DeepSeek's first-party — they fall through
+    to the all-null rule.
+
+    Real free OpenRouter ``*-free`` variants come through as
+    ``provider_api``, pass this check, and are preserved.
     """
     if not offerings:
         return False
+
+    # First-party rescue: any offering whose provider claims this
+    # maker bypasses the stub rule, even with null prices.
+    if entity_maker is not None:
+        for offering in offerings:
+            first_party_maker = FIRST_PARTY_PROVIDER_TO_MAKER.get(
+                offering.provider
+            )
+            if first_party_maker == entity_maker:
+                return False
+
     for offering in offerings:
-        if offering.source != "litellm_fallback":
+        if offering.source not in _STUB_SOURCES:
             return False
         input_price = offering.pricing.input or 0
         output_price = offering.pricing.output or 0
@@ -220,6 +500,123 @@ def _is_stub_offering_set(offerings: List[OfferingV2]) -> bool:
 # drift report keeps a record.
 EMBEDDING_INPUT_PRICE_MIN = 0.001   # $0.001 / M
 EMBEDDING_INPUT_PRICE_MAX = 10.0    # $10 / M
+
+
+# Matches a pinned-date snapshot suffix on a provider_model_id. The
+# regex deliberately allows either a dashed form (2024-11-20) or the
+# 8-digit compact form (20241120); both show up in LiteLLM / Openrouter
+# keys for OpenAI / Qwen / Anthropic dated releases.
+_DATE_SUFFIX_RE = re.compile(r"-\d{4}-\d{2}-\d{2}$|-\d{8}$")
+
+
+def _looks_date_pinned(provider_model_id: str) -> bool:
+    return bool(_DATE_SUFFIX_RE.search(provider_model_id))
+
+
+def _dedupe_offerings_per_provider(
+    offerings: List[OfferingV2],
+) -> List[OfferingV2]:
+    """Collapse rows where the same provider publishes multiple variants
+    that resolve to the same entity.
+
+    Preference (lower score wins):
+        1. Complete headline pricing (``input`` and ``output`` both set)
+           beats incomplete. A stale 2024-05 row with different
+           numbers is not informative.
+        2. An un-dated ``provider_model_id`` beats a date-pinned one.
+           Users expect the "current" alias.
+        3. Stable tie-break by first occurrence.
+    """
+    if len(offerings) <= 1:
+        return list(offerings)
+
+    # Preserve insertion order for stable tie-breaks.
+    groups: Dict[str, List[OfferingV2]] = {}
+    order: List[str] = []
+    for offering in offerings:
+        if offering.provider not in groups:
+            groups[offering.provider] = []
+            order.append(offering.provider)
+        groups[offering.provider].append(offering)
+
+    out: List[OfferingV2] = []
+    for provider in order:
+        group = groups[provider]
+        if len(group) == 1:
+            out.append(group[0])
+            continue
+
+        def score(o: OfferingV2) -> tuple[int, int]:
+            incomplete = int(
+                o.pricing.input is None or o.pricing.output is None
+            )
+            dated = int(_looks_date_pinned(o.provider_model_id))
+            return (incomplete, dated)
+
+        best_idx, _ = min(
+            enumerate(group), key=lambda pair: score(pair[1])
+        )
+        out.append(group[best_idx])
+    return out
+
+
+# Providers whose pricing reaches us via the LiteLLM community registry
+# rather than a direct first-party API or scrape. Each of these is the
+# official model vendor (Anthropic / OpenAI / xAI / DeepSeek) or a
+# first-party distribution channel (Google Vertex AI) that does not
+# publish a scrape-friendly price page. LiteLLM tracks their
+# ``model_prices_and_context_window.json`` within hours of a release.
+# Offerings produced by these providers carry ``source="via_litellm"``
+# so the UI can label the pricing row transparently as a two-hop
+# mirror rather than a one-hop first-party fetch.
+LITELLM_SOURCED_PROVIDERS = frozenset({
+    "anthropic",
+    "openai",
+    "xai",
+    "deepseek",
+    "google_vertex_ai",
+    # Added in the "route A" symmetry pass — every maker that operates
+    # its own first-party API goes here, same two-hop chain as the
+    # five above.
+    "mistral",
+    "moonshot",
+    "cohere",
+    "ai21",
+    "alibaba_qwen",
+    "zai",
+    "minimax",
+    "volcengine",
+    "gigachat",
+    "meta_llama",
+})
+
+
+_COMPLETE_CHAT_MODES = frozenset({"chat", "completion", "", None})
+
+
+def _has_complete_headline_pricing(offering: OfferingV2, mode: Optional[str]) -> bool:
+    """True if the offering has non-null values for the UI's headline
+    price fields.
+
+    Used by :meth:`OfferingMerger._choose_primary` to skip candidates
+    whose public price would render as "—" in the list row. Kept
+    permissive for modes we don't explicitly know about, so unknown
+    modes never get silently demoted.
+    """
+    p = offering.pricing
+    if mode in _COMPLETE_CHAT_MODES:
+        return p.input is not None and p.output is not None
+    if mode == "embedding":
+        return p.input is not None or p.embedding is not None
+    if mode == "image_generation":
+        return p.image_input is not None or p.output is not None
+    if mode == "audio_transcription":
+        return p.audio_input is not None or p.input is not None
+    if mode == "audio_speech":
+        return p.audio_output is not None or p.output is not None
+    # Rerank / moderation / unknown: pricing is per-request or unmapped
+    # to a per-1M headline. Don't reject — any real offering is fine.
+    return True
 
 
 def _is_embedding_price_outlier(
@@ -281,13 +678,42 @@ class OfferingMerger:
                 # canonical_id with no actual registry entry behind it
                 # (a "dangling alias"), treat it as unmatched so the
                 # record can still be promoted into a synthetic entity.
+                # Remember the dangling target so Pass 2b can cluster
+                # every aggregator row that resolves to the same alias
+                # into one synthetic entity — without this, Vertex's
+                # ``vertex_ai/claude-3-5-haiku@20241022`` and Bedrock's
+                # ``anthropic.claude-3-5-haiku-20241022-v1:0`` end up
+                # in two different synthetic buckets even though they
+                # point at the same logical model.
+                dangling_target: Optional[str] = None
                 if canonical_id is not None and canonical_id not in entities:
                     entry = self.registry.get(canonical_id)
                     if entry is None:
+                        dangling_target = canonical_id
                         canonical_id = None
 
+                # Second chance: if the dangling target carries a
+                # Vertex-style publisher prefix (``deepseek-ai-``,
+                # ``qwen-``, ``meta-llama-`` etc.), try the stripped
+                # form — it's often the real canonical id (``qwen-
+                # qwen3-coder-*`` → ``qwen3-coder-*``). This closes
+                # the gap where ``vertex_ai/publisher/model-maas`` rows
+                # would otherwise create a parallel synthetic entity.
+                if canonical_id is None and dangling_target is not None:
+                    stripped = _strip_publisher_prefix(dangling_target)
+                    if stripped != dangling_target:
+                        entry = self.registry.get(stripped)
+                        if entry is not None:
+                            canonical_id = stripped
+                            dangling_target = None
+                        elif stripped in entities:
+                            canonical_id = stripped
+                            dangling_target = None
+                        else:
+                            dangling_target = stripped
+
                 if canonical_id is None:
-                    cluster_key = _unmatched_cluster_key(model)
+                    cluster_key = dangling_target or _unmatched_cluster_key(model)
                     unmatched_buckets.setdefault(cluster_key, []).append(
                         (provider_name, model)
                     )
@@ -406,7 +832,9 @@ class OfferingMerger:
         for slug, offs in offerings_by_entity.items():
             if not offs:
                 continue
-            if _is_stub_offering_set(offs):
+            entity = entities.get(slug)
+            maker = entity.maker if entity is not None else None
+            if _is_stub_offering_set(offs, entity_maker=maker):
                 stub_count += 1
                 continue
             final_slugs.add(slug)
@@ -415,6 +843,22 @@ class OfferingMerger:
             s: offerings_by_entity[s] for s in final_slugs
         }
 
+        # ─── Pass 4.5: collapse per-provider date/snapshot duplicates
+        # OpenRouter (and a few other aggregators) publish every pinned-
+        # date snapshot of a model — openai/gpt-4o-2024-11-20,
+        # openai/gpt-4o-2024-08-06, openai/gpt-4o-2024-05-13, and the
+        # bare openai/gpt-4o — all as independent rows. Canonical
+        # resolution maps all four to the same entity, so the detail
+        # page ends up showing four "OpenRouter" lines, one of them
+        # with the stale 2024-05 price that nobody should care about.
+        # We keep the best one per (entity, provider), preferring
+        # complete pricing and the un-dated alias.
+        dedupe_dropped = 0
+        for slug in list(pruned_offerings.keys()):
+            deduped = _dedupe_offerings_per_provider(pruned_offerings[slug])
+            dedupe_dropped += len(pruned_offerings[slug]) - len(deduped)
+            pruned_offerings[slug] = deduped
+
         # ─── Pass 5: decide primary offering per entity and finalize sources
         for entity in pruned_entities:
             offs = pruned_offerings.get(entity.slug, [])
@@ -422,6 +866,12 @@ class OfferingMerger:
             entity.primary_offering_provider = primary
             entity.sources = sorted({"litellm", *[o.provider for o in offs]})
             entity.last_refreshed = now
+
+        if dedupe_dropped:
+            logger.info(
+                "OfferingMerger: collapsed %s per-provider duplicate offerings",
+                dedupe_dropped,
+            )
 
         flat_offerings: List[OfferingV2] = []
         for slug in sorted(pruned_offerings.keys()):
@@ -491,6 +941,11 @@ class OfferingMerger:
                 input=_round_price(model.batch_pricing.input),
                 output=_round_price(model.batch_pricing.output),
             )
+        source = (
+            "via_litellm"
+            if provider_name in LITELLM_SOURCED_PROVIDERS
+            else "provider_api"
+        )
         return OfferingV2(
             provider=provider_name,
             provider_model_id=model.model_id,
@@ -500,7 +955,7 @@ class OfferingMerger:
             region=None,
             notes=None,
             last_updated=model.last_updated or now,
-            source="provider_api",
+            source=source,  # type: ignore[arg-type]
         )
 
     def _synthetic_entity_from_v1(
@@ -583,7 +1038,10 @@ class OfferingMerger:
         return EntityCoreV2(
             canonical_id=slug,
             slug=slug,
-            name=display_name,
+            # Normalize through the same styling rule canonical entities
+            # use, so the list view never mixes "GPT-4o Realtime" and
+            # "GPT 4O Realtime Preview" formatting across entities.
+            name=_polish_display_name(display_name) or display_name,
             family=family,
             maker=maker,
             context_length=ctx or None,
@@ -634,41 +1092,68 @@ class OfferingMerger:
     def _choose_primary(
         self, entity: EntityCoreV2, offerings: List[OfferingV2]
     ) -> str:
+        """Pick the provider whose pricing heads the entity's list row.
+
+        Precedence (most preferred first):
+
+        1. Authority order with complete headline pricing. For chat
+           models that means both ``input`` and ``output`` are non-null.
+           Mode-specific headline rules live in
+           :func:`_has_complete_headline_pricing`. This is the pass that
+           saves us from showing "—" when, say, Bedrock publishes a
+           newly-released Claude with ``input=null`` on day one while
+           the Anthropic first-party offering has the full numbers.
+        2. Authority order, pricing completeness ignored. Catches the
+           case where every authority is incomplete — we still want a
+           stable "primary" for UI purposes, just pick the most
+           authoritative one we have.
+        3. Any non-fallback provider with complete pricing (no authority
+           match — e.g. unknown maker with a real scraper).
+        4. First non-fallback if all real offerings are incomplete.
+        5. First offering. Should never happen with a non-empty list
+           but keeps the signature total.
+        """
         if not offerings:
             return "litellm"
-        providers_present = {o.provider for o in offerings}
+
+        by_provider: Dict[str, OfferingV2] = {}
+        for offering in offerings:
+            # If a provider appears more than once (it shouldn't in a
+            # well-formed pipeline, but we guard), keep the first.
+            by_provider.setdefault(offering.provider, offering)
+
         preference = AUTHORITY_BY_MAKER.get(entity.maker, [])
+
+        # Pass 1: authority order, complete pricing only.
         for candidate in preference:
-            if candidate in providers_present:
+            offering = by_provider.get(candidate)
+            if offering and _has_complete_headline_pricing(offering, entity.mode):
                 return candidate
-        # Fallback: prefer a non-fallback offering, else first
+
+        # Pass 2: authority order, pricing ignored.
+        for candidate in preference:
+            if candidate in by_provider:
+                return candidate
+
+        # Pass 3 / 4: fall back outside the authority list.
         non_fallback = [o for o in offerings if o.source != "litellm_fallback"]
-        return (non_fallback[0] if non_fallback else offerings[0]).provider
+        for offering in non_fallback:
+            if _has_complete_headline_pricing(offering, entity.mode):
+                return offering.provider
+        if non_fallback:
+            return non_fallback[0].provider
+        return offerings[0].provider
 
     def _pretty_model_name(self, entry: LiteLLMEntry) -> str:
-        # Titled variant of canonical slug, keeping version numbers.
-        # e.g. claude-sonnet-4-5 → Claude Sonnet 4.5
-        # This is a heuristic; users will see the real LiteLLM key in offerings.
-        parts = entry.canonical_id.split("-")
-        pretty: List[str] = []
-        for part in parts:
-            if part.isdigit():
-                pretty.append(part)
-            elif len(part) <= 3 and part.isalnum():
-                pretty.append(part.upper() if part.islower() else part)
-            else:
-                pretty.append(part.capitalize())
-        base = " ".join(pretty)
-        # Reassemble trailing digit groups as version numbers with dots:
-        # "Claude Sonnet 4 5" → "Claude Sonnet 4.5"
-        tokens = base.split(" ")
-        merged: List[str] = []
-        for token in tokens:
-            if token.isdigit() and merged and merged[-1][-1:].isdigit():
-                merged[-1] = f"{merged[-1]}.{token}"
-            else:
-                merged.append(token)
-        return " ".join(merged)
+        """Derive a display name from the canonical slug.
+
+        Delegates styling to :func:`_polish_display_name` so the
+        output lines up with the synthetic path (see
+        :meth:`_synthetic_entity_from_v1`) — both produce consistent
+        "GPT 4o Mini" / "Claude Sonnet 4.5" casing, no more "GPT 4O"
+        vs "GPT-4o" mixed in the same list.
+        """
+        return _polish_display_name(entry.canonical_id)
 
     def _guess_open_source(self, maker: str) -> Optional[bool]:
         open_makers = {"Meta", "Mistral", "DeepSeek", "Alibaba", "NVIDIA", "Cohere"}

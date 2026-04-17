@@ -4,12 +4,11 @@ import { useEntityV2 } from '../../hooks/useEntityV2';
 import { useCompareBasket } from '../compareBasketContext';
 import { PUBLIC_BASE_URL } from '../../config';
 import { AlternativesList } from '../components/AlternativesList';
+import { OfferingRow } from '../components/OfferingRow';
 import { ShareActions } from '../components/ShareActions';
 import {
   formatContext,
-  formatPrice,
   makerColor,
-  providerLabel,
 } from '../utils/format';
 import { useI18n } from '../i18n/localeContext';
 import type { MessageKey } from '../i18n/messages';
@@ -25,20 +24,26 @@ export function EntityPage() {
   // All hooks must run unconditionally — early returns come AFTER.
   const [copied, setCopied] = useState(false);
 
-  if (loading) return <div className="v2-loading">{t('detail.loading')}</div>;
-  if (notFound) {
-    return (
-      <div className="v2-error">
-        <p>
-          {t('detail.not_found_fmt', { slug: slug ?? '' })}{' '}
-          <Link to="/" className="v2-link-accent">
-            {t('detail.back_to_home')}
-          </Link>
-        </p>
-      </div>
-    );
+  // Render the Stage-1 snapshot from useEntityV2 as soon as `detail` is
+  // populated, even while `loading` is still true waiting for the cold
+  // backend. Only fall back to spinner / 404 when we genuinely have
+  // nothing to paint — mirrors the EntityDrawer fix (c8ed8ca).
+  if (!detail) {
+    if (notFound) {
+      return (
+        <div className="v2-error">
+          <p>
+            {t('detail.not_found_fmt', { slug: slug ?? '' })}{' '}
+            <Link to="/" className="v2-link-accent">
+              {t('detail.back_to_home')}
+            </Link>
+          </p>
+        </div>
+      );
+    }
+    if (loading) return <div className="v2-loading">{t('detail.loading')}</div>;
+    return null;
   }
-  if (!detail) return null;
 
   const { entity, offerings, alternatives } = detail;
   const inBasket = basket.has(entity.slug);
@@ -143,33 +148,13 @@ export function EntityPage() {
             <span>{t('detail.col.cache_read')}</span>
             <span>{t('detail.col.batch_in')}</span>
           </div>
-          {offerings.map((o) => {
-            const isPrimary = o.provider === entity.primary_offering_provider;
-            return (
-              <div
-                key={`${o.provider}-${o.provider_model_id}`}
-                className={`v2-offer${isPrimary ? ' is-primary' : ''}`}
-              >
-                <div className="v2-offer-provider">
-                  <span>{providerLabel(o.provider)}</span>
-                  {isPrimary ? (
-                    <span className="v2-offer-tag">{t('detail.primary_tag')}</span>
-                  ) : null}
-                  {o.notes ? (
-                    <span className="v2-offer-note" title={o.notes}>
-                      ⓘ
-                    </span>
-                  ) : null}
-                </div>
-                <span className="num">{formatPrice(o.pricing.input)}</span>
-                <span className="num">{formatPrice(o.pricing.output)}</span>
-                <span className="num v2-muted">{formatPrice(o.pricing.cache_read)}</span>
-                <span className="num v2-muted">
-                  {formatPrice(o.batch_pricing?.input ?? null)}
-                </span>
-              </div>
-            );
-          })}
+          {offerings.map((o) => (
+            <OfferingRow
+              key={`${o.provider}-${o.provider_model_id}`}
+              offering={o}
+              primaryProvider={entity.primary_offering_provider}
+            />
+          ))}
         </div>
       </section>
 

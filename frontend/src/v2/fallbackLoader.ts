@@ -9,6 +9,7 @@
 
 import type {
   AlternativeV2,
+  CompareResultV2,
   EntitiesListQuery,
   EntityCoreV2,
   EntityDetailV2,
@@ -144,6 +145,36 @@ export function detailFromFallback(
     entity,
     offerings: snapshot.offerings_by_entity[slug] ?? [],
     alternatives: snapshot.alternatives_by_entity[slug] ?? [],
+  };
+}
+
+export function compareFromFallback(
+  snapshot: V2Snapshot,
+  ids: string[],
+): CompareResultV2 {
+  const cleaned = ids.map((s) => s.trim()).filter(Boolean);
+  const entities: EntityDetailV2[] = [];
+  const missing: string[] = [];
+  const capSets: Set<string>[] = [];
+  for (const slug of cleaned) {
+    const detail = detailFromFallback(snapshot, slug);
+    if (!detail) {
+      missing.push(slug);
+      continue;
+    }
+    entities.push(detail);
+    capSets.push(new Set(detail.entity.capabilities ?? []));
+  }
+  let common: string[] = [];
+  if (capSets.length > 0) {
+    const [head, ...rest] = capSets;
+    common = [...head].filter((cap) => rest.every((s) => s.has(cap))).sort();
+  }
+  return {
+    entities,
+    common_capabilities: common,
+    requested_ids: cleaned,
+    missing_ids: missing,
   };
 }
 
