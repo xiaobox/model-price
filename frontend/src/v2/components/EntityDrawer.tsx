@@ -9,7 +9,7 @@ import {
   formatContext,
   makerColor,
 } from '../utils/format';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import type { MessageKey } from '../i18n/messages';
 import { LITELLM_REGISTRY_URL, officialLinkForMaker } from '../utils/officialLinks';
 import './EntityDrawer.css';

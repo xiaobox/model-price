@@ -1,8 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { API_V2_BASE } from '../config';
 import type { EntitiesListQuery, EntityListItemV2 } from '../types/v2';
-import { readApiCache, writeApiCache } from '../v2/apiResponseCache';
 import { listFromFallback, loadFallback } from '../v2/fallbackLoader';
+import {
+  readEntityListCache,
+  writeEntityListCache,
+} from '../v2/liveDataCache';
 
 const BACKEND_TIMEOUT_MS = 15000;
 
@@ -25,15 +28,29 @@ function buildQueryString(query: EntitiesListQuery): string {
   if (typeof query.max_input_price === 'number') {
     params.set('max_input_price', String(query.max_input_price));
   }
-  if (query.sort) params.set('sort', query.sort);
-  if (query.order) params.set('order', query.order);
+  if (query.sort && query.sort !== 'name') params.set('sort', query.sort);
+  if (query.order && query.order !== 'asc') params.set('order', query.order);
   return params.toString();
 }
 
-function cacheEntityListItems(items: EntityListItemV2[]): void {
-  for (const item of items) {
-    writeApiCache(`entity-list-item:${item.slug}`, item);
-  }
+function queryFromString(queryString: string): EntitiesListQuery {
+  if (!queryString) return {};
+  const params = new URLSearchParams(queryString);
+  const query: EntitiesListQuery = {};
+  const minContext = params.get('min_context');
+  const maxInputPrice = params.get('max_input_price');
+  const sort = params.get('sort');
+  const order = params.get('order');
+
+  query.q = params.get('q') ?? undefined;
+  query.family = params.get('family') ?? undefined;
+  query.maker = params.get('maker') ?? undefined;
+  query.capability = params.get('capability') ?? undefined;
+  if (minContext) query.min_context = Number(minContext);
+  if (maxInputPrice) query.max_input_price = Number(maxInputPrice);
+  if (sort === 'input' || sort === 'output' || sort === 'context') query.sort = sort;
+  if (order === 'desc') query.order = order;
+  return query;
 }
 
 export function useEntitiesV2(query: EntitiesListQuery): State & {
@@ -47,16 +64,15 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
   });
 
   const queryString = buildQueryString(query);
+  const fallbackQuery = useMemo(() => queryFromString(queryString), [queryString]);
 
   const fetchEntities = useCallback(async () => {
     // Stage 1: paint from the last successful live response if we have
     // one. That keeps yesterday's warmed backend data from regressing to
     // an older bundled snapshot on the next cold start.
-    const cacheKey = `entities:${queryString || 'all'}`;
     let paintedFallback = false;
-    const cachedList = readApiCache<EntityListItemV2[]>(cacheKey);
+    const cachedList = readEntityListCache(queryString);
     if (cachedList) {
-      cacheEntityListItems(cachedList);
       setState({
         entities: cachedList,
         loading: true,
@@ -71,7 +87,7 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
     // page interactive while Render wakes up.
     const snapshot = paintedFallback ? null : await loadFallback();
     if (snapshot) {
-      const fallbackList = listFromFallback(snapshot, query);
+      const fallbackList = listFromFallback(snapshot, fallbackQuery);
       setState({
         entities: fallbackList,
         loading: true,
@@ -95,9 +111,7 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
       const response = await fetch(url, { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = (await response.json()) as EntityListItemV2[];
-      writeApiCache(cacheKey, data);
-      if (!queryString) writeApiCache('entities:all', data);
-      cacheEntityListItems(data);
+      writeEntityListCache(queryString, data);
       setState({
         entities: data,
         loading: false,
@@ -117,9 +131,7 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
     } finally {
       clearTimeout(timeout);
     }
-    // queryString is the serialized cache key.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryString]);
+  }, [fallbackQuery, queryString]);
 
   useEffect(() => {
     fetchEntities();

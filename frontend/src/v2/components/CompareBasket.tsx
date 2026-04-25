@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useCompareBasket } from '../compareBasketContext';
-import { useI18n } from '../i18n/localeContext';
+import { useCompareBasket } from '../useCompareBasket';
+import { useI18n } from '../i18n/useI18n';
 import './CompareBasket.css';
 
 export function CompareBasket() {

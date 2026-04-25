@@ -1,4 +1,4 @@
-import type { Locale } from '../i18n/localeContext';
+import type { Locale } from '../i18n/localeContextValue';
 
 const MINUTE_MS = 60_000;
 const HOUR_MS = 60 * MINUTE_MS;

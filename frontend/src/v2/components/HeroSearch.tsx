@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import './HeroSearch.css';
 
 interface HeroSearchProps {

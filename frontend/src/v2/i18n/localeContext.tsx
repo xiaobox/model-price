@@ -1,20 +1,11 @@
-import { createContext, useContext, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { MESSAGES } from './messages';
 import type { MessageKey } from './messages';
-
-export type Locale = 'en' | 'zh';
+import { LocaleContext } from './localeContextValue';
+import type { Locale } from './localeContextValue';
 
 const STORAGE_KEY = 'model-price-v2:locale';
-
-interface LocaleValue {
-  locale: Locale;
-  setLocale: (next: Locale) => void;
-  toggle: () => void;
-  t: (key: MessageKey, vars?: Record<string, string | number>) => string;
-}
-
-const LocaleContext = createContext<LocaleValue | null>(null);
 
 function detectInitial(): Locale {
   if (typeof window === 'undefined') return 'en';
@@ -73,12 +64,4 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       {children}
     </LocaleContext.Provider>
   );
-}
-
-export function useI18n(): LocaleValue {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) {
-    throw new Error('useI18n must be used within LocaleProvider');
-  }
-  return ctx;
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import './ShareActions.css';
 
 interface ShareActionsProps {

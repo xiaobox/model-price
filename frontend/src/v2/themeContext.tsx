@@ -1,19 +1,9 @@
-import { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
-
-export type ThemeMode = 'dark' | 'light' | 'system';
-type ResolvedTheme = 'dark' | 'light';
+import { ThemeContext } from './themeContextValue';
+import type { ResolvedTheme, ThemeMode } from './themeContextValue';
 
 const STORAGE_KEY = 'model-price-v2:theme';
-
-interface ThemeValue {
-  mode: ThemeMode;
-  resolved: ResolvedTheme;
-  setMode: (next: ThemeMode) => void;
-  cycle: () => void;
-}
-
-const ThemeContext = createContext<ThemeValue | null>(null);
 
 function readInitial(): ThemeMode {
   if (typeof window === 'undefined') return 'dark';
@@ -28,13 +18,14 @@ function readInitial(): ThemeMode {
 
 function resolveTheme(mode: ThemeMode): ResolvedTheme {
   if (mode === 'dark' || mode === 'light') return mode;
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined' || !window.matchMedia) return 'dark';
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mode, setModeState] = useState<ThemeMode>(readInitial);
-  const [resolved, setResolved] = useState<ResolvedTheme>(() => resolveTheme(readInitial()));
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(() => resolveTheme('system'));
+  const resolved: ResolvedTheme = mode === 'system' ? systemTheme : mode;
 
   // Persist + re-resolve whenever the user picks a mode.
   const setMode = useCallback((next: ThemeMode) => {
@@ -50,15 +41,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setMode(mode === 'dark' ? 'light' : mode === 'light' ? 'system' : 'dark');
   }, [mode, setMode]);
 
-  // Keep `resolved` in sync with either explicit mode or the OS setting.
+  // Keep the OS setting hot so switching to "system" never flashes stale theme.
   useEffect(() => {
-    setResolved(resolveTheme(mode));
-    if (mode !== 'system') return;
+    if (!window.matchMedia) return;
     const media = window.matchMedia('(prefers-color-scheme: light)');
-    const handler = () => setResolved(media.matches ? 'light' : 'dark');
+    const handler = () => setSystemTheme(media.matches ? 'light' : 'dark');
     media.addEventListener('change', handler);
     return () => media.removeEventListener('change', handler);
-  }, [mode]);
+  }, []);
 
   // Reflect to <html data-theme="…"> so CSS custom properties switch.
   useEffect(() => {
@@ -71,12 +61,4 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme(): ThemeValue {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) {
-    throw new Error('useTheme must be used within ThemeProvider');
-  }
-  return ctx;
 }

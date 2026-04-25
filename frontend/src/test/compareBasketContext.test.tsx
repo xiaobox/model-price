@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { CompareBasketProvider, useCompareBasket } from '../v2/compareBasketContext';
+import { CompareBasketProvider } from '../v2/compareBasketContext';
+import { useCompareBasket } from '../v2/useCompareBasket';
 
 function Probe() {
   const basket = useCompareBasket();

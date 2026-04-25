@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import type { EntityListItemV2 } from '../../types/v2';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import type { MessageKey } from '../i18n/messages';
 import {
   formatContext,

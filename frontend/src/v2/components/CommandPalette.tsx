@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSearchV2 } from '../../hooks/useSearchV2';
-import { useCompareBasket } from '../compareBasketContext';
-import { useI18n } from '../i18n/localeContext';
+import { useCompareBasket } from '../useCompareBasket';
+import { useI18n } from '../i18n/useI18n';
 import { formatPrice, makerColor } from '../utils/format';
 import './CommandPalette.css';
 
@@ -22,17 +22,13 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
 
   useEffect(() => {
     if (!open) return;
-    setQuery('');
-    setCursor(0);
     const raf = requestAnimationFrame(() => {
+      setQuery('');
+      setCursor(0);
       inputRef.current?.focus();
     });
     return () => cancelAnimationFrame(raf);
   }, [open]);
-
-  useEffect(() => {
-    setCursor(0);
-  }, [query]);
 
   useEffect(() => {
     if (!open) return;
@@ -90,7 +86,10 @@ export function CommandPalette({ open, onClose }: CommandPaletteProps) {
             type="text"
             placeholder={t('palette.placeholder')}
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setCursor(0);
+            }}
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}

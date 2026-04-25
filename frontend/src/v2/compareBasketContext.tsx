@@ -1,22 +1,10 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
+import { CompareBasketContext } from './compareBasketContextValue';
+import type { BasketValue } from './compareBasketContextValue';
 
 const STORAGE_KEY = 'model-price-v2:compare-basket';
 const MAX_ITEMS = 4;
-
-interface BasketValue {
-  slugs: string[];
-  count: number;
-  capacity: number;
-  isFull: boolean;
-  toggle: (slug: string) => { added: boolean; full: boolean };
-  add: (slug: string) => void;
-  remove: (slug: string) => void;
-  clear: () => void;
-  has: (slug: string) => boolean;
-}
-
-const CompareBasketContext = createContext<BasketValue | null>(null);
 
 function readInitial(): string[] {
   if (typeof window === 'undefined') return [];
@@ -91,12 +79,4 @@ export function CompareBasketProvider({ children }: { children: ReactNode }) {
       {children}
     </CompareBasketContext.Provider>
   );
-}
-
-export function useCompareBasket(): BasketValue {
-  const ctx = useContext(CompareBasketContext);
-  if (!ctx) {
-    throw new Error('useCompareBasket must be used within CompareBasketProvider');
-  }
-  return ctx;
 }

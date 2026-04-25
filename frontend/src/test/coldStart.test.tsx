@@ -197,7 +197,7 @@ describe('cold-start snapshot paint', () => {
   });
 
   it('HomePage prefers the last live list cache over an older bundled snapshot while the backend stalls', async () => {
-    writeApiCache('entities:sort=name&order=asc', [
+    writeApiCache('entities:all', [
       {
         ...SNAPSHOT.entities[1],
         primary_offering: {

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { OfferingV2 } from '../../types/v2';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import { formatPrice, providerLabel } from '../utils/format';
 
 interface OfferingRowProps {

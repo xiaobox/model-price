@@ -2,14 +2,16 @@ import { useMemo, useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { EntitiesListQuery } from '../../types/v2';
 import { useEntitiesV2 } from '../../hooks/useEntitiesV2';
-import { useCompareBasket } from '../compareBasketContext';
-import { useI18n } from '../i18n/localeContext';
+import { useCompareBasket } from '../useCompareBasket';
+import { useI18n } from '../i18n/useI18n';
 import { HeroSearch } from '../components/HeroSearch';
 import { FilterBar } from '../components/FilterBar';
 import { EntityTable } from '../components/EntityTable';
 import { EntityDrawer } from '../components/EntityDrawer';
 import { exportEntitiesToCsv } from '../utils/exportCsv';
 import './HomePage.css';
+
+const EMPTY_QUERY: EntitiesListQuery = {};
 
 function cleanLabel(raw: string | null | undefined): string {
   if (!raw) return '';
@@ -19,11 +21,7 @@ function cleanLabel(raw: string | null | undefined): string {
   return stripped;
 }
 
-interface HomePageProps {
-  onOpenPalette?: () => void;
-}
-
-export function HomePage(_props: HomePageProps) {
+export function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const basket = useCompareBasket();
@@ -55,9 +53,10 @@ export function HomePage(_props: HomePageProps) {
       'order',
       query.order && query.order !== 'asc' ? query.order : undefined,
     );
-    setSearchParams(next, { replace: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+    if (next.toString() !== searchParams.toString()) {
+      setSearchParams(next, { replace: true });
+    }
+  }, [query, searchParams, setSearchParams]);
 
   const { entities, loading, error, fromFallback } = useEntitiesV2(query);
 
@@ -141,7 +140,7 @@ export function HomePage(_props: HomePageProps) {
 }
 
 function useTotals() {
-  const { entities } = useEntitiesV2({});
+  const { entities } = useEntitiesV2(EMPTY_QUERY);
   return useMemo(() => {
     // Dedupe case-insensitively and strip trailing punctuation so
     // "Bytedance" and "Bytedance:" don't both show up in the dropdown.

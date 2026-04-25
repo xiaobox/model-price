@@ -1,4 +1,4 @@
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 
 export function LocaleToggle() {
   const { locale, toggle, t } = useI18n();

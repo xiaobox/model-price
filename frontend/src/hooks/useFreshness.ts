@@ -7,11 +7,9 @@ interface State {
   lastRefresh: string | null;
 }
 
-// Exposes the backend's `last_refresh` timestamp so the UI can show
-// users when the pricing snapshot was built. Paints from the bundled
-// snapshot first (so the stamp is visible before the cold backend
-// replies), then swaps in the live value from /api/v2/stats when it
-// arrives.
+// Exposes the newest known `last_refresh` timestamp. The hook paints from
+// the last live stats response first, then falls back to the bundled
+// snapshot, and finally swaps in /api/v2/stats when the backend responds.
 export function useFreshness(): State {
   const [lastRefresh, setLastRefresh] = useState<string | null>(null);
 

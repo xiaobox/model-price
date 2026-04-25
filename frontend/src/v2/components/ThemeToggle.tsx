@@ -1,6 +1,6 @@
-import { useTheme } from '../themeContext';
-import type { ThemeMode } from '../themeContext';
-import { useI18n } from '../i18n/localeContext';
+import { useTheme } from '../useTheme';
+import type { ThemeMode } from '../themeContextValue';
+import { useI18n } from '../i18n/useI18n';
 
 const ICONS: Record<ThemeMode, string> = {
   dark: '●',

@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { LocaleProvider, useI18n } from '../v2/i18n/localeContext';
+import { LocaleProvider } from '../v2/i18n/localeContext';
+import { useI18n } from '../v2/i18n/useI18n';
 
 function Probe() {
   const { locale, t, toggle } = useI18n();

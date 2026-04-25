@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEntityV2 } from '../../hooks/useEntityV2';
-import { useCompareBasket } from '../compareBasketContext';
+import { useCompareBasket } from '../useCompareBasket';
 import { PUBLIC_BASE_URL } from '../../config';
 import { AlternativesList } from '../components/AlternativesList';
 import { OfferingRow } from '../components/OfferingRow';
@@ -10,7 +10,7 @@ import {
   formatContext,
   makerColor,
 } from '../utils/format';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import type { MessageKey } from '../i18n/messages';
 import { LITELLM_REGISTRY_URL, officialLinkForMaker } from '../utils/officialLinks';
 import './EntityPage.css';

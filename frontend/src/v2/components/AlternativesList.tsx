@@ -1,5 +1,5 @@
 import type { AlternativeV2 } from '../../types/v2';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import { formatOverlap, formatPct } from '../utils/format';
 import './AlternativesList.css';
 

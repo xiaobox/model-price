@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { ThemeProvider, useTheme } from '../v2/themeContext';
+import { ThemeProvider } from '../v2/themeContext';
+import { useTheme } from '../v2/useTheme';
 
 function Probe() {
   const { mode, resolved, cycle } = useTheme();

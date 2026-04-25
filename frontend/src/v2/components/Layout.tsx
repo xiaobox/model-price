@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { CompareBasket } from './CompareBasket';
 import { ThemeToggle } from './ThemeToggle';
 import { LocaleToggle } from './LocaleToggle';
-import { useI18n } from '../i18n/localeContext';
+import { useI18n } from '../i18n/useI18n';
 import { useFreshness } from '../../hooks/useFreshness';
 import { formatRelativeTime } from '../utils/relativeTime';
 import './Layout.css';
