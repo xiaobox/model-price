@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { API_V2_BASE } from '../config';
 import type { EntitiesListQuery, EntityListItemV2 } from '../types/v2';
+import { readApiCache, writeApiCache } from '../v2/apiResponseCache';
 import { listFromFallback, loadFallback } from '../v2/fallbackLoader';
 
 const BACKEND_TIMEOUT_MS = 15000;
@@ -29,6 +30,12 @@ function buildQueryString(query: EntitiesListQuery): string {
   return params.toString();
 }
 
+function cacheEntityListItems(items: EntityListItemV2[]): void {
+  for (const item of items) {
+    writeApiCache(`entity-list-item:${item.slug}`, item);
+  }
+}
+
 export function useEntitiesV2(query: EntitiesListQuery): State & {
   refetch: () => Promise<void>;
 } {
@@ -42,11 +49,27 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
   const queryString = buildQueryString(query);
 
   const fetchEntities = useCallback(async () => {
-    // Stage 1: paint from the local snapshot instantly. During a cold
-    // Render free-tier boot this is what the user actually sees for
-    // the first 30-60 seconds, and it's interactive the whole time.
-    const snapshot = await loadFallback();
+    // Stage 1: paint from the last successful live response if we have
+    // one. That keeps yesterday's warmed backend data from regressing to
+    // an older bundled snapshot on the next cold start.
+    const cacheKey = `entities:${queryString || 'all'}`;
     let paintedFallback = false;
+    const cachedList = readApiCache<EntityListItemV2[]>(cacheKey);
+    if (cachedList) {
+      cacheEntityListItems(cachedList);
+      setState({
+        entities: cachedList,
+        loading: true,
+        error: null,
+        fromFallback: true,
+      });
+      paintedFallback = true;
+    }
+
+    // Stage 2: paint from the bundled snapshot when no live cache is
+    // available. During a first-visit cold boot this is what keeps the
+    // page interactive while Render wakes up.
+    const snapshot = paintedFallback ? null : await loadFallback();
     if (snapshot) {
       const fallbackList = listFromFallback(snapshot, query);
       setState({
@@ -60,7 +83,7 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
       setState((prev) => ({ ...prev, loading: true, error: null }));
     }
 
-    // Stage 2: fire the real backend request and swap in live data
+    // Stage 3: fire the real backend request and swap in live data
     // when it arrives. If it times out or errors, keep the fallback
     // visible and swallow the error — the user still has content.
     const url = queryString
@@ -72,6 +95,9 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
       const response = await fetch(url, { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = (await response.json()) as EntityListItemV2[];
+      writeApiCache(cacheKey, data);
+      if (!queryString) writeApiCache('entities:all', data);
+      cacheEntityListItems(data);
       setState({
         entities: data,
         loading: false,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { API_V2_BASE } from '../../config';
-import type { CompareResultV2 } from '../../types/v2';
+import type { CompareResultV2, EntityDetailV2, EntityListItemV2 } from '../../types/v2';
 import { useCompareBasket } from '../compareBasketContext';
 import { useI18n } from '../i18n/localeContext';
 import type { MessageKey } from '../i18n/messages';
@@ -12,9 +12,76 @@ import {
   providerLabel,
 } from '../utils/format';
 import { compareFromFallback, loadFallback } from '../fallbackLoader';
+import { readApiCache, writeApiCache } from '../apiResponseCache';
 import './ComparePage.css';
 
 const BACKEND_TIMEOUT_MS = 15000;
+
+function detailFromListItem(item: EntityListItemV2): EntityDetailV2 {
+  return {
+    entity: {
+      canonical_id: item.canonical_id,
+      slug: item.slug,
+      name: item.name,
+      family: item.family,
+      maker: item.maker,
+      context_length: item.context_length,
+      max_output_tokens: item.max_output_tokens,
+      capabilities: item.capabilities,
+      input_modalities: item.input_modalities,
+      output_modalities: item.output_modalities,
+      mode: item.mode,
+      is_open_source: item.is_open_source,
+      primary_offering_provider: item.primary_offering_provider,
+      sources: item.sources,
+      last_refreshed: item.last_refreshed,
+    },
+    offerings: item.primary_offering ? [item.primary_offering] : [],
+    alternatives: [],
+  };
+}
+
+function compareFromLiveListCache(ids: string): CompareResultV2 | null {
+  const requested = ids.split(',').map((s) => s.trim()).filter(Boolean);
+  if (requested.length === 0) return null;
+
+  const all =
+    readApiCache<EntityListItemV2[]>('entities:all') ??
+    readApiCache<EntityListItemV2[]>('entities:sort=name&order=asc') ??
+    [];
+  const bySlug = new Map(all.map((entity) => [entity.slug, entity]));
+  const entities: EntityDetailV2[] = [];
+  const missing: string[] = [];
+  const capSets: Set<string>[] = [];
+
+  for (const slug of requested) {
+    const item =
+      readApiCache<EntityListItemV2>(`entity-list-item:${slug}`) ??
+      bySlug.get(slug);
+    if (!item) {
+      missing.push(slug);
+      continue;
+    }
+    const detail = detailFromListItem(item);
+    entities.push(detail);
+    capSets.push(new Set(detail.entity.capabilities ?? []));
+  }
+
+  if (entities.length === 0) return null;
+
+  let common: string[] = [];
+  if (capSets.length > 0) {
+    const [head, ...rest] = capSets;
+    common = [...head].filter((cap) => rest.every((s) => s.has(cap))).sort();
+  }
+
+  return {
+    entities,
+    common_capabilities: common,
+    requested_ids: requested,
+    missing_ids: missing,
+  };
+}
 
 export function ComparePage() {
   const { ids = '' } = useParams<{ ids: string }>();
@@ -33,12 +100,27 @@ export function ComparePage() {
     setState({ data: null, loading: true, error: null });
 
     (async () => {
-      // Stage 1: synth compare result from the bundled snapshot so the
-      // grid paints instantly during a cold Render boot. The backend
-      // fetch below swaps in fresh data when it arrives.
-      const snapshot = await loadFallback();
+      // Stage 1: prefer the last live compare response for these ids.
+      const cacheKey = `compare:${ids}`;
+      const cached = readApiCache<CompareResultV2>(cacheKey);
       if (cancelled) return;
       let paintedFallback = false;
+      if (cached) {
+        setState({ data: cached, loading: true, error: null });
+        paintedFallback = true;
+      }
+
+      const listCache = paintedFallback ? null : compareFromLiveListCache(ids);
+      if (listCache) {
+        setState({ data: listCache, loading: true, error: null });
+        paintedFallback = true;
+      }
+
+      // Stage 2: synth compare result from the bundled snapshot when
+      // there is no newer live cache. The backend fetch below swaps in
+      // fresh data when it arrives.
+      const snapshot = paintedFallback ? null : await loadFallback();
+      if (cancelled) return;
       if (snapshot) {
         const requested = ids.split(',');
         const fallback = compareFromFallback(snapshot, requested);
@@ -60,6 +142,7 @@ export function ComparePage() {
         if (cancelled) return;
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = (await response.json()) as CompareResultV2;
+        writeApiCache(cacheKey, data);
         setState({ data, loading: false, error: null });
       } catch (err) {
         if (cancelled) return;

@@ -4,10 +4,12 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import type { ReactNode } from 'react';
 
 import { EntityPage } from '../v2/pages/EntityPage';
+import { HomePage } from '../v2/pages/HomePage';
 import { ComparePage } from '../v2/pages/ComparePage';
 import { EntityDrawer } from '../v2/components/EntityDrawer';
 import { CompareBasketProvider } from '../v2/compareBasketContext';
 import { LocaleProvider } from '../v2/i18n/localeContext';
+import { writeApiCache } from '../v2/apiResponseCache';
 import { resetFallbackCacheForTests } from '../v2/fallbackLoader';
 
 // Minimal snapshot covering the two slugs the tests reference below.
@@ -168,6 +170,107 @@ describe('cold-start snapshot paint', () => {
     // Pricing from the snapshot is visible without waiting for the backend.
     expect(screen.getByText('$5.00')).toBeInTheDocument();
     expect(screen.getByText('$25.00')).toBeInTheDocument();
+  });
+
+  it('EntityPage prefers the last live detail cache over an older bundled snapshot while the backend stalls', async () => {
+    writeApiCache('entity:claude-opus-4-7', {
+      entity: SNAPSHOT.entities[0],
+      offerings: [
+        {
+          ...SNAPSHOT.offerings_by_entity['claude-opus-4-7'][0],
+          pricing: {
+            ...SNAPSHOT.offerings_by_entity['claude-opus-4-7'][0].pricing,
+            input: 6.5,
+            output: 32.5,
+          },
+        },
+      ],
+      alternatives: [],
+    });
+
+    renderWithProviders(<EntityPage />, '/m/claude-opus-4-7', '/m/:slug');
+
+    expect(await screen.findByText('$6.50')).toBeInTheDocument();
+    expect(screen.getByText('$32.50')).toBeInTheDocument();
+    expect(screen.queryByText('$5.00')).not.toBeInTheDocument();
+    expect(screen.queryByText('$25.00')).not.toBeInTheDocument();
+  });
+
+  it('HomePage prefers the last live list cache over an older bundled snapshot while the backend stalls', async () => {
+    writeApiCache('entities:sort=name&order=asc', [
+      {
+        ...SNAPSHOT.entities[1],
+        primary_offering: {
+          ...SNAPSHOT.offerings_by_entity['gpt-5'][0],
+          pricing: {
+            ...SNAPSHOT.offerings_by_entity['gpt-5'][0].pricing,
+            input: 2.5,
+            output: 12.5,
+          },
+        },
+      },
+    ]);
+
+    renderWithProviders(<HomePage />, '/');
+
+    expect(await screen.findByText('$2.50')).toBeInTheDocument();
+    expect(screen.getByText('$12.50')).toBeInTheDocument();
+    expect(screen.queryByText('$2.00')).not.toBeInTheDocument();
+    expect(screen.queryByText('$10.00')).not.toBeInTheDocument();
+  });
+
+  it('EntityPage can paint a model from the live list cache when it is absent from the bundled snapshot', async () => {
+    writeApiCache('entity-list-item:gpt-5-1', {
+      ...SNAPSHOT.entities[1],
+      slug: 'gpt-5-1',
+      canonical_id: 'gpt-5-1',
+      name: 'GPT-5.1',
+      primary_offering: {
+        ...SNAPSHOT.offerings_by_entity['gpt-5'][0],
+        provider_model_id: 'gpt-5.1',
+        pricing: {
+          ...SNAPSHOT.offerings_by_entity['gpt-5'][0].pricing,
+          input: 3.1,
+          output: 15.5,
+        },
+      },
+    });
+
+    renderWithProviders(<EntityPage />, '/m/gpt-5-1', '/m/:slug');
+
+    expect(await screen.findByRole('heading', { level: 1, name: /GPT-5\.1/ })).toBeInTheDocument();
+    expect(screen.getByText('$3.10')).toBeInTheDocument();
+    expect(screen.getByText('$15.50')).toBeInTheDocument();
+  });
+
+  it('ComparePage can paint from live list cache when requested ids are absent from the bundled snapshot', async () => {
+    writeApiCache('entities:all', [
+      {
+        ...SNAPSHOT.entities[1],
+        slug: 'gpt-5-1',
+        canonical_id: 'gpt-5-1',
+        name: 'GPT-5.1',
+        primary_offering: {
+          ...SNAPSHOT.offerings_by_entity['gpt-5'][0],
+          provider_model_id: 'gpt-5.1',
+          pricing: {
+            ...SNAPSHOT.offerings_by_entity['gpt-5'][0].pricing,
+            input: 3.1,
+            output: 15.5,
+          },
+        },
+      },
+    ]);
+
+    renderWithProviders(
+      <ComparePage />,
+      '/compare/gpt-5-1',
+      '/compare/:ids',
+    );
+
+    expect(await screen.findByRole('link', { name: /GPT-5\.1/ })).toBeInTheDocument();
+    expect(screen.getByText('$3.10')).toBeInTheDocument();
+    expect(screen.getByText('$15.50')).toBeInTheDocument();
   });
 
   it('EntityDrawer shows the model name immediately from snapshot even while the backend stalls', async () => {

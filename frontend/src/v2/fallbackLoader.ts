@@ -38,7 +38,7 @@ export async function loadFallback(): Promise<V2Snapshot | null> {
   if (loading) return loading;
   loading = (async () => {
     try {
-      const response = await fetch(FALLBACK_URL);
+      const response = await fetch(FALLBACK_URL, { cache: 'no-store' });
       if (!response.ok) return null;
       const data = (await response.json()) as V2Snapshot;
       cached = data;
