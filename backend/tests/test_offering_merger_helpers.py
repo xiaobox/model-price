@@ -10,6 +10,7 @@ from datetime import datetime
 from models import ModelPricing, Pricing
 from models.v2 import OfferingV2, PricingV2
 from services.offering_merger import (
+    _infer_synthetic_mode,
     _is_embedding_price_outlier,
     _is_stub_offering_set,
     _maker_from_model_id,
@@ -343,3 +344,20 @@ class TestIsEmbeddingPriceOutlier:
             source="litellm_fallback",
         )
         assert _is_embedding_price_outlier(off, "embedding") is False
+
+
+class TestInferSyntheticMode:
+    def test_image_generation_capability_sets_image_generation_mode(self):
+        assert (
+            _infer_synthetic_mode({"image_generation", "vision"}, {"image"})
+            == "image_generation"
+        )
+
+    def test_image_only_output_sets_image_generation_mode(self):
+        assert _infer_synthetic_mode({"vision"}, {"image"}) == "image_generation"
+
+    def test_embedding_output_sets_embedding_mode(self):
+        assert _infer_synthetic_mode({"text"}, {"embedding"}) == "embedding"
+
+    def test_text_output_defaults_to_chat(self):
+        assert _infer_synthetic_mode({"text", "vision"}, {"text"}) == "chat"

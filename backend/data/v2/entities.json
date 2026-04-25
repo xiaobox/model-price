@@ -7548,9 +7548,7 @@
       "context_length": 400000,
       "max_output_tokens": 128000,
       "capabilities": [
-        "reasoning",
-        "text",
-        "tool_use",
+        "image_generation",
         "vision"
       ],
       "input_modalities": [
@@ -7558,9 +7556,9 @@
         "text"
       ],
       "output_modalities": [
-        "text"
+        "image"
       ],
-      "mode": "chat",
+      "mode": "image_generation",
       "is_open_source": false,
       "primary_offering_provider": "openrouter",
       "sources": [
@@ -7578,9 +7576,7 @@
       "context_length": 400000,
       "max_output_tokens": 128000,
       "capabilities": [
-        "reasoning",
-        "text",
-        "tool_use",
+        "image_generation",
         "vision"
       ],
       "input_modalities": [
@@ -7588,9 +7584,9 @@
         "text"
       ],
       "output_modalities": [
-        "text"
+        "image"
       ],
-      "mode": "chat",
+      "mode": "image_generation",
       "is_open_source": false,
       "primary_offering_provider": "openrouter",
       "sources": [

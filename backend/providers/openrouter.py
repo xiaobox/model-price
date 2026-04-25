@@ -5,6 +5,7 @@ https://openrouter.ai/api/v1/models
 """
 
 import logging
+import re
 from datetime import datetime
 from typing import Dict, List, Optional, Union
 
@@ -16,6 +17,29 @@ from .base import BaseProvider, detect_modalities
 from .registry import ProviderRegistry
 
 logger = logging.getLogger(__name__)
+
+
+GPT_IMAGE_MODEL_RE = re.compile(
+    r"(?:^|[/:\s])gpt[-_.]?\d[\w.-]*[-_.]image(?:$|[-_.\s/]\w*)"
+)
+
+IMAGE_GENERATION_MODEL_PATTERNS = (
+    "chatgpt-image",
+    "gpt-image",
+    "dall-e",
+    "dalle",
+    "imagen",
+    "flux",
+    "stable-diffusion",
+    "sdxl",
+    "recraft",
+    "ideogram",
+    "midjourney",
+    "kandinsky",
+    "nova-canvas",
+    "titan-image",
+    "image-generator",
+)
 
 
 class OpenRouterProvider(BaseProvider):
@@ -60,17 +84,29 @@ class OpenRouterProvider(BaseProvider):
         pricing_data = data.get("pricing", {})
         pricing = self._parse_pricing(pricing_data)
 
+        # Get modalities from API response (OpenRouter provides these directly).
+        # Some newly listed image models omit image output initially, so keep a
+        # conservative name-based fallback before capability derivation.
+        input_modalities = data.get("input_modalities", [])
+        output_modalities = data.get("output_modalities", [])
+        is_image_generation = self._is_image_generation_model(data)
+        if is_image_generation:
+            input_modalities = self._image_generation_input_modalities(input_modalities)
+            output_modalities = ["image"]
+
+        capability_data = {
+            **data,
+            "input_modalities": input_modalities,
+            "output_modalities": output_modalities,
+        }
+
         # Parse capabilities from modalities
-        capabilities = self._parse_capabilities(data)
+        capabilities = self._parse_capabilities(capability_data)
 
         # Get context info
         context_length = data.get("context_length")
         top_provider = data.get("top_provider", {})
         max_output_tokens = top_provider.get("max_completion_tokens")
-
-        # Get modalities from API response (OpenRouter provides these directly)
-        input_modalities = data.get("input_modalities", [])
-        output_modalities = data.get("output_modalities", [])
 
         # If not provided by API, fall back to detection from capabilities
         if not input_modalities or not output_modalities:
@@ -95,6 +131,29 @@ class OpenRouterProvider(BaseProvider):
             output_modalities=output_modalities,
             last_updated=now,
         )
+
+    def _is_image_generation_model(self, data: dict) -> bool:
+        """Return True for models whose primary output is generated images."""
+        output_modalities = data.get("output_modalities", [])
+        if "image" in output_modalities:
+            return True
+
+        model_id = str(data.get("id", "")).lower()
+        model_name = str(data.get("name", "")).lower()
+        haystack = f"{model_id} {model_name}"
+
+        if GPT_IMAGE_MODEL_RE.search(haystack):
+            return True
+        return any(pattern in haystack for pattern in IMAGE_GENERATION_MODEL_PATTERNS)
+
+    def _image_generation_input_modalities(self, modalities: List[str]) -> List[str]:
+        """Normalize image generation inputs to prompt text plus optional image."""
+        normalized = list(modalities or [])
+        if "text" not in normalized:
+            normalized.insert(0, "text")
+        if "image" not in normalized:
+            normalized.append("image")
+        return list(dict.fromkeys(normalized))
 
     def _parse_pricing(self, pricing_data: dict) -> Pricing:
         """Parse pricing and convert from per-token to per-million tokens."""
@@ -135,6 +194,12 @@ class OpenRouterProvider(BaseProvider):
         output_modalities = data.get("output_modalities", [])
         pricing_data = data.get("pricing", {})
         model_id = data.get("id", "").lower()
+
+        if self._is_image_generation_model(data):
+            capabilities.append("image_generation")
+            if "image" in input_modalities:
+                capabilities.append("vision")
+            return capabilities
 
         # Text capability - check modalities or assume text for chat models
         has_text = "text" in input_modalities or "text" in output_modalities

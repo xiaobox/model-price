@@ -594,6 +594,17 @@ LITELLM_SOURCED_PROVIDERS = frozenset({
 _COMPLETE_CHAT_MODES = frozenset({"chat", "completion", "", None})
 
 
+def _infer_synthetic_mode(capabilities: set[str], output_modalities: set[str]) -> str:
+    """Infer mode for entities promoted from provider-only records."""
+    if "embedding" in capabilities or "embedding" in output_modalities:
+        return "embedding"
+    if "image_generation" in capabilities:
+        return "image_generation"
+    if output_modalities == {"image"}:
+        return "image_generation"
+    return "chat"
+
+
 def _has_complete_headline_pricing(offering: OfferingV2, mode: Optional[str]) -> bool:
     """True if the offering has non-null values for the UI's headline
     price fields.
@@ -1049,7 +1060,7 @@ class OfferingMerger:
             capabilities=sorted(caps),
             input_modalities=sorted(in_mods),
             output_modalities=sorted(out_mods),
-            mode="chat",
+            mode=_infer_synthetic_mode(caps, out_mods),
             is_open_source=self._guess_open_source(maker),
             primary_offering_provider=primary_provider,
             sources=sorted({"v1_synthetic", *[p for p, _ in bucket]}),
