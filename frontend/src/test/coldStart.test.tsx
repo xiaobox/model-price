@@ -115,7 +115,7 @@ type BackendHandler = (url: string) => Response | Promise<Response> | null;
 function installFetch(backend: BackendHandler = () => null) {
   const fetchMock = vi.fn((input: RequestInfo | URL) => {
     const url = typeof input === 'string' ? input : input.toString();
-    if (url.endsWith('/v2-fallback.json')) {
+    if (url.endsWith('/api/v2/snapshot') || url.endsWith('/v2-fallback.json')) {
       return Promise.resolve(
         new Response(JSON.stringify(SNAPSHOT), {
           status: 200,

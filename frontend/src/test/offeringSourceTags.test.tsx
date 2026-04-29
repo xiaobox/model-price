@@ -66,7 +66,7 @@ function installFetchReturning(detail: EntityDetailV2) {
     'fetch',
     vi.fn((input: RequestInfo | URL) => {
       const url = typeof input === 'string' ? input : input.toString();
-      if (url.endsWith('/v2-fallback.json')) {
+      if (url.endsWith('/api/v2/snapshot') || url.endsWith('/v2-fallback.json')) {
         // Empty snapshot — the backend response is what the page renders.
         return Promise.resolve(
           new Response(

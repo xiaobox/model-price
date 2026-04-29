@@ -27,6 +27,10 @@ const FRONTEND_ROOT = resolve(__dirname, '..');
 const ENTITIES_PATH = resolve(FRONTEND_ROOT, '../backend/data/v2/entities.json');
 const OFFERINGS_PATH = resolve(FRONTEND_ROOT, '../backend/data/v2/offerings.json');
 const OUTPUT_PATH = resolve(FRONTEND_ROOT, 'public/v2-fallback.json');
+const LIVE_SOURCE_URL =
+  process.env.V2_FALLBACK_SOURCE_URL ||
+  'https://modelprice.boxtech.icu/api/v2/snapshot';
+const LIVE_SOURCE_TIMEOUT_MS = 10000;
 
 const OVERLAP_MIN = 0.5;
 const LIMIT = 3;
@@ -109,7 +113,42 @@ function computeAlternatives(target, entities, offsByEntity) {
   }));
 }
 
-async function main() {
+async function loadLiveSource() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), LIVE_SOURCE_TIMEOUT_MS);
+  try {
+    const response = await fetch(LIVE_SOURCE_URL, {
+      signal: controller.signal,
+      headers: { accept: 'application/json' },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const raw = await response.json();
+    const entities = raw.entities || [];
+    const offsByEntity = raw.offerings_by_entity || {};
+    if (entities.length === 0 || Object.keys(offsByEntity).length === 0) {
+      throw new Error('live snapshot is empty');
+    }
+    return {
+      entities,
+      offsByEntity,
+      sourceLastRefresh:
+        raw.source_last_refresh || raw.generated_at || new Date().toISOString(),
+      label: LIVE_SOURCE_URL,
+    };
+  } catch (err) {
+    console.warn(
+      `[build-v2-fallback] live source unavailable (${err.message}); ` +
+        'falling back to backend/data/v2/*.json',
+    );
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function loadLocalSource() {
   if (!existsSync(ENTITIES_PATH) || !existsSync(OFFERINGS_PATH)) {
     throw new Error(
       `v2 data files not found. Expected:\n  ${ENTITIES_PATH}\n  ${OFFERINGS_PATH}`,
@@ -124,6 +163,17 @@ async function main() {
   if (entities.length === 0) {
     throw new Error('No entities in backend/data/v2/entities.json');
   }
+  return {
+    entities,
+    offsByEntity,
+    sourceLastRefresh: entRaw.generated_at ?? null,
+    label: 'backend/data/v2/*.json',
+  };
+}
+
+async function main() {
+  const source = (await loadLiveSource()) ?? (await loadLocalSource());
+  const { entities, offsByEntity, sourceLastRefresh } = source;
 
   // Precompute alternatives for every entity so /m/:slug can render
   // instantly from the snapshot without waiting on the backend.
@@ -140,7 +190,7 @@ async function main() {
     version: 'v2-fallback.1',
     generated_at: new Date().toISOString(),
     entity_count: entities.length,
-    source_last_refresh: entRaw.generated_at ?? null,
+    source_last_refresh: sourceLastRefresh,
     entities,
     offerings_by_entity: offsByEntity,
     alternatives_by_entity: alternativesByEntity,
@@ -150,7 +200,7 @@ async function main() {
   await writeFile(OUTPUT_PATH, JSON.stringify(snapshot));
   const bytes = JSON.stringify(snapshot).length;
   console.log(
-    `v2-fallback.json written: ${entities.length} entities, ` +
+    `v2-fallback.json written from ${source.label}: ${entities.length} entities, ` +
       `${Object.keys(offsByEntity).length} offering groups, ` +
       `${(bytes / 1024).toFixed(0)}KB raw`,
   );

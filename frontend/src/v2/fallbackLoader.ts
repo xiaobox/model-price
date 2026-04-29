@@ -30,7 +30,7 @@ interface V2Snapshot {
 
 const FALLBACK_URL = '/v2-fallback.json';
 const LIVE_SNAPSHOT_URL = `${API_V2_BASE}/snapshot`;
-const LIVE_SNAPSHOT_TIMEOUT_MS = 250;
+const LIVE_SNAPSHOT_TIMEOUT_MS = 2500;
 
 let cached: V2Snapshot | null = null;
 let loading: Promise<V2Snapshot | null> | null = null;
