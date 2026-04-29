@@ -29,6 +29,15 @@
       ]
     },
     {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
       "source": "/og-cover.png",
       "headers": [
         {

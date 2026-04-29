@@ -7,6 +7,7 @@ import {
   writeEntityDetailCache,
 } from '../v2/liveDataCache';
 import { detailFromFallback, loadFallback } from '../v2/fallbackLoader';
+import { noStoreFetch } from '../v2/noStoreFetch';
 
 const BACKEND_TIMEOUT_MS = 15000;
 
@@ -89,7 +90,7 @@ export function useEntityV2(slug: string | null | undefined): State {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
       try {
-        const response = await fetch(
+        const response = await noStoreFetch(
           `${API_V2_BASE}/entities/${encodeURIComponent(slug)}`,
           { signal: controller.signal },
         );

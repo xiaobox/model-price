@@ -1,7 +1,9 @@
 const CACHE_PREFIX = 'model-price-v2:api-cache:';
-const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+const CACHE_VERSION = 2;
+const MAX_AGE_MS = 10 * 60 * 1000;
 
 interface CacheEntry<T> {
+  version: number;
   saved_at: string;
   data: T;
 }
@@ -23,6 +25,10 @@ export function readApiCache<T>(key: string): T | null {
     const raw = storage.getItem(`${CACHE_PREFIX}${key}`);
     if (!raw) return null;
     const entry = JSON.parse(raw) as CacheEntry<T>;
+    if (entry.version !== CACHE_VERSION) {
+      storage.removeItem(`${CACHE_PREFIX}${key}`);
+      return null;
+    }
     const savedAt = Date.parse(entry.saved_at);
     if (!Number.isFinite(savedAt) || Date.now() - savedAt > MAX_AGE_MS) {
       storage.removeItem(`${CACHE_PREFIX}${key}`);
@@ -40,6 +46,7 @@ export function writeApiCache<T>(key: string, data: T): void {
 
   try {
     const entry: CacheEntry<T> = {
+      version: CACHE_VERSION,
       saved_at: new Date().toISOString(),
       data,
     };

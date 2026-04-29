@@ -6,6 +6,7 @@ import {
   readEntityListCache,
   writeEntityListCache,
 } from '../v2/liveDataCache';
+import { noStoreFetch } from '../v2/noStoreFetch';
 
 const BACKEND_TIMEOUT_MS = 15000;
 
@@ -108,7 +109,7 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
     try {
-      const response = await fetch(url, { signal: controller.signal });
+      const response = await noStoreFetch(url, { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = (await response.json()) as EntityListItemV2[];
       writeEntityListCache(queryString, data);

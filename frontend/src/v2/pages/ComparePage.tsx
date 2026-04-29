@@ -14,6 +14,7 @@ import {
 import { compareFromFallback, loadFallback } from '../fallbackLoader';
 import { readApiCache, writeApiCache } from '../apiResponseCache';
 import { compareCacheKey, compareFromEntityListCache } from '../liveDataCache';
+import { noStoreFetch } from '../noStoreFetch';
 import './ComparePage.css';
 
 const BACKEND_TIMEOUT_MS = 15000;
@@ -70,7 +71,7 @@ export function ComparePage() {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
       try {
-        const response = await fetch(
+        const response = await noStoreFetch(
           `${API_V2_BASE}/compare?ids=${encodeURIComponent(ids)}`,
           { signal: controller.signal },
         );

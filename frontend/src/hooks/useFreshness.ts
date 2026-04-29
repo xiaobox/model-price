@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { API_V2_BASE } from '../config';
 import { readApiCache, writeApiCache } from '../v2/apiResponseCache';
 import { loadFallback } from '../v2/fallbackLoader';
+import { noStoreFetch } from '../v2/noStoreFetch';
 
 interface State {
   lastRefresh: string | null;
@@ -21,10 +22,11 @@ export function useFreshness(): State {
 
       const snapshot = cached?.last_refresh ? null : await loadFallback();
       if (cancelled) return;
-      if (snapshot?.generated_at) setLastRefresh(snapshot.generated_at);
+      const snapshotRefresh = snapshot?.source_last_refresh ?? snapshot?.generated_at;
+      if (snapshotRefresh) setLastRefresh(snapshotRefresh);
 
       try {
-        const res = await fetch(`${API_V2_BASE}/stats`);
+        const res = await noStoreFetch(`${API_V2_BASE}/stats`);
         if (cancelled || !res.ok) return;
         const data = (await res.json()) as { last_refresh?: string };
         if (data?.last_refresh) {

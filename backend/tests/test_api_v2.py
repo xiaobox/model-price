@@ -172,3 +172,11 @@ class TestStats:
         ):
             assert key in data
         assert data["total_entities"] >= 1
+
+
+class TestCacheHeaders:
+    def test_api_responses_are_not_cacheable(self, client):
+        r = client.get("/api/v2/entities")
+        assert r.status_code == 200
+        assert r.headers["cache-control"] == "no-store"
+        assert r.headers["pragma"] == "no-cache"
