@@ -16,6 +16,7 @@ import logging
 from typing import Any, Dict, List
 
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
 from models.v2 import (
@@ -31,6 +32,11 @@ from services.entity_store import MAX_COMPARE_IDS, get_store
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/v2", tags=["v2"])
+
+SHARED_SNAPSHOT_CACHE_CONTROL = (
+    "public, max-age=0, s-maxage=3600, "
+    "stale-while-revalidate=86400, stale-if-error=86400"
+)
 
 
 @router.get("/entities", response_model=List[EntityListItemV2])
@@ -106,6 +112,30 @@ def compare(
 @router.get("/stats", response_model=StatsV2)
 def stats() -> StatsV2:
     return get_store().stats()
+
+
+@router.get("/snapshot")
+def snapshot() -> JSONResponse:
+    store = get_store()
+    stats = store.stats()
+    entities = store.all_entities()
+    offerings_by_entity = {
+        entity.slug: store.offerings_for(entity.slug) for entity in entities
+    }
+    last_refresh = stats.last_refresh
+    payload = {
+        "version": "v2-live-snapshot.1",
+        "generated_at": last_refresh,
+        "entity_count": len(entities),
+        "source_last_refresh": last_refresh,
+        "entities": entities,
+        "offerings_by_entity": offerings_by_entity,
+        "alternatives_by_entity": {},
+    }
+    return JSONResponse(
+        content=jsonable_encoder(payload),
+        headers={"Cache-Control": SHARED_SNAPSHOT_CACHE_CONTROL},
+    )
 
 
 @router.get("/drift", response_model=DriftReportV2 | Dict[str, Any])

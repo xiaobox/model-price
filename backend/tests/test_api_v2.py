@@ -180,3 +180,14 @@ class TestCacheHeaders:
         assert r.status_code == 200
         assert r.headers["cache-control"] == "no-store"
         assert r.headers["pragma"] == "no-cache"
+
+    def test_snapshot_is_shared_cacheable(self, client):
+        r = client.get("/api/v2/snapshot")
+        assert r.status_code == 200
+        data = r.json()
+        assert data["version"] == "v2-live-snapshot.1"
+        assert data["entity_count"] == len(data["entities"])
+        assert "offerings_by_entity" in data
+        assert "alternatives_by_entity" in data
+        assert "s-maxage=3600" in r.headers["cache-control"]
+        assert "stale-while-revalidate=86400" in r.headers["cache-control"]

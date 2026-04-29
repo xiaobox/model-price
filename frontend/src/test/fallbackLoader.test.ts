@@ -1,8 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   compareFromFallback,
   detailFromFallback,
   listFromFallback,
+  loadFallback,
+  resetFallbackCacheForTests,
 } from '../v2/fallbackLoader';
 import type { EntityCoreV2, OfferingV2 } from '../types/v2';
 
@@ -94,6 +96,52 @@ function snapshot() {
     },
   };
 }
+
+afterEach(() => {
+  resetFallbackCacheForTests();
+  vi.unstubAllGlobals();
+});
+
+describe('loadFallback', () => {
+  it('prefers the shared live snapshot over the bundled static snapshot', async () => {
+    const live = {
+      ...snapshot(),
+      generated_at: '2026-04-29T08:21:58.926Z',
+      source_last_refresh: '2026-04-29T08:21:58.926Z',
+    };
+    const staticFallback = {
+      ...snapshot(),
+      generated_at: '2026-04-17T09:46:49.859Z',
+      source_last_refresh: '2026-04-17T09:31:29.577Z',
+    };
+    const fetchMock = vi.fn((input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith('/api/v2/snapshot')) {
+        return Promise.resolve(
+          new Response(JSON.stringify(live), {
+            status: 200,
+            headers: { 'content-type': 'application/json' },
+          }),
+        );
+      }
+      if (url.endsWith('/v2-fallback.json')) {
+        return Promise.resolve(
+          new Response(JSON.stringify(staticFallback), {
+            status: 200,
+            headers: { 'content-type': 'application/json' },
+          }),
+        );
+      }
+      return Promise.reject(new Error(`unexpected fetch: ${url}`));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(loadFallback()).resolves.toMatchObject({
+      source_last_refresh: '2026-04-29T08:21:58.926Z',
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
 
 describe('detailFromFallback', () => {
   it('returns entity with offerings and alternatives for a known slug', () => {

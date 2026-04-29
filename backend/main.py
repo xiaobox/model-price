@@ -71,7 +71,7 @@ app.include_router(api_v2_router)
 @app.middleware("http")
 async def no_store_api_responses(request: Request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith("/api/"):
+    if request.url.path.startswith("/api/") and "Cache-Control" not in response.headers:
         response.headers["Cache-Control"] = "no-store"
         response.headers["Pragma"] = "no-cache"
     return response

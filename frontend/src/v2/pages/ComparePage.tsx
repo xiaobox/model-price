@@ -36,6 +36,13 @@ export function ComparePage() {
     setState({ data: null, loading: true, error: null });
 
     (async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
+      const liveRequest = noStoreFetch(
+        `${API_V2_BASE}/compare?ids=${encodeURIComponent(ids)}`,
+        { signal: controller.signal },
+      );
+
       // Stage 1: prefer the last live compare response for these ids.
       const cacheKey = compareCacheKey(ids);
       const cached = readApiCache<CompareResultV2>(cacheKey);
@@ -68,13 +75,8 @@ export function ComparePage() {
 
       // Stage 2: real backend call. Keep the snapshot visible on
       // timeout / error so the user is never stranded on a spinner.
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
       try {
-        const response = await noStoreFetch(
-          `${API_V2_BASE}/compare?ids=${encodeURIComponent(ids)}`,
-          { signal: controller.signal },
-        );
+        const response = await liveRequest;
         if (cancelled) return;
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = (await response.json()) as CompareResultV2;

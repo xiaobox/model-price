@@ -1,11 +1,10 @@
 // Client-side v2 snapshot loader.
 //
-// The snapshot is a 100KB-ish gzipped JSON shipped in the Vite
-// bundle (generated at build time from backend/data/v2/*.json).
-// Hooks call loadFallback() on mount; while the cold Render
-// backend warms up, the UI stays fully interactive from the
-// snapshot alone. Once the backend responds, hooks swap in the
-// live data on top of the snapshot-first paint.
+// Hooks call loadFallback() on mount while the main live API request
+// is already in flight. We first try a CDN-shareable live snapshot
+// produced by the backend; that gives first-time visitors the latest
+// successful data another user warmed. If that shared cache is empty
+// or slow, we fall back to the static Vite-bundled snapshot.
 
 import type {
   AlternativeV2,
@@ -17,6 +16,7 @@ import type {
   OfferingV2,
   SearchResultV2,
 } from '../types/v2';
+import { API_V2_BASE } from '../config';
 
 interface V2Snapshot {
   version: string;
@@ -29,25 +29,58 @@ interface V2Snapshot {
 }
 
 const FALLBACK_URL = '/v2-fallback.json';
+const LIVE_SNAPSHOT_URL = `${API_V2_BASE}/snapshot`;
+const LIVE_SNAPSHOT_TIMEOUT_MS = 250;
 
 let cached: V2Snapshot | null = null;
 let loading: Promise<V2Snapshot | null> | null = null;
+
+async function fetchJsonSnapshot(
+  url: string,
+  init?: RequestInit,
+): Promise<V2Snapshot | null> {
+  const response = await fetch(url, init);
+  if (!response.ok) return null;
+  return (await response.json()) as V2Snapshot;
+}
+
+async function loadLiveSnapshot(): Promise<V2Snapshot | null> {
+  const controller = new AbortController();
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+  try {
+    const request = fetchJsonSnapshot(LIVE_SNAPSHOT_URL, {
+      signal: controller.signal,
+    }).catch(() => null);
+    const deadline = new Promise<null>((resolve) => {
+      timeout = setTimeout(() => {
+        controller.abort();
+        resolve(null);
+      }, LIVE_SNAPSHOT_TIMEOUT_MS);
+    });
+    return await Promise.race([request, deadline]);
+  } catch {
+    return null;
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
+}
+
+async function loadStaticSnapshot(): Promise<V2Snapshot | null> {
+  try {
+    return await fetchJsonSnapshot(FALLBACK_URL, { cache: 'no-store' });
+  } catch {
+    return null;
+  }
+}
 
 export async function loadFallback(): Promise<V2Snapshot | null> {
   if (cached) return cached;
   if (loading) return loading;
   loading = (async () => {
-    try {
-      const response = await fetch(FALLBACK_URL, { cache: 'no-store' });
-      if (!response.ok) return null;
-      const data = (await response.json()) as V2Snapshot;
-      cached = data;
-      return data;
-    } catch {
-      return null;
-    } finally {
-      loading = null;
-    }
+    const data = (await loadLiveSnapshot()) ?? (await loadStaticSnapshot());
+    cached = data;
+    loading = null;
+    return data;
   })();
   return loading;
 }

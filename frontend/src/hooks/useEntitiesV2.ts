@@ -68,6 +68,13 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
   const fallbackQuery = useMemo(() => queryFromString(queryString), [queryString]);
 
   const fetchEntities = useCallback(async () => {
+    const url = queryString
+      ? `${API_V2_BASE}/entities?${queryString}`
+      : `${API_V2_BASE}/entities`;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
+    const liveRequest = noStoreFetch(url, { signal: controller.signal });
+
     // Stage 1: paint from the last successful live response if we have
     // one. That keeps yesterday's warmed backend data from regressing to
     // an older bundled snapshot on the next cold start.
@@ -103,13 +110,8 @@ export function useEntitiesV2(query: EntitiesListQuery): State & {
     // Stage 3: fire the real backend request and swap in live data
     // when it arrives. If it times out or errors, keep the fallback
     // visible and swallow the error — the user still has content.
-    const url = queryString
-      ? `${API_V2_BASE}/entities?${queryString}`
-      : `${API_V2_BASE}/entities`;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
     try {
-      const response = await noStoreFetch(url, { signal: controller.signal });
+      const response = await liveRequest;
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = (await response.json()) as EntityListItemV2[];
       writeEntityListCache(queryString, data);

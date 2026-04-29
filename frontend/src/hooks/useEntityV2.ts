@@ -50,6 +50,13 @@ export function useEntityV2(slug: string | null | undefined): State {
     });
 
     (async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
+      const liveRequest = noStoreFetch(
+        `${API_V2_BASE}/entities/${encodeURIComponent(slug)}`,
+        { signal: controller.signal },
+      );
+
       // Stage 1: prefer the last live response for this model. It is
       // usually newer than the bundled snapshot after a previous session
       // successfully warmed the backend.
@@ -87,13 +94,8 @@ export function useEntityV2(slug: string | null | undefined): State {
       // Stage 3: real backend fetch. Swap in live data if it arrives;
       // leave fallback/cache content in place on timeout or transient
       // errors. A 404 is authoritative, so it clears stale cached detail.
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), BACKEND_TIMEOUT_MS);
       try {
-        const response = await noStoreFetch(
-          `${API_V2_BASE}/entities/${encodeURIComponent(slug)}`,
-          { signal: controller.signal },
-        );
+        const response = await liveRequest;
         if (cancelled) return;
         if (response.status === 404) {
           removeEntityDetailCache(slug);
